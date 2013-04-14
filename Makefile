@@ -10,16 +10,13 @@ help:
 	@echo "  if you wish to install for another user)"
 	@echo ""
 	@echo "Config Files:"
-	@echo "  bash"
 	@echo "  django"
-	@echo "  git"
-	@echo "  vim"
 
 
 
 # A list of all valid config file types, each one should correspond to a folder
 # here, or a custom make command in this file
-VALID="bash django git vim"
+VALID="django"
 
 .PHONY: all
 all: $VALID
