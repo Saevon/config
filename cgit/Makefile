@@ -4,7 +4,7 @@
 .PHONY: all
 all:
 	ln -i -s ${PWD}/git-completion.bash ${HOME}/.git-completion.bash
-	ln -i -s ${PWD}/git-prompt ${HOME}/.git-prompt.sh
+	ln -i -s ${PWD}/git-prompt.sh ${HOME}/.git-prompt.sh
 
 	@# Run any setup commands
 	@# most of these are git-config commands
