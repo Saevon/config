@@ -1,0 +1,136 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Options
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntax Highlighting
+syntax on
+" Allows backspacing over all characters
+set backspace=indent,eol,start
+" Allows using arrowkeys to wrap around lines (but not h,l)
+set whichwrap+=<,>
+" Shows Matching Braces
+set showmatch
+" Show line numbers
+set invnumber
+" Ctrl+N twice to toggle show line number
+nmap <C-N><C-N> :set invnumber<CR>
+
+
+
+" Allow filetype plugin
+"TODO: read over this:filetype plugin indent on
+
+" Special filenames
+au BufNew, BufRead shard_tables*  set filetype=sql
+" Filenames I want on
+au BufNew,BufRead *.cfg,*.ini     set filetype=cfg
+au BufNew,BufRead *.json          set filetype=json
+au BufNew,BufRead Makefile        set filetype=make
+au BufNew,BufRead *.php           set filetype=php
+au BufNew,BufRead *.py            set filetype=python
+au BufNew,BufRead *.sql           set filetype=sql
+" TODO: add imbedded sql into other languages (inside strings)
+
+
+
+set ruler
+set ttyfast
+set nobackup
+set nowb
+set noswapfile
+
+set encoding=utf-8
+let mapleader= ","
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Status Bar
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Always show statusline
+" set laststatus=2
+" set statusline=%F%M\ \ [%{&ff}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ %L\ Lines
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Whitespacing
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+set smartindent
+set softtabstop=4
+
+" tabs are made of spaces
+set expandtab
+" Length of a tab
+set tabstop=4
+" Reindent width ( << and >>)
+set shiftwidth=4
+set autoindent
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Searching
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight the words when searching
+set hlsearch
+" Incremental search (auto complete as you type)
+set incsearch
+" Casing
+set ignorecase
+" Caing matters if there is a capital letter
+set smartcase
+" Clear last Search Highlighting
+nnoremap <leader><space> :noh<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command Line
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set char for command completion
+set wildchar=<TAB>
+" allow list of `completed` commands
+set wildmenu
+" ignore files
+set wildignore+=*.0,*.0bj,.git,*.rbc,*.pyc
+
+" allow for permission changing when writing to non sudoed files
+cmap w!! %!sudo tee % > /dev/null
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Normal Mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use tab to find matching braces
+" nnoremap <TAB> %
+" Searching shortcut
+nnoremap / /\v
+" Ctrl-j Ctrl- pag-up page-down
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-b>
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Visual Mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use tab to find matching braces
+" vnoremap <TAB> %
+" Searching shortcut
+vnoremap / /\v
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Insert Mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap jj <ESC>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Color Schemes
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('gui_running')
+    set guioptions-=T
+    " Number of Colours
+    set t_CO=256
+    colorscheme dark_II
+    set cursorline
+else
+    colorscheme dark_II
+endif
