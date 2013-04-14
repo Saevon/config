@@ -1,0 +1,57 @@
+# Disables Holding a character to show accents
+# defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Hides Spotlight Icon from the menu,
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# killall SystemUIServer
+#
+# To reshow it use 755
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+HISTCONTROL=ignoredups:ignorespace
+shopt -s histappend
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+alias hs="history | grep $1"
+
+
+# Fix up the PATH
+export PATH=$PATH:$HOME/.sys161/bin:$HOME/.sys161/tools/bin
+
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Django Bash Completion
+source $HOME/.django_bash_completion.bash
+
+# Git Completion
+source $HOME/.bash_helpers;
+export GIT_PS1_SHOWCOLORHINTS=1
+
+source $HOME/.git-completion.bash
+source $HOME/.git-prompt.sh
+export PROMPT_COMMAND='__git_ps1 "$User@$Host:$PathFull" " \$ " " (%s)"'
+
+# virtual env wrapper
+export WORKON_HOME=$HOME/.environments
+export PROJECT_HOME=$HOME/Projects
+source /usr/local/bin/virtualenvwrapper.sh
+
+
+# Project dir
+alias code="cd $PROJECT_HOME"
