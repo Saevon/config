@@ -11,13 +11,14 @@ help:
 	@echo ""
 	@echo "Config Files:"
 	@echo "  django"
+	@echo "  git"
 	@echo "  vim"
 
 
 
 # A list of all valid config file types, each one should correspond to a folder
 # here, or a custom make command in this file
-VALID="django vim"
+VALID="django git vim"
 
 .PHONY: all
 all: ${VALID}
