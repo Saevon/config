@@ -3,7 +3,7 @@
 ###############
 # shortcuts
 ###############
-alias code='cl /home/serghei/projects/'
+alias code='cl ${HOME}/Projects/'
 
 ###############
 # cd
