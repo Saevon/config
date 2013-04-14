@@ -3,7 +3,7 @@
 
 .PHONY: all
 all:
-	ln -i -s ${PWD}/django_bash_completion.bash ${HOME}/.git/.django_bash_completion.bash
+	ln -i -s ${PWD}/django_bash_completion.bash ${HOME}/.django_bash_completion.bash
 
 	@echo ""
 	@echo "Django Autocompletion Setup complete, If you didn't run the"
