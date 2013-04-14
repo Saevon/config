@@ -1,0 +1,22 @@
+#!/bin/bash
+
+###############
+# shortcuts
+###############
+alias code='cl /home/serghei/projects/'
+
+###############
+# cd
+###############
+function cl {
+        cd $1;
+            ls
+}
+alias ..='cl ..'
+
+
+###############
+# History
+###############
+
+alias hs="history | grep $1"

@@ -6,6 +6,9 @@
 # killall SystemUIServer
 #
 # To reshow it use 755
+if [ -f .bash_helpers ]; then
+    . .bash_helpers
+fi
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -15,8 +18,6 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
-
-alias hs="history | grep $1"
 
 
 # Fix up the PATH
@@ -40,7 +41,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 source $HOME/.django_bash_completion.bash
 
 # Git Completion
-source $HOME/.bash_helpers;
 export GIT_PS1_SHOWCOLORHINTS=1
 
 source $HOME/.git-completion.bash
@@ -52,6 +52,17 @@ export WORKON_HOME=$HOME/.environments
 export PROJECT_HOME=$HOME/Projects
 source /usr/local/bin/virtualenvwrapper.sh
 
+########################################
+# Aliases
+########################################
+if [ -f .bash_aliases ]; then
+    . .bash_aliases
+fi
 
-# Project dir
-alias code="cd $PROJECT_HOME"
+
+########################################
+# Enable Completion Features
+########################################
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+     . /etc/bash_completion
+ fi
