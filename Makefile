@@ -19,7 +19,7 @@ help:
 VALID="django"
 
 .PHONY: all
-all: $VALID
+all: ${VALID}
 
 # Wrapper around any config type creation, moves to the corresponding folder
 # and runs the makefile there
