@@ -6,7 +6,7 @@
 help:
 	@echo "Saevon's Config Files:"
 	@echo "  This creates symbolic links to this folder's config files"
-	@echo "  For the current user (using the $HOME variable, so change that"
+	@echo "  For the current user (using the $$HOME variable, so change that"
 	@echo "  if you wish to install for another user)"
 	@echo ""
 	@echo "Config Files:"
