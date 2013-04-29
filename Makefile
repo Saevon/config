@@ -16,10 +16,12 @@ help:
 	@echo "  vim"
 
 
+SHELL = /bin/bash
+
 
 # A list of all valid config file types, each one should correspond to a folder
 # here, or a custom make command in this file
-VALID="bash django git vim"
+VALID = bash django git vim
 
 .PHONY: all
 all: ${VALID}
@@ -27,7 +29,7 @@ all: ${VALID}
 # Wrapper around any config type creation, moves to the corresponding folder
 # and runs the makefile there
 %:
-	@([[ ${VALID} =~ $@ ]] \
+	@([[ "${VALID}"" =~ $@ ]] \
 		&& ((cd c$@ && make HOME=${HOME}) || echo "Error while creating config type '$@'") \
 		|| echo "Invalid config type: '$@'" \
 	)
