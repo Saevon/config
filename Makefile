@@ -29,7 +29,7 @@ all: ${VALID}
 # Wrapper around any config type creation, moves to the corresponding folder
 # and runs the makefile there
 %:
-	@([[ "${VALID}"" =~ $@ ]] \
+	@([[ "${VALID}" =~ $@ ]] \
 		&& ((cd c$@ && make HOME=${HOME}) || echo "Error while creating config type '$@'") \
 		|| echo "Invalid config type: '$@'" \
 	)
