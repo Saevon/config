@@ -13,6 +13,7 @@ help:
 	@echo "  bash"
 	@echo "  django"
 	@echo "  git"
+	@echo "  sublime"
 	@echo "  vim"
 
 
