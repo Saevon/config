@@ -4,6 +4,18 @@
 # Hides Spotlight Icon from the menu,
 # sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 # killall SystemUIServer
+
+# Hide files in Finder
+# SetFile -a V $FILE
+# Hide files in windows
+# attrib +H +S FILE
+
+# Image conversion
+# sips -s format png a.jpg --out tmp.png
+
+# Location of System Icons
+# /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
+
 #
 # To reshow it use 755
 if [ -f $HOME/.bash_helpers ]; then
