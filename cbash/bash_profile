@@ -44,8 +44,8 @@ source $HOME/.django_bash_completion.bash
 export GIT_PS1_SHOWCOLORHINTS=1
 
 source $HOME/.git-completion.bash
-source $HOME/.git-prompt.sh
-export PROMPT_COMMAND='__git_ps1 "$User@$Host:$PathFull" " \$ " " (%s)"'
+# source $HOME/.git-prompt.sh
+# export PROMPT_COMMAND='__git_ps1 "$User@$Host:$PathFull" " \$ " " (%s)"'
 
 # virtual env wrapper
 export WORKON_HOME=$HOME/.environments
