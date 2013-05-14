@@ -52,6 +52,13 @@ export WORKON_HOME=$HOME/.environments
 export PROJECT_HOME=$HOME/Projects
 source /usr/local/bin/virtualenvwrapper.sh
 
+export PIP_VIRTUALENV_BASE=WORKON_HOME
+
+# Only use pip for virtualenvs, see .bash_aliases for a system wide
+# pip installer
+export PIP_REQUIRE_VIRTUALENV=true
+
+
 ########################################
 # Aliases
 ########################################

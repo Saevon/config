@@ -20,3 +20,14 @@ alias ..='cl ..'
 ###############
 
 alias hs="history | grep $1"
+
+
+
+
+################
+# PIP
+################
+export SYSTEM_PIP=`which pip`
+function syspip {
+    PIP_REQUIRE_VIRTUALENV="" $SYSTEM_PIP "$@"
+}
