@@ -6,8 +6,8 @@
 # killall SystemUIServer
 #
 # To reshow it use 755
-if [ -f .bash_helpers ]; then
-    . .bash_helpers
+if [ -f $HOME/.bash_helpers ]; then
+    . $HOME/.bash_helpers
 fi
 
 # check the window size after each command and, if necessary,
@@ -55,8 +55,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 ########################################
 # Aliases
 ########################################
-if [ -f .bash_aliases ]; then
-    . .bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
 fi
 
 
