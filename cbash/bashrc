@@ -101,3 +101,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile
 fi
+
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin

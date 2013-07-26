@@ -33,7 +33,7 @@ HISTFILESIZE=2000
 
 
 # Fix up the PATH
-export PATH=$PATH:$HOME/.sys161/bin:$HOME/.sys161/tools/bin
+export PATH=$PATH:$HOME/.sys161/bin:$HOME/.sys161/tools/bin:$HOME/.rvm/bin
 
 
 # If this is an xterm set the title to user@host:dir
@@ -90,3 +90,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
      . /etc/bash_completion
  fi
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
