@@ -6,13 +6,15 @@
 alias code='cl ${HOME}/Projects/'
 
 ###############
-# cd
+# cd & ls
 ###############
 function cl {
         cd $1;
             ls
 }
 alias ..='cl ..'
+
+alias ls="ls -G"
 
 
 ###############
