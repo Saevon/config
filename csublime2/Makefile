@@ -1,4 +1,4 @@
-# -*- Makefile for git config files -*-
+# -*- Makefile for sublime text config files -*-
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
 .PHONY: all

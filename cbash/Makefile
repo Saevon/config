@@ -9,9 +9,5 @@ all:
 	ln -i -s ${PWD}/bash_helpers ${HOME}/.bash_helpers
 	ln -i -s ${PWD}/bash_aliases ${HOME}/.bash_aliases
 
-	mkdir -p ${HOME}/bin
-	ln -i -s ${PWD}/fortune ${HOME}/bin/fortune
-	ln -i -s ${PWD}/fortunes ${HOME}/.fortunes
-
 	@echo ""
 	@echo "Bash Setup complete"

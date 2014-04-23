@@ -14,8 +14,8 @@ help:
 	@echo "  django"
 	@echo "  git"
 	@echo "  mac"
-	@echo "  sublime"
 	@echo "  vim"
+	@echo "  fortunes"
 
 
 SHELL = /bin/bash
@@ -23,7 +23,7 @@ SHELL = /bin/bash
 
 # A list of all valid config file types, each one should correspond to a folder
 # here, or a custom make command in this file
-VALID = bash django git vim mac
+VALID = bash django git vim mac fortunes
 
 .PHONY: all
 all: ${VALID}
