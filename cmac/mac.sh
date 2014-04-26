@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 # Ask for the administrator password upfront
 sudo -v
