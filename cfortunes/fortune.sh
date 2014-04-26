@@ -41,6 +41,8 @@ if [[ "$2" == "--login-msg" ]]; then
     sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$msg"
 else
     echo $msg
-    echo $author
+    if [[ $author != '' ]]; then
+        echo $author
+    fi
     echo ''
 fi
