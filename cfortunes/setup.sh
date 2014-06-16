@@ -15,6 +15,9 @@ sudo mkdir -p ${MAIN}
 sudo cp ${PWD}/${MAIN_SH} ${MAIN}/
 sudo chmod +x ${MAIN}/${MAIN_SH}
 
+# Also make sure to add a link to the /usr/bin/
+ln /Library/fortunes
+
 # Copy over the fortunes document
 sudo cp ${PWD}/${TXT} ${MAIN}/
 sudo chmod +x ${MAIN}/${TXT}
