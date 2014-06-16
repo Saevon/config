@@ -2,6 +2,7 @@
 
 MAIN="/Library/Fortunes"
 DAEMONS="/Library/LaunchDaemons"
+BIN="/usr/bin/fortune"
 
 MAIN_SH="fortune.sh"
 DAEMON_SH="login_fortune.sh"
@@ -15,12 +16,8 @@ sudo mkdir -p ${MAIN}
 sudo cp ${PWD}/${MAIN_SH} ${MAIN}/
 sudo chmod +x ${MAIN}/${MAIN_SH}
 
-# Also make sure to add a link to the /usr/bin/
-ln /Library/fortunes
-
 # Copy over the fortunes document
 sudo cp ${PWD}/${TXT} ${MAIN}/
-sudo chmod +x ${MAIN}/${TXT}
 
 # Now we setup the login message daemon executable
 sudo cp ${PWD}/${DAEMON_SH} ${MAIN}/
@@ -33,3 +30,9 @@ sudo cp ${PWD}/${PLIST} ${DAEMONS}/
 sudo launchctl unload -w ${DAEMONS}/${PLIST} || true
 sudo launchctl load -w ${DAEMONS}/${PLIST}
 
+# Also make sure to add a link to the /usr/bin/
+if [[ -a ${BIN} ]]; then
+    echo "  Warning: File exists ${BIN}"
+else
+    sudo ln -s ${MAIN}/${MAIN_SH} ${BIN}
+fi
