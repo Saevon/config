@@ -8,9 +8,11 @@ if [[ ! -f $file ]]; then
     fi
 fi
 
+data=`cat $file | grep -v '^#.*\$'`
+
 # Find out what our line range is
 # erroring out if there is no quote to show
-lines=`wc -l < $file`
+lines=`echo "$data" | wc -l`
 if [[ $lines == 0 ]]; then
     echo "The fortune file has no quotes in it";
     exit 1;
@@ -20,7 +22,7 @@ fi
 line=`expr $(($RANDOM % $lines)) + 1`
 
 # Get the Nth line in the file
-out=`sed -n "${line}p" $file`
+out=`echo "$data" | sed -n "${line}p"`
 
 has_author=`echo $out | grep "\-\-" | wc -l`
 
