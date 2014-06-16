@@ -49,7 +49,7 @@ If you can't explain it to a six year old, you don't understand it yourself. -- 
 Never memorize something that you can look up -- Albert Einstein
 In theory, there ought to be no difference between theory and practice. In practice there is.
 Theory is when you know something, but it doesn’t work. Practice is when something works, but you don’t know why. People combine theory and practice: Nothing works and they don’t know why.
-Simplicity is the ultimate sophistication. -— Leonardo da Vinci
+Simplicity is the ultimate sophistication. -- Leonardo da Vinci
 #
 #
 # Friendship
