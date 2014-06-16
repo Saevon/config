@@ -1,49 +1,95 @@
+#
+#
+# Inspiring
+A person that values privileges above principles soon loses both. -- Dwight Eisenhower
+The opposite of a correct statement is a false statement. The opposite of a profound truth may well be another profound truth. -- Niels Bohr
+Yesterday is history, tomorrow is a mystery, today is a gift to us, which is why we call it the present.
+Being deeply loved by someone gives you strength, while loving someone deeply gives you courage. -- Lao Tzu
+I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world. -- Albert Einstein
+I had a thought, but it got lonely and went away.
+Money talks and mine says "Good-bye".
+A bird doesn't sing because it has an answer, it sings because it has a song.
+Knowing yourself is the beginning of all wisdom. -- Aristotle
+When choosing between two evils, I always like to try the one I've never tried before. -- Mae West
+Your budget will have tragic elements too, just like the story. -- MegaTokyo
+Even if you're on the right track, you'll get run over if you just sit there. -- Will Rogers
+Life isn't about waiting for the storm to pass; it's about learning to dance in the rain. -- Vivian Greene
+Life is what happens to you while you're busy making other plans. -- Allen Saunders
+#
+#
+# Judgement
+Never confuse movement with action. -- Ernest Hemingway
+Do something right, no-one remembers. Do something wrong, no-one forgets.
+I've learned that people will forget what you said, people will  forget what you did, but people will never forget how you made them feel. -- Maya Angelou
+Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid. -- Albert Einstein
+#
+#
+# Evil
+All things truly wicked start from innocence. -- Ernest Hemingway
 Never attribute conditions to villainy that simply result from stupidity -- Robert A. Heinlein
+#
+#
+# Education
+I do not feel obliged to believe that the same God who has endowed us with sense, reason, and intellect has intended us to forgo their use. -- Galileo Galilei
+The man who does not read good books has no advantage over the man who cannot read them. -- Mark Twain
+It is the mark of an educated mind to be able to entertain a thought without accepting it. -- Aristotle
+#
+#
+# Work & Motivation
+Once you eliminate the impossible, whatever remains, no matter how improbable, must be the truth. -- Sherlock Holmes
+Nothing is impossible, the word itself says "I'm possible!" -- Audrey Hepburn
+When I am working on a problem I never think about beauty. I only think about how to solve the problem. But when I have finished, if the solution is not beautiful, I know it is wrong. -- Buckminister Fuller
 Be liberal in the input you accept, and conservative in what you output -- Jon Postel
+The difference between involvement and commitment is like an eggs-and-ham breakfast: the chicken was involved - the pig was committed
+If we knew what it was we were doing, it would not be called research, would it? -- Albert Einstein
+I have not failed. I've just found 10,000 ways that won't work. -- Thomas A. Edison
+The cure for boredom is curiosity. There is no cure for curiosity. -- Ellen Parr
+Choose a job you love, and you will never have to work a day in your life. -- Confucius
+If you can't explain it to a six year old, you don't understand it yourself. -- Albert Einstein
+Never memorize something that you can look up -- Albert Einstein
+In theory, there ought to be no difference between theory and practice. In practice there is.
+Theory is when you know something, but it doesn’t work. Practice is when something works, but you don’t know why. People combine theory and practice: Nothing works and they don’t know why.
+Simplicity is the ultimate sophistication. -— Leonardo da Vinci
+#
+#
+# Friendship
+When you're in jail, a good friend will be trying to bail you out. A best friend will be in the cell next to you saying, 'Damn, that was fun'.
+It is one of the blessings of old friends that you can afford to be stupid with them
+It's the friends you can call up at 4 a.m. that matter. -- Marlene Dietrich
+I would rather walk with a friend in the dark, than alone in the light. -- Helen Keller
+Don't walk behind me; I may not lead. Don't walk in front of me; I may not follow. Just walk beside me and be my friend. -- Albert Camus
+#
+#
+# Sanity
+The optimist proclaims that we live in the best of all possible worlds, and the pessimist fears this is true. -- James Branch Cabell
+Honesty is the best policy, but insanity is a better defense.
+I do not suffer from insanity, I enjoy every minute of it.
+Whenever you find yourself on the side of the majority, it is time to pause and reflect. -- Mark Twain
+Why is it considered necessary to nail down the lid of a coffin?
+#
+#
+# Coding
 If there are two ways to do something, and one can result in catasprophe, then someone will do it -- Murphy
+Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away. -- Antoine de Saint-Exupery
 There is *always* one more bug -- Lubarsky
 Data expands to fill the space available for storage -- Parkinson
 A good coder is someone who looks both ways before crossing a one-way street -- Doug Linder
 If debugging is the process of removing bugs, then programming must be the process of adding them -- Edsger Dijkstra
-I do not feel obliged to believe that the same God who has endowed us with sense, reason, and intellect has intended us to forgo their use. -- Galileo Galilei
-The difference between involvement and commitment is like an eggs-and-ham breakfast: the chicken was involved - the pig was committed
-Life isn't about waiting for the storm to pass; it's about learning to dance in the rain. -- Vivian Greene
-Life is what happens to you while you're busy making other plans. -- Allen Saunders
-Once you eliminate the impossible, whatever remains, no matter how improbable, must be the truth. -- Sherlock Holmes
-Nothing is impossible, the word itself says "I'm possible!" -- Audrey Hepburn
-The optimist proclaims that we live in the best of all possible worlds, and the pessimist fears this is true. -- James Branch Cabell
-A person that values privileges above principles soon loses both. -- Dwight Eisenhower
-I've learned that people will forget what you said, people will  forget what you did, but people will never forget how you made them feel. -- Maya Angelou
-The opposite of a correct statement is a false statement. The opposite of a profound truth may well be another profound truth. -- Niels Bohr
-When I am working on a problem I never think about beauty. I only think about how to solve the problem. But when I have finished, if the solution is not beautiful, I know it is wrong. -- Buckminister Fuller
-If we knew what it was we were doing, it would not be called research, would it? -- Albert Einstein
-I have not failed. I've just found 10,000 ways that won't work. -- Thomas A. Edison
-The man who does not read good books has no advantage over the man who cannot read them. -- Mark Twain
-It is the mark of an educated mind to be able to entertain a thought without accepting it. -- Aristotle
-The cure for boredom is curiosity. There is no cure for curiosity. -- Ellen Parr
-Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away. -- Antoine de Saint-Exupery
-Yesterday is history, tomorrow is a mystery, today is a gift to us, which is why we call it the present.
-Whenever you find yourself on the side of the majority, it is time to pause and reflect. -- Mark Twain
-It is one of the blessings of old friends that you can afford to be stupid with them
-It's the friends you can call up at 4 a.m. that matter. -- Marlene Dietrich
-Never memorize something that you can look up -- Albert Einstein
-When you're in jail, a good friend will be trying to bail you out. A best friend will be in the cell next to you saying, 'Damn, that was fun'.
-I would rather walk with a friend in the dark, than alone in the light. -- Helen Keller
-Don't walk behind me; I may not lead. Don't walk in front of me; I may not follow. Just walk beside me and be my friend. -- Albert Camus
-Being deeply loved by someone gives you strength, while loving someone deeply gives you courage. -- Lao Tzu
-I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world. -- Albert Einstein
-Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid. -- Albert Einstein
-I had a thought, but it got lonely and went away.
-Money talks and mine says "Good-bye".
-Honesty is the best policy, but insanity is a better defense.
-I do not suffer from insanity, I enjoy every minute of it.
-Why is it considered necessary to nail down the lid of a coffin?
-Do something right, no-one remembers. Do Something wrong, no-one forgets.
-Choose a job you love, and you will never have to work a day in your life. -- Confucius
-If you can't explain it to a six year old, you don't understand it yourself. -- Albert Einstein
-A bird doesn't sing because it has an answer, it sings because it has a song.
-Knowing yourself is the beginning of all wisdom. -- Aristotle
-Never confuse movement with action. -- Ernest Hemingway
-All things truly wicked start from innocence. -- Ernest Hemingway
-When choosing between two evils, I always like to try the one I've never tried before. -- Mae West
-Your budget will have tragic elements too, just like the story. -- MegaTokyo
+When debugging, novices insert corrective code; experts remove defective code. -- Richard Pattis
+They shall not pass [THE UNIT TESTS] -- Gandalf
+There are two ways of constructing software: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.
+Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -- Bill Gates
+Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
+When debugging, novices insert corrective code; experts remove defective code.” -- Richard Pattis
+Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. -- Rich Cook
+If builders build buildings the way programmers wrote programs, then the first woodpecker that came along wound destroy civilization.
+I'd like to make the world a better place, but they won't give me the source code.
+Programmers are machines that turn coffee into code.
+Program, noun: A magic spell cast upon a computer to enable it to turn input into error messages.
+Should array indices start at 0 or 1? My compromise of 0.5 was rejected without, I thought, proper consideration." -- Stan Kelly-Bootle
+The cheapest, fastest, and most reliable components are those that aren’t there. -- Gordon Bell
+When in doubt, use brute force. -- Ken Thompson
+Deleted code is debugged code. -- Jeff Sickel
+Mostly, when you see programmers, they aren’t doing anything. One of the attractive things about programmers is that you cannot tell whether or not they are working simply by looking at them. Very often they’re sitting there seemingly drinking coffee and gossiping, or just staring into space. What the programmer is trying to do is get a handle on all the individual and unrelated ideas that are scampering around in his head. -- Charles M. Strauss
+Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. -- Brian W. Kernighan
+Comparing a computer language to a human language is like comparing an operating system kernel to a popcorn kernel.
