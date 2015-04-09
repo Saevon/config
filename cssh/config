@@ -1,0 +1,39 @@
+VisualHostKey yes
+
+Host bitbucket.org
+    IdentityFile ~/.ssh/bitbucket
+    VisualHostKey no
+
+Host github.com
+    IdentityFile ~/.ssh/github
+    VisualHostKey no
+
+Host dmitry
+    Hostname dmitryblotsky.com
+    User saevon
+
+Host school
+    IdentityFile ~/.ssh/school
+    Hostname linux.student.cs.uwaterloo.ca
+    User sfilippo
+    ForwardX11 no
+
+Host security
+    IdentityFile ~/.ssh/school
+    Hostname ugster19.student.cs.uwaterloo.ca
+    User sfilippo
+    ForwardX11 no
+
+Host schoolconst
+    IdentityFile ~/.ssh/school
+    Hostname linux024.student.cs.uwaterloo.ca
+    User sfilippo
+    ForwardX11 no
+
+
+# Creates a link from my port 9906 to the remote's port 3306
+#Host tunnel
+#    HostName database.example.com
+#    IdentityFile ~/.ssh/tunnel.example.key
+#    LocalForward 9906 127.0.0.1:3306
+#    User username
