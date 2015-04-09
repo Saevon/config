@@ -26,6 +26,7 @@ defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
 
 
 # Hide useless icons
+# Listing only ones to keep
 defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
 	"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
@@ -62,6 +63,8 @@ systemsetup -setrestartfreeze on
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 
+# Set the Login Background
+sudo ./login_back.sh Backgrounds/Login-Background.jpg
 
 
 ##################################################
@@ -104,6 +107,8 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
+defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 
 # Set language and text formats
