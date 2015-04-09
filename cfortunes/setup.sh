@@ -25,6 +25,7 @@ sudo chmod +x ${MAIN}/${DAEMON_SH}
 
 # Now we setup LaunchDaemon
 sudo cp ${PWD}/${PLIST} ${DAEMONS}/
+sudo chown root:wheel ${DAEMONS}/${PLIST}
 
 # Make sure to add this right now so we don't require a restart
 sudo launchctl unload -w ${DAEMONS}/${PLIST} || true
