@@ -9,5 +9,10 @@ all:
 	ln -i -s ${PWD}/bash_helpers ${HOME}/.bash_helpers
 	ln -i -s ${PWD}/bash_aliases ${HOME}/.bash_aliases
 
+	mkdir -p ~/.bin
+
+	cp ${PWD}/ack ~/.bin/ack
+	chmod +x ~/.bin/ack
+
 	@echo ""
 	@echo "Bash Setup complete"
