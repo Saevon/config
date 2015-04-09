@@ -67,8 +67,8 @@ source $HOME/.git-completion.bash
 export WORKON_HOME=$HOME/.environments
 export PROJECT_HOME=$HOME/Projects
 source /usr/local/bin/virtualenvwrapper.sh
+alias workoff="deactivate"
 
-export VIRTUALENV_DISTRIBUTE=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export PIP_VIRTUALENV_BASE=WORKON_HOME
 
