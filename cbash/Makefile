@@ -3,15 +3,15 @@
 
 .PHONY: all
 all:
-	ln -i -s ${PWD}/bashrc ${HOME}/.bashrc
-	ln -i -s ${PWD}/bash_profile ${HOME}/.bash_profile
+	@ln -i -s ${PWD}/bashrc ${HOME}/.bashrc || true
+	@ln -i -s ${PWD}/bash_profile ${HOME}/.bash_profile || true
 
-	ln -i -s ${PWD}/bash_helpers ${HOME}/.bash_helpers
-	ln -i -s ${PWD}/bash_aliases ${HOME}/.bash_aliases
+	@ln -i -s ${PWD}/bash_helpers ${HOME}/.bash_helpers || true
+	@ln -i -s ${PWD}/bash_aliases ${HOME}/.bash_aliases || true
 
 	mkdir -p ~/.bin
 
-	cp ${PWD}/ack ~/.bin/ack
+	@cp -i ${PWD}/ack ~/.bin/ack || true
 	chmod +x ~/.bin/ack
 
 	@echo ""
