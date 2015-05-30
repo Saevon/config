@@ -8,6 +8,8 @@ all:
 
 	@ln -i -s ${PWD}/bash_helpers ${HOME}/.bash_helpers || true
 	@ln -i -s ${PWD}/bash_aliases ${HOME}/.bash_aliases || true
+	@ln -i -s ${PWD}/pauser.sh ${HOME}/.pauser.sh || true
+	@cp -i ${PWD}/pauser_template.sh ${HOME}/.pauser.custom.sh || true
 
 	mkdir -p ~/.bin
 

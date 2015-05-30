@@ -33,3 +33,10 @@ export SYSTEM_PIP=`which pip`
 function syspip {
     PIP_REQUIRE_VIRTUALENV="" sudo $SYSTEM_PIP $@
 }
+
+
+######################
+# Fast User Switching
+# (Pausing processes)
+#####################
+source ~/.pauser.sh
