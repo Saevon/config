@@ -38,7 +38,7 @@ I do not feel obliged to believe that the same God who has endowed us with sense
 The man who does not read good books has no advantage over the man who cannot read them. -- Mark Twain
 It is the mark of an educated mind to be able to entertain a thought without accepting it. -- Aristotle
 University is easy... It's like riding a bike. Except the bike is on fire, and you're on fire, and everything is on fire... and you're in hell.
-When Students cheat on exams it's because our School System values grades more than Studens value learning. -- Neil deGrasse Tyson
+When Students cheat on exams it's because our School System values grades more than Students value learning. -- Neil deGrasse Tyson
 #
 #
 # Work & Motivation
@@ -103,6 +103,11 @@ Deleted code is debugged code. -- Jeff Sickel
 Mostly, when you see programmers, they aren’t doing anything. One of the attractive things about programmers is that you cannot tell whether or not they are working simply by looking at them. Very often they’re sitting there seemingly drinking coffee and gossiping, or just staring into space. What the programmer is trying to do is get a handle on all the individual and unrelated ideas that are scampering around in his head. -- Charles M. Strauss
 Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. -- Brian W. Kernighan
 Comparing a computer language to a human language is like comparing an operating system kernel to a popcorn kernel.
+Any fool can write code that a computer can understand. Good programmers write code that humans can understand. -- Martin Fowler
+Before software can be reusable it first has to be usable -- Ralph Johnson
+First, solve the problem. Then, write the code.
+Programming can be fun, so can cryptography; however they should not be combined.
+Any code of your own that you haven't looked at for six or more months might as well have been written by someone else. -- Eagleson's Law
 #
 #
 # Misc
@@ -112,12 +117,13 @@ Work as though *Everything* depends on you. (Oh god, we're all going to die...)
 I can picture in my mind a world without war, a world without hate. And I can picture us attacking them because they'd never expect it.
 Welcome to the Aperture Science Enrishment Center, an abandoned Apple store from Hell.
 Any sufficiently advanced technology is indistinguishable from magic, and any sufficiently explained magic is indistinguishable from technology,
-How is it that one match can start a forest fire, yet you need a while matchbox to start a campfire.
+How is it that one match can start a forest fire, yet you need a whole matchbox to start a campfire.
 War doesn't determine who is right, it determines who is left.
-a wise man always treats a stranger with respect, or he could be gazing on the face of an enemy.
+a wise man always treats a stranger with respect, for he could be gazing on the face of an enemy.
 In the moment when I truly understand my enemy, understand him well enough to defeat him, then in that very moment I also love him. I think it’s impossible to really understand somebody, what they want, what they believe, and not love them the way they love themselves. And then, in that very moment when I love them... I destroy them. -- Orson Scott Card, Ender's Game
 Because never in my entire childhood did I feel like a child. I felt like a person all along―the same person that I am today -- Orson Scott Card, Ender's Game
 One of your peacocks was being insubordinate, so I killed it. The cook promised to have it ready for dinner. I’m not actually certain if people eat peacocks, but I imagine the taste of victory will override any unpleasant flavor. -- Voldemort (7th Horcrux)
 It does not do to dwell on dreams, and forget to live -- Harry Potter (The Potter Family Grimoire)
 The easiest way to stop piracy is not by putting antipiracy technology to work. It’s by giving those people a service that’s better than what they’re receiving from the pirates. -- Gabe Newell
 Thank you for sending me a copy of your book - I'll waste no time reading it.
+The man tilted his head, and then with a single tap of his wand, turned his coffee cup into a songbird. "Magic doesn't exist." He nodded to himself. "Magic definitely doesn't exist." He turned the songbird into a teacup. "And even if it did, there'd definitely not be any laws forcing me into telling you that." He turned the teacup back into his coffee cup. "Because magic isn't real.
