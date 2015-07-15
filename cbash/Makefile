@@ -16,5 +16,8 @@ all:
 	@cp -i ${PWD}/ack ~/.bin/ack || true
 	chmod +x ~/.bin/ack
 
+    @cp -i ${PWD}/changeInput /bin/changeInput || true
+    chmod +x /bin/changeInput
+
 	@echo ""
 	@echo "Bash Setup complete"
