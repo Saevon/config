@@ -14,14 +14,12 @@ sudo mkdir -p ${MAIN}
 
 # First we need to setup the fortunes binary
 sudo cp ${PWD}/${MAIN_SH} ${MAIN}/
-sudo chmod +x ${MAIN}/${MAIN_SH}
 
 # Copy over the fortunes document
 sudo cp ${PWD}/${TXT} ${MAIN}/
 
 # Now we setup the login message daemon executable
 sudo cp ${PWD}/${DAEMON_SH} ${MAIN}/
-sudo chmod +x ${MAIN}/${DAEMON_SH}
 
 # Now we setup LaunchDaemon
 sudo cp ${PWD}/${PLIST} ${DAEMONS}/
@@ -37,3 +35,6 @@ if [[ -a ${BIN} ]]; then
 else
     sudo ln -s ${MAIN}/${MAIN_SH} ${BIN}
 fi
+
+# Start with a login message right away
+fortune --login-msg

@@ -1,3 +1,14 @@
+if [[ "$0 $@" == *" --help"* || "$0 $@" == *" -h"* ]]; then
+    echo "Usage: fortune [<fortunes-file>] [options]"
+    echo ""
+    echo "  Prints a random fortune"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help         Show this message and exit"
+    echo "  --login-message    Changes the user login message to the random fortune"
+    exit 0;
+fi
+
 file=${1:-$HOME/.fortunes}
 
 if [[ ! -f $file ]]; then
@@ -31,15 +42,15 @@ has_author=`echo $out | grep "\-\-" | wc -l`
 msg=""
 author=""
 if [[ `echo $has_author` == "0" ]]; then
-    msg=`echo $out | sed 's/.*/"&"/'`;
+    msg=`echo $out | sed 's/.*/"&"/'` | sed 's/\"/\\"/';
 else
-    msg=`echo $out | sed 's/ *--.*$//' | sed 's/.*/"&"/'`;
+    msg=`echo $out | sed 's/ *--.*$//' | sed 's/.*/"&"/'` | sed 's/\"/\\"/';
     author=`echo $out | sed 's/.*--/--/'`;
 fi
 
 # Show the output
 # this toggles what it does with the output
-if [[ "$2" == "--login-msg" ]]; then
+if [[ "$0 $@" == *" --login-msg"* ]]; then
     sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$msg"
 else
     echo $msg
