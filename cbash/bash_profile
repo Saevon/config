@@ -33,7 +33,7 @@ HISTFILESIZE=2000
 
 
 # Fix up the PATH
-export PATH=$HOME/.bin/:$PATH:$HOME/.sys161/bin:$HOME/.sys161/tools/bin:$HOME/.rvm/bin:$HOME/.bin/autotools-bin/bin
+export PATH=$HOME/.bin/:$PATH:$HOME/.sys161/bin:$HOME/.sys161/tools/bin:$HOME/.rvm/bin:$HOME/.bin/autotools-bin/bin:$HOME/.bin/mongo
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/Recipe/
 
 
