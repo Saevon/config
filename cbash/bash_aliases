@@ -31,12 +31,12 @@ alias hs="history | grep $1"
 ################
 export SYSTEM_PIP=`which pip`
 function syspip {
-    PIP_REQUIRE_VIRTUALENV="" sudo $SYSTEM_PIP $@
+    PIP_REQUIRE_VIRTUALENV="" sudo -H $SYSTEM_PIP $@
 }
 
 
 ######################
 # Fast User Switching
 # (Pausing processes)
-#####################
+####################
 source ~/.pauser.sh
