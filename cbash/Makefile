@@ -16,8 +16,11 @@ all:
 	@cp -i ${PWD}/ack ~/.bin/ack || true
 	chmod +x ~/.bin/ack
 
-    @cp -i ${PWD}/changeInput /bin/changeInput || true
-    chmod +x /bin/changeInput
+	@sudo cp -i ${PWD}/changeInput /bin/changeInput || true
+	sudo chmod +x /bin/changeInput
+
+	@cp -i ${PWD}/itunes.sh ~/.bin/itunes || true
+	chmod +x ~/.bin/itunes
 
 	@echo ""
 	@echo "Bash Setup complete"
