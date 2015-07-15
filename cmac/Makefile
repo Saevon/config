@@ -20,7 +20,7 @@ icon:
 	sudo bash -c "source ${PWD}/icons.sh"
 
 config:
-	sudo bash -c "source ${PWD}/mac.sh"
+	sudo bash -c "source ${PWD}/config.sh"
 	sudo ln -i -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
 itunes:
