@@ -15,6 +15,7 @@ Your budget will have tragic elements too, just like the story. -- MegaTokyo
 Even if you're on the right track, you'll get run over if you just sit there. -- Will Rogers
 Life isn't about waiting for the storm to pass; it's about learning to dance in the rain. -- Vivian Greene
 Life is what happens to you while you're busy making other plans. -- Allen Saunders
+The world is not beautiful, And that, lends it a sort of beauty. -- Kino
 #
 #
 # Judgement
@@ -24,6 +25,8 @@ I've learned that people will forget what you said, people will  forget what you
 Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid. -- Albert Einstein
 Everyone should be respected as an individual, but no one idolized. -- Albert Einstein
 Nobody is more dangerous than he who imagines himself pure in heart; for his purity, by definition, is unassailable. -- James Baldwin
+When you pick the only option you have to choose from, can you really call that your own decision? -- Hayato Hayama
+The only ones who should kill are those who are prepared to be killed! -- Lelouch
 #
 #
 # Evil
@@ -77,6 +80,7 @@ Whenever you find yourself on the side of the majority, it is time to pause and 
 Why is it considered necessary to nail down the lid of a coffin?
 Insanity: doing the same thing over and over again and expecting different results. -- Albert Einstein
 Why would I be offended? I've seen your version of sanity, It bores me. -- Luna
+Though I did not know the place, I set out for the land of my dreams. Having arrived at the land of my dreams, I found I did not know the place. -- Kino
 #
 #
 # Coding
@@ -112,6 +116,14 @@ Programming can be fun, so can cryptography; however they should not be combined
 Any code of your own that you haven't looked at for six or more months might as well have been written by someone else. -- Eagleson's Law
 #
 #
+# Happiness
+Don't cry because it's over, smile because it happened. -- Dr. Seuss
+I wonder what happiness could look like if we could give it a form..? The Shape of happiness might resemble glass, even though you don't usually notice it, it's still definitely there. You merely have to change your Point of View slightly, and that glass will sparkle when it reflects the light. I doubt that anything could argue its existence more eloquently. -- Kururugi Suzaku
+Love is that condition in which the happiness of another person is essential to your own -- Robert Heinlein
+Time you enjoy wasting is not wasted time. -- Marthe Troly-Curtin
+If more of us valued food and cheer and song above hoarded gold, it would be a merrier world -- Tolkien
+#
+#
 # Misc
 That hurts, Tohsaka, like a Gae Bolg to the chest. -- Shirou Emiya
 if no one comes from the future to stop you from doing it, then how bad of a decision can it really be?
@@ -130,3 +142,6 @@ The easiest way to stop piracy is not by putting antipiracy technology to work. 
 Thank you for sending me a copy of your book - I'll waste no time reading it.
 The man tilted his head, and then with a single tap of his wand, turned his coffee cup into a songbird. "Magic doesn't exist." He nodded to himself. "Magic definitely doesn't exist." He turned the songbird into a teacup. "And even if it did, there'd definitely not be any laws forcing me into telling you that." He turned the teacup back into his coffee cup. "Because magic isn't real.
 If no one comes from the future to stop you from doing it than how bad of a decision can it really be?
+They say that in hard times, you'll never in your life forget the person who gave you a cup of water. -- Yumiko Sakaki
+Lying tears hurt others. Lying smiles hurt oneself -- C.C
+There is no such thing as objective information, Journalism is, after all, a human creation. -- Diethard
