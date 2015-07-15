@@ -25,6 +25,12 @@ alias hs="history | grep $1"
 
 
 
+##############
+# System
+##############
+alias restart_audio="sudo pgrep coreaudiod | xargs sudo kill"
+
+
 
 ################
 # PIP
