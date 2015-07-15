@@ -4,9 +4,6 @@
 sudo -v
 
 
-read -p "What should the server name be? " SERVER_NAME
-
-
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
@@ -15,11 +12,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ##################################################
 # General UI/UX
 ##################################################
-
-sudo scutil --set ComputerName "${SERVER_NAME}"
-sudo scutil --set HostName "${SERVER_NAME}"
-sudo scutil --set LocalHostName "${SERVER_NAME}"
-
 
 # Menu bar: transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
@@ -421,6 +413,7 @@ defaults write com.google.Chrome ExtensionInstallSources -array "https://*.githu
 ##################################################
 # Restart any affected applications
 ##################################################
+
 for app in "Address Book" \
 	"Chrome" \
 	"Calendar" \
@@ -431,7 +424,6 @@ for app in "Address Book" \
 	"Mail" \
 	"Safari" \
 	"SystemUIServer" \
-	"Terminal" \
 	"iCal" \
 	"iTunes"; do
 	killall "$app" > /dev/null 2>&1
