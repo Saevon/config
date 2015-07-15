@@ -15,9 +15,15 @@ config:
 	sudo bash -c "source ${PWD}/mac.sh"
 	sudo ln -i -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
+itunes:
+	@if [ -e ${HOME}/Library/iTunes/Scripts ] ; \
+	then \
+		echo "iTunes Scripts folder exists, aborting" ; \
+	else \
+		ln -s ${PWD}/iTunes-Scripts ${HOME}/Library/iTunes/Scripts || true ; \
+	fi
 
-
-all: config icon
+all: config icon itunes
 	@echo ""
 	@echo "Mac Customizations Complete"
 
