@@ -13,17 +13,14 @@ all:
 
 	mkdir -p ~/.bin
 
-	@cp -i ${PWD}/ack ~/.bin/ack || true
-	chmod +x ~/.bin/ack
+	@echo "Copying binaries to /usr/local"
+	sudo -v
 
-	@sudo cp -i ${PWD}/changeInput /bin/changeInput || true
-	sudo chmod +x /bin/changeInput
+	@sudo cp -i ${PWD}/changeInput /bin/ || true
+	@sudo cp -i ${PWD}/cputhrottle /usr/local/bin/ || true
+	@sudo cp -i ${PWD}/ack /usr/local/bin/ || true
 
 	@cp -i ${PWD}/itunes.sh ~/.bin/itunes || true
-	chmod +x ~/.bin/itunes
-
-	@cp -i ${PWD}/cputhrottle ~/.bin/cputhrottle || true
-	chmod +x ~/.bin/cputhrottle
 
 	@echo ""
 	@echo "Bash Setup complete"
