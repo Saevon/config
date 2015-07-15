@@ -22,5 +22,8 @@ all:
 	@cp -i ${PWD}/itunes.sh ~/.bin/itunes || true
 	chmod +x ~/.bin/itunes
 
+	@cp -i ${PWD}/cputhrottle ~/.bin/cputhrottle || true
+	chmod +x ~/.bin/cputhrottle
+
 	@echo ""
 	@echo "Bash Setup complete"
