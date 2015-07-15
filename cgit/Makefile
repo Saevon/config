@@ -3,12 +3,9 @@
 
 .PHONY: all
 all:
-	ln -i -s ${PWD}/git-completion.bash ${HOME}/.git-completion.bash
-	ln -i -s ${PWD}/git-prompt.sh ${HOME}/.git-prompt.sh
-
-	@# Run any setup commands
-	@# most of these are git-config commands
-	${PWD}/git_setup.bash
+	ln -i -s ${PWD}/git-completion.bash ${HOME}/.git-completion.bash || true
+	ln -i -s ${PWD}/git-prompt.sh ${HOME}/.git-prompt.sh || true
+	ln -i -s ${PWD}/gitconfig ${HOME}/.gitconfig || true
 
 	@echo ""
 	@echo "Git Config Setup complete, If you didn't run the bash setup"

@@ -1,0 +1,19 @@
+[user]
+	name = Serghei Filippov
+	email = blastowind@gmail.com
+[core]
+	editor = vim
+	precomposeunicode = true
+[bash]
+	showDirtyState = 1
+[merge]
+	tool = opendiff
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[alias]
+    st = status
+    ff = merge --ff-only
+    pff = pull --ff-only
