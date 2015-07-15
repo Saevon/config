@@ -164,8 +164,8 @@ hi sqlComment        guifg=#33AF55   gui=italic
 
 " color terminal definitions
 hi SpecialKey   ctermfg=red
-hi NonText      cterm=bold           ctermfg=darkblue
-hi Directory    ctermfg=darkcyan
+hi NonText      cterm=bold           ctermfg=darkcyan
+hi Directory    ctermfg=DarkBlue
 hi ErrorMsg     cterm=bold           ctermfg=7         ctermbg=1
 hi IncSearch    cterm=NONE           ctermfg=yellow    ctermbg=green
 hi Search       cterm=NONE           ctermfg=white     ctermbg=grey
@@ -191,7 +191,7 @@ hi Comment      ctermfg=DarkGreen    cterm=none
 hi Constant     ctermfg=DarkCyan
 hi Special      ctermfg=Brown
 hi Identifier   ctermfg=DarkCyan
-hi Statement    ctermfg=DarkBlue
+hi Statement    ctermfg=DarkCyan
 hi PreProc      ctermfg=DarkBlue
 hi Type         ctermfg=2
 hi Underlined   cterm=underline      ctermfg=5
