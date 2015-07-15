@@ -3,6 +3,11 @@
 
 .PHONY: all help config icon server server-bin
 
+
+all: server server-bin itunes config icon
+	@echo ""
+	@echo "Mac Customizations Complete"
+
 help:
 	@echo "icon:        updates the icons"
 	@echo "config:      updates the config"
@@ -31,18 +36,4 @@ server:
 
 server-bin:
 	@sudo cp -i ${PWD}/servername.sh /usr/bin/servername
-
-all: server server-bin itunes config icon
-	@echo ""
-	@echo "Mac Customizations Complete"
-
-
-
-
-
-
-
-
-
-
 
