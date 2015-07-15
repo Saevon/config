@@ -107,6 +107,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain InitialKeyRepeat -int 0
 defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
@@ -437,4 +438,4 @@ for app in "Address Book" \
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
-
+echo "Suggest: Change the modifier key (CAPS)>>(CTRL)"
