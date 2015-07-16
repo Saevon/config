@@ -6,6 +6,7 @@ all:
 	ln -i -s ${PWD}/git-completion.bash ${HOME}/.git-completion.bash || true
 	ln -i -s ${PWD}/git-prompt.sh ${HOME}/.git-prompt.sh || true
 	ln -i -s ${PWD}/gitconfig ${HOME}/.gitconfig || true
+	ln -i -s ${PWD}/gitignore ${HOME}/.gitignore || true
 
 	@echo ""
 	@echo "Git Config Setup complete, If you didn't run the bash setup"

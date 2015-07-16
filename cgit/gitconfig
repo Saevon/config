@@ -4,6 +4,7 @@
 [core]
 	editor = vim
 	precomposeunicode = true
+	excludesfile = ~/.gitignore
 [bash]
 	showDirtyState = 1
 [merge]
