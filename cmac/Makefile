@@ -1,12 +1,26 @@
 # -*- Makefile for git config files -*-
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
-.PHONY: all help config icon server server-bin
+.PHONY: all help config icon server server-bin python
 
 
-all: server server-bin itunes config icon
+all: server server-bin python itunes config icon
+	@echo "Suggested: XQuartz"
+	@echo "Suggested: Haskell"
+	@echo "Suggested: Java for OSX"
+	@echo "Suggested: Change the hd nameJava for OSX"
 	@echo ""
 	@echo "Mac Customizations Complete"
+
+python:
+	@sudo easy_install pip
+	@sudo cp -i ${PWD}/syspip /usr/local/bin/ || true
+
+	@syspip install eyeD3
+	@syspip install bottle
+	@syspip install virtualenv
+	@syspip install virtualenvwrapper
+
 
 help:
 	@echo "icon:        updates the icons"
@@ -14,6 +28,8 @@ help:
 	@echo "itunes:      installs the itunes scripts"
 	@echo "server:      changes the servername"
 	@echo "server-bin:  installs the servername binary"
+	@echo "python:      installs useful python packages"
+	@echo "hd:          renames the main drive"
 	@echo "all:         updates everyhing"
 
 icon:
@@ -33,6 +49,10 @@ itunes:
 
 server:
 	sudo bash -c "source ${PWD}/servername.sh"
+
+hd:
+	@read -p "What should the disk be called? " HD_NAME\
+    && diskutil rename /dev/disk1 $${HD_NAME}
 
 server-bin:
 	@sudo cp -i ${PWD}/servername.sh /usr/bin/servername

@@ -1,0 +1,2 @@
+#!/bin/bash
+PIP_REQUIRE_VIRTUALENV="" sudo -H `which pip` $@
