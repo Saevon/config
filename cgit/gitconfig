@@ -18,3 +18,5 @@
     st = status
     ff = merge --ff-only
     pff = pull --ff-only
+[color]
+	ui = true

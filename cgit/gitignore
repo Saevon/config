@@ -35,6 +35,9 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+.VolumeIcon.icns
+.disk_label
+.disk_label_2x
 
 
 # Editor Files #
