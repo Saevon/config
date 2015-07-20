@@ -48,6 +48,7 @@ function rpl_icon {
 	if [[ $? == 1 ]]; then
 		return 1;
 	else
+		sudo rm -f "$ORIG_ICON"
 		sudo cp "$NEW_ICON" "$ORIG_ICON"
 	fi
 }
@@ -191,6 +192,27 @@ NEW="Shell.icns"
 NAME="Terminal"
 rpl_app
 
+# Preferences
+REQ="/Applications/System Preferences.app"
+ICON="PrefApp.icns"
+NEW="Settings.icns"
+NAME="System Preferences"
+rpl_app
+
+# Finder
+REQ="/System/Library/CoreServices/Finder.app"
+ICON="Finder.icns"
+NEW="Finder.icns"
+NAME="Finder"
+rpl_app
+
+REQ="/System/Library/CoreServices/Dock.app"
+NEW="Finder.png"
+ICON="finder.png"
+rpl_app
+ICON="finder@2x.png"
+rpl_app
+
 # Firefox
 REQ="/Applications/Firefox.app"
 ICON="firefox.icns"
@@ -300,9 +322,9 @@ rpl_app
 NEW="./Apple.icns"
 ICON="HomeFolderIcon.icns"
 rpl_app
-NEW="./System/AirDrop.icns"
-ICON="AirDrop.icns"
-rpl_app
+#NEW="./System/AirDrop.icns"
+#ICON="AirDrop.icns"
+#rpl_app
 NEW="./System/Burning Disk.icns"
 ICON="BurningIcon.icns"
 rpl_app
@@ -377,8 +399,10 @@ if [[ "$reset" == "y" ]]; then
 	echo "Resetting";
 
 	# Clear the icon cache
+    # Mavericks
 	sudo find /private/var/folders/ -name com.apple.dock.iconcache -exec rm {} \;
 	sudo find /private/var/folders/ -name com.apple.iconservices -exec rm -rf {} \;
+    sudo rm -rf /Library/Caches/com.apple.iconservices.store
 
 	# Now restart the Dock and Finder after these changes
 	sudo killall Dock;
