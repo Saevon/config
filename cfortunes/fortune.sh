@@ -44,7 +44,7 @@ author=""
 if [[ `echo $has_author` == "0" ]]; then
     msg=`echo $out | sed 's/.*/"&"/'` | sed 's/\"/\\"/';
 else
-    msg=`echo $out | sed 's/ *--.*$//' | sed 's/.*/"&"/'` | sed 's/\"/\\"/';
+    msg=`echo $out | sed 's/ *--.*$//' | sed 's/.*/"&"/' | sed 's/\"/\\"/'`
     author=`echo $out | sed 's/.*--/--/'`;
 fi
 
