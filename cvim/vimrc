@@ -48,6 +48,10 @@ set encoding=utf-8
 let mapleader= ","
 
 
+nnoremap <Space> :
+vnoremap <Space> :
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Status Bar
 """""""""""""""""""""""""""""""""""""""""""""""""""
