@@ -4,22 +4,13 @@
 .PHONY: all help config icon server server-bin python
 
 
-all: server server-bin python itunes config icon
+all: server server-bin itunes config icon
 	@echo "Suggested: XQuartz"
 	@echo "Suggested: Haskell"
 	@echo "Suggested: Java for OSX"
 	@echo "Suggested: Change the hd nameJava for OSX"
 	@echo ""
 	@echo "Mac Customizations Complete"
-
-python:
-	@sudo easy_install pip
-	@sudo cp -i ${PWD}/syspip /usr/local/bin/ || true
-
-	@syspip install eyeD3
-	@syspip install bottle
-	@syspip install virtualenv
-	@syspip install virtualenvwrapper
 
 
 help:
@@ -28,7 +19,6 @@ help:
 	@echo "itunes:      installs the itunes scripts"
 	@echo "server:      changes the servername"
 	@echo "server-bin:  installs the servername binary"
-	@echo "python:      installs useful python packages"
 	@echo "hd:          renames the main drive"
 	@echo "all:         updates everyhing"
 

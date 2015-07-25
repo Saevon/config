@@ -9,25 +9,28 @@ DAEMON_SH="login_fortune.sh"
 PLIST="com.saevon.fortunes.plist"
 TXT="fortunes.txt"
 
-# Setup up the folder to store all the fortunes data
-sudo mkdir -p ${MAIN}
+if [ "$(uname)" == "Darwin" ]; then
 
-# First we need to setup the fortunes binary
-sudo cp ${PWD}/${MAIN_SH} ${MAIN}/
+	# Setup up the folder to store all the fortunes data
+	sudo mkdir -p ${MAIN}
 
-# Copy over the fortunes document
-sudo cp ${PWD}/${TXT} ${MAIN}/
+	# First we need to setup the fortunes binary
+	sudo cp ${PWD}/${MAIN_SH} ${MAIN}/
 
-# Now we setup the login message daemon executable
-sudo cp ${PWD}/${DAEMON_SH} ${MAIN}/
+	# Copy over the fortunes document
+	sudo cp ${PWD}/${TXT} ${MAIN}/
 
-# Now we setup LaunchDaemon
-sudo cp ${PWD}/${PLIST} ${DAEMONS}/
-sudo chown root:wheel ${DAEMONS}/${PLIST}
+	# Now we setup the login message daemon executable
+	sudo cp ${PWD}/${DAEMON_SH} ${MAIN}/
 
-# Make sure to add this right now so we don't require a restart
-sudo launchctl unload -w ${DAEMONS}/${PLIST} || true
-sudo launchctl load -w ${DAEMONS}/${PLIST}
+	# Now we setup LaunchDaemon
+	sudo cp ${PWD}/${PLIST} ${DAEMONS}/
+	sudo chown root:wheel ${DAEMONS}/${PLIST}
+
+	# Make sure to add this right now so we don't require a restart
+	sudo launchctl unload -w ${DAEMONS}/${PLIST} || true
+	sudo launchctl load -w ${DAEMONS}/${PLIST}
+fi
 
 # Also make sure to add a link to the /usr/bin/
 if [[ -a ${BIN} ]]; then
@@ -37,4 +40,6 @@ else
 fi
 
 # Start with a login message right away
-fortune --login-msg
+if [ "$(uname)" == "Darwin" ]; then
+	fortune --login-msg
+fi
