@@ -74,6 +74,16 @@ set shiftwidth=4
 set autoindent
 
 
+function ToggleTabs()
+    if &l:expandtab == "noexpandtab"
+        :set expandtab
+    else
+        :set noexpandtab
+    endif
+endfunction
+nmap <C-T><C-T> :call ToggleTabs()<CR>
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Searching
