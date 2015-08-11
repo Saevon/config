@@ -19,6 +19,7 @@ if [ "$(uname)" == "Darwin" ]; then
 
 	# Copy over the fortunes document
 	sudo cp ${PWD}/${TXT} ${MAIN}/
+    ln -s ${PWD}/${TXT} ${HOME}/.fortunes
 
 	# Now we setup the login message daemon executable
 	sudo cp ${PWD}/${DAEMON_SH} ${MAIN}/
