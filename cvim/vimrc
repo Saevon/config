@@ -77,8 +77,10 @@ set autoindent
 function ToggleTabs()
     if &l:expandtab == "noexpandtab"
         :set expandtab
+        :echom "Tabs OFF"
     else
         :set noexpandtab
+        :echom "Tabs ON"
     endif
 endfunction
 nmap <C-T><C-T> :call ToggleTabs()<CR>
