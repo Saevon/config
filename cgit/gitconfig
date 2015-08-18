@@ -18,5 +18,6 @@
     st = status
     ff = merge --ff-only
     pff = pull --ff-only
+    upstream = rev-parse --abbrev-ref @{upstream}
 [color]
 	ui = true
