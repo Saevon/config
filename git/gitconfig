@@ -15,8 +15,11 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [alias]
+	amend = commit --amend
     st = status
     ff = merge --ff-only
     pff = pull --ff-only
+    fetchfull = fetch --all --prune
+    tree = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
 [color]
 	ui = true

@@ -1,8 +1,11 @@
 # -*- Makefile for ssh config files -*-
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
-CP=ln
-CPI=${CP} -i
+CP ?= ln
+CPI ?= ${CP} -i
+
+export CP
+export CPI
 
 SSH_DIR = ${HOME}/.ssh
 
