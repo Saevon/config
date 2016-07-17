@@ -12,9 +12,8 @@ include ../variables.makefile
 
 
 .PHONY: all
-all: environment completion sys_bin usr_bin python brew bashup
-minimal: environment completion sys_bin-main python-main brew-install brew-cmd brew-gnu brew-net bashup
-
+all: environment completion sys_bin usr_bin brew python bashup
+minimal: environment completion sys_bin-main brew-install brew-cmd brew-gnu brew-net python-main bashup
 
 .PHONY: environment
 environment: ${USR_SCRIPT}
