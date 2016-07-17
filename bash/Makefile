@@ -147,8 +147,8 @@ python-main:
 	@$(bash -l sudo -H easy_install pip)
 	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
 
-	@sudo syspip install virtualenv
-	@sudo syspip install virtualenvwrapper
+	@syspip install virtualenv
+	@syspip install virtualenvwrapper
 
 .PHONY: python-extra
 python-extra: CP=cp
@@ -158,7 +158,7 @@ python-extra:
 
 	@syspip install eyeD3
 
-    # Imaging Library (PIL fork)
+	# Imaging Library (PIL fork)
 	@syspip install pillow
 
 	# Audio library
