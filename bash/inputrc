@@ -1,0 +1,78 @@
+#
+#
+# Modify input techniques (e.g. tab completion)
+#
+#
+
+# Allows dashes and underscores to complete the same way
+set completion-map-case on
+
+# Ignore case
+set completion-ignore-case on
+
+# completed symlinks get a trailing slash
+set mark-symlinked-directories on
+
+# If there are no partial completions, auto show the list
+set show-all-if-unmodified on
+
+# show vi editing mode
+# set show-mode-in-prompt on
+
+
+
+# Set vi to be the defaul editor for readline
+set editing-mode vi
+
+# vi settings
+# See: https://www.gnu.org/software/bash/manual/bashref.html#Command-Line-Editing
+$if mode=vi
+    # normal mode
+    set keymap vi-command
+    "j": previous-history
+    "k": next-history
+
+    "h": backward-char
+    "l": forward-char
+
+    "G": end-of-history
+
+    # "<ctrl-r>": reverse-search-history
+    Control-a: beginning-of-line
+    Control-e: end-of-line
+    Meta-b: forward-word
+    Meta-f: backward-word
+
+    Control-l: clear-screen
+    "\C-x\C-e": edit-and-execute-command
+    "\C-x\C-v": display-shell-version
+    # "\M-\C-e": shell-expand-line
+
+    "\M-x\C-v": display-shell-version
+
+    # insert mode
+    set keymap vi-insert
+    "jj": vi-movement-mode
+
+    # "<ctrl-r>": reverse-search-history
+    Control-a: beginning-of-line
+    Control-e: end-of-line # ERROR?
+    Meta-b: forward-word
+    Meta-f: backward-word
+
+    Control-l: clear-screen
+    "\C-x\C-e": edit-and-execute-command
+    "\C-x\C-v": display-shell-version
+
+    "\C-x\C-f": complete-filename
+    "\C-x\C-i": complete-command
+    "\M\C-e": shell-expand-line
+$endif
+
+
+# set expand-tilde on
+# set convert-meta off
+# set input-meta on
+# set output-meta on
+# set show-all-if-ambiguous on
+# set visible-stats on

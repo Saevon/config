@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# URL escape the problematic bash chars (quotes)
+SITE="${1//\"/%22}"
+SITE="${SITE//\'/%27}"
+SITE="${SITE//\`/%60}"
+
+if [ -z $SITE ]; then
+    echo "ERROR: url required"
+    exit 1
+fi
+
+RESULT=`wget -O- -q "http://www.downforeveryoneorjustme.com/$SITE"`
+JUSTME=`echo "$RESULT" | grep "It's just you" | wc -l`
+NOTJUSTME=`echo "$RESULT" | grep "It's not just you!" | wc -l`
+
+if [ $JUSTME -eq 1 ]; then
+    echo "It's Just You"
+elif [ $NOTJUSTME -eq 1 ]; then
+    echo "Site Seems Down"
+else
+    echo "Can't Connect"
+    exit 1
+fi

@@ -1,0 +1,9 @@
+################################
+# User specific lib/bin/scripts
+export USR_SCRIPT=${HOME}/.usr
+export USR_BIN=${HOME}/.bin
+export USR_LIB=${HOME}/.lib
+export MARKPATH=${HOME}/.marks
+export COMP_DIR=${HOME}/.bash_completion.d
+
+export PROJECT_HOME=${HOME}/Projects

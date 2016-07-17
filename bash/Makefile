@@ -1,0 +1,229 @@
+# -*- Makefile for bash config files -*-
+# Copyright 2013 Saevon <saevon.kyomae@gmail.com>
+
+
+UNAME=$(shell uname)
+SYS_BIN=/usr/local/bin
+PWD_BIN=${PWD}/bin
+
+# Include the profile, which has important variables
+include paths
+include ../variables.makefile
+
+
+.PHONY: all
+all: environment completion sys_bin usr_bin python bashup brew
+
+
+# link: .vim .vimrc .gvimrc .ackrc .gitconfig .screenrc .ctags .gitignore_global .bash_profile jump.bash git-completion.bash virtualenv_config.bash
+# 	$(foreach file, $^, ln -s $(CURDIR)/$(file) ~; )
+
+
+.PHONY: environment
+environment: ${USR_SCRIPT}
+	@echo "Setting up system environment"
+
+	@${COPY} "${PWD}/inputrc" "${HOME}/.inputrc"
+	@${COPY} "${PWD}/editrc" "${HOME}/.editrc"
+
+	@${COPY} "${PWD}/profile" "${HOME}/.profile"
+	@${COPY} "${PWD}/profile" "${HOME}/.paths"
+	@${COPY} "${PWD}/bashrc" "${HOME}/.bashrc"
+	@${COPY} "${PWD}/bash_logout" "${HOME}/.bash_logout"
+	@${COPY} "${PWD}/bash_profile" "${HOME}/.bash_profile"
+	@${COPY} "${PWD}/bash_helpers" "${HOME}/.bash_helpers"
+	@${COPY} "${PWD}/bash_aliases" "${HOME}/.bash_aliases"
+
+ifeq ($(UNAME),Darwin)
+	@chflags hidden ${USR_SCRIPT}
+endif
+
+	@mkdir -p ${MARKPATH}
+	@mkdir -p ${USR_BIN}
+	@mkdir -p ${USR_LIB}
+	@mkdir -p ${PROJECT_HOME}
+
+	@${COPY} "${PWD}/jump.bash" "${USR_SCRIPT}/jump.bash"
+	@${COPY} "${PWD}/pauser.bash" "${USR_SCRIPT}/pauser.bash"
+	@${COPY} "${PWD}/mac_switch_user.bash" "${USR_SCRIPT}/mac_switch_user.bash"
+	@cp -i ${PWD}/pauser_template.bash ${HOME}/.pauser.custom.bash || true
+
+
+##########################
+# User folder structure
+${USR_SCRIPT}:
+	@mkdir -p ${USR_SCRIPT}
+
+
+
+########################
+# Completions
+
+# The directory of completions to copy over
+COMP_ADD_DIR=bash_completion.d
+COMPLETIONS=$(shell find ${COMP_ADD_DIR} -iname *.complete.bash -exec basename {} \;)
+
+.PHONY: completion
+completion: pre_completion $(addprefix ${COMP_DIR}/,${COMPLETIONS})
+
+${COMP_DIR}/%.complete.bash: ./${COMP_ADD_DIR}/%.complete.bash
+	${COPY} $? $@ || true
+
+.PHONY: pre_completion
+pre_completion: ${COMP_DIR} ${HOME}/.bash_completion
+
+${COMP_DIR}:
+	@mkdir -p ${COMP_DIR}
+
+${HOME}/.bash_completion: ${PWD}/bash_completion.bash
+	@${COPY} $? $@ || true
+
+
+
+
+
+#######################
+
+.PHONY: sys_bin
+sys_bin:
+	@echo "Copying system binaries to ${SYS_BIN}"
+	sudo -v
+
+ifeq ($(UNAME),Darwin)
+	@sudo cp -i ${PWD_BIN}/changeInput ${SYS_BIN}/ || true
+endif
+
+
+	# @sudo cp -i ${PWD_BIN}/ack ${SYS_BIN}/ || true
+	@sudo cp -i ${PWD_BIN}/album_art ${SYS_BIN}/ || true
+	@sudo cp -i ${PWD_BIN}/ask ${SYS_BIN}/ || true
+	@sudo cp -i ${PWD_BIN}/cputhrottle ${SYS_BIN}/ || true
+	@sudo cp -i ${PWD_BIN}/sitedown ${SYS_BIN}/ || true
+	@sudo cp -i ${PWD_BIN}/try ${SYS_BIN}/ || true
+
+.PHONY: usr_bin
+usr_bin:
+	@echo "Copying user binaries to ${USR_BIN}"
+
+ifeq ($(UNAME),Darwin)
+	@${COPY} "${PWD_BIN}/as" "${USR_BIN}/as"
+	@${COPY} "${PWD_BIN}/itunes.sh" "${USR_BIN}/itunes"
+endif
+
+
+.PHONY: python
+python:
+	@echo "Python Setup"
+
+	@sudo easy_install pip
+	@sudo cp -i ${PWD}/syspip ${SYS_BIN}/ || true
+	@sudo ${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
+
+	@syspip install eyeD3
+
+    # Imaging Library (PIL fork)
+	@syspip install pillow
+
+	# Audio library
+	@syspip install mutagen
+
+	@syspip install bottle
+	@syspip install virtualenv
+	@syspip install virtualenvwrapper
+
+
+
+.PHONY: brew
+brew: brew-helpers brew-cmd brew-coding brew-sys-monit brew-net brew-media
+
+# Brew Helpers
+.PHONY: brew-helpers
+brew-helpers:
+	@brew install cask
+
+# Simple Bash Commands
+.PHONY: brew-cmd
+brew-cmd:
+	@brew install bash-completion
+	@brew install ack
+	@brew install rename
+	@brew install watch
+
+# Common things used for coding (languages)
+.PHONY: brew-coding
+brew-coding:
+	@brew install go
+	@brew install mongodb
+	# @brew install python3
+
+# System Monitoring
+.PHONY: brew-sys-monit
+brew-sys-monit:
+	@brew install stress
+
+# Network
+.PHONY: brew-net
+brew-net:
+	@brew install openssl
+	brew link --force openssl
+	@brew install wget
+	@brew install ssh-copy-id
+	@brew install nmap
+
+
+.PHONY: brew-media
+brew-media: brew-sound brew-video brew-image
+
+# Sound editing
+.PHONY: brew-sound
+brew-sound:
+	@brew install sox --with-lame
+	@brew install lame
+	@brew install sox
+
+# Video Editing
+.PHONY: brew-video
+brew-video:
+	@brew install ffmpeg --with-fdk-aac
+
+# Image Editing
+.PHONY: brew-image
+brew-image:
+	@brew install imagemagick
+
+
+# 	brew tap homebrew/dupes
+
+# 	brew install readline
+# 	brew link --force readline
+
+
+# Install some CTF tools; see https://github.com/ctfs/write-ups.
+# brew install aircrack-ng
+# brew install bfg
+# brew install binutils
+# brew install binwalk
+# brew install cifer
+# brew install dex2jar
+# brew install dns2tcp
+# brew install fcrackzip
+# brew install foremost
+# brew install hashpump
+# brew install hydra
+# brew install john
+# brew install knock
+# brew install netpbm
+# brew install nmap
+# brew install pngcheck
+# brew install socat
+# brew install sqlmap
+# brew install tcpflow
+# brew install tcpreplay
+# brew install tcptrace
+# brew install ucspi-tcp # `tcpserver` etc.
+# brew install xpdf
+
+.PHONY: bashup
+bashup:
+	@echo "Updating Bash"
+	@./bash_update.sh

@@ -1,12 +1,7 @@
 # -*- makefile to copy over config files -*-
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
-CP=ln
-CPI=${CP} -i
-
-export CP
-export CPI
-
+include variables.makefile
 
 .PHONY: help
 help:

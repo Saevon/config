@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Output is returned in the $REPLY dedicated variable
+# $REPLY[0] = filepath
+# $REPLY[1]  = directory
+# $REPLY[2]  = filename
+# $REPLY[3]  = extension
+# $REPLY[4]  = full filename
+function splitfilepath() {
+    local __resultvar="$2"
+    local __fullpath="$1"
+
+    # Strip longest match of */ from start
+    local __filename="${__fullpath##*/}"
+    # Substring from 0 thru pos of filename
+    local __dir="${__fullpath:0:${#__fullpath} - ${#__filename}}"
+    # Strip shortest match of . plus at least one non-dot char from end
+    local __base="${__filename%.[^.]*}"
+    # Substring from len of base thru end
+    local __ext="${__filename:${#__base} + 1}"
+
+    # If we have an extension and no base, it's really the base
+    if [[ -z "$__base" && -n "$__ext" ]]; then
+        __base=".$__ext"
+        __ext=""
+    fi
+
+    # Output decisions
+    if [[ "$__resultvar" ]]; then
+        eval $__resultvar="(1 2 3)"
+        eval $__resultvar[0]="'$__fullpath'"
+        eval $__resultvar[1]="'$__dir'"
+        eval $__resultvar[2]="'$__base'"
+        eval $__resultvar[3]="'$__ext'"
+        eval $__resultvar[4]="'$__base.$__ext'"
+    else
+        echo -e "$__fullpath:\n\tdir  = \"$__dir\"\n\tbase = \"$__base\"\n\text  = \"$__ext\""
+    fi
+}
+
+albumart="$@"
+
+splitfilepath "$albumart" albumart_data
+
+outdir="${albumart_data[1]/~Archive\//}"
+outext=jpg
+outpath="$outdir/${albumart_data[2]}.$outext"
+
+# Get the original size
+#width=`identify -format '%w' "$albumart"`
+#height=`identify -format '%h' "$albumart"`
+
+# TODO
+# Check if the image is too small
+
+# TODO: Can't  work with quotes...
+
+# cp "$albumart" "$outpath"
+/usr/local/bin/convert "$albumart" -resize 800x800 "$outpath"

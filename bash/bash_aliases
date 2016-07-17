@@ -1,0 +1,278 @@
+# !/bin/sh
+
+##############
+# shortcuts
+##############
+function code() {
+    local args=`echo $@ | sed -e 's/^[ \t]*//'`
+
+    cl ${PROJECT_HOME}/$args
+}
+
+alias perm='sudo chmod -R 000 *; sudo chmod -R u=rwX, g=rwX *'
+alias majik='cl ~/Projects/majik'
+alias add_cmd='vim /Users/Saevon/Projects/Recipe/cmd.bash'
+
+
+################
+# Misc
+################
+
+# set strongest compression level as ‘default’ for gzip
+alias gzip="gzip -9n"
+# ping 5 times ‘by default’
+alias ping="ping -c 5"
+
+# Upload image to Imgur and return its URL. Get API key at http://imgur.com/register/api_anon
+function imgur() {
+    curl -F "image=@$1" -F "key=ANONYMOUS_IMGUR_API_KEY" https://api.imgur.com/2/upload | egrep -o "<original>.+?</original>" | egrep -o "http://imgur\.com/[^<]+" | sed "s/imgur.com/i.imgur.com/" | tee >(pbcopy);
+}
+
+function bell() {
+    printf '\a';
+}
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Merge PDF files
+# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+function update_all() {
+    # OSX
+    sudo softwareupdate -i -a
+
+    # Brews
+    brew update
+    brew upgrade --all
+    brew cleanup
+
+    # Node
+    npm install npm -g
+    npm update -g
+
+    # Ruby
+    sudo gem update --system
+    sudo gem update
+
+    # Python
+    syspip install --upgrade pip
+    for pkg in $( syspip list --outdated | cut -d' ' -f 1 ); do
+        syspip install -U echo "$pkg"
+    done
+}
+
+
+function webm_convert {
+    find . -name "*.webm" -exec sh -c 'ffmpeg -i "$0" "${0%.webm}.mp4" -c:v libx264 -c:a aac -strict experimental -b:a 192k -b:v 1M && rm -i "$0"' {} \;
+}
+
+
+###############
+# cd & ls
+###############
+function cl {
+    cd $@;
+    ls;
+}
+alias ..='cl ..'
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # macOS `ls`
+    colorflag="-G"
+fi
+
+alias ls="ls ${colorflag}"
+alias ll='ls -alF'
+alias la='ls -A'
+# group files by extension
+alias lg="ls -X"
+
+# directory marking
+source ${USR_SCRIPT}/jump.bash
+
+# Determine size of a file or total size of a directory
+function disksize() {
+    if du -b /dev/null > /dev/null 2>&1; then
+        local arg=-sbh;
+    else
+        local arg=-sh;
+    fi
+    if [[ -n "$@" ]]; then
+        du $arg -- "$@";
+    else
+        du $arg .[^.]* ./*;
+    fi;
+}
+
+
+###############
+# Servers
+###############
+alias serve="python $PROJECT_HOME/file-server/file_server.py --open "
+
+
+###############
+# History
+###############
+
+# Search history for something
+alias hs="history | grep '$1'"
+
+
+##############
+# System
+##############
+alias mac_restart_audio="sudo pgrep coreaudiod | xargs sudo kill"
+
+# Flush Directory Service cache (DNS)
+alias mac_dns_flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias mac_lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# Recursively delete `.DS_Store` files
+alias mac_cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias mac_emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+# macOS has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# macOS has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+
+
+
+alias pbclean="pbpaste | pbcopy"
+alias quicklook="qlmanage -p 2>/dev/null"
+alias ql="quicklook"
+
+alias notify='notify-send'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    function notify-send() {
+        local title=$1
+        local message=$2
+        local subtitle=$3
+
+        osascript -e "display notification \"$message\" with title \"$title\" subtitle \"$subtitle\""
+    }
+fi
+
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Volume Editing
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias mac_volume="volume"
+alias volume="osascript -e 'set volume output volume $1'"
+alias mac_mute="mute"
+alias mute="osascript -e 'set volume output muted true'"
+alias mac_audio_info="osascript -e 'get volume settings'"
+alias is_muted="osascript -e 'output muted of (get volume settings)'"
+
+
+###############
+# Permissions
+###############
+function shared_folder() {
+    sudo chmod -N "$val"
+    sudo chmod +a 'everyone deny file_inherit,write,append,chown,writeattr,writeextattr,writesecurity' "$val"
+    sudo chmod +a 'everyone deny file_inherit,write,append,chown,writeattr,writeextattr,writesecurity' "$val"
+
+    sudo chgrp self "$val"
+    sudo chmod u=rwx,g=rwx,o= "$val"
+}
+function shared_file() {
+    sudo chmod -N "$1"
+    sudo chmod +a 'self allow read' "$1"
+    sudo chmod +a 'self deny write,append,chown,writeattr,writeextattr,writesecurity' "$1"
+
+    sudo chgrp self "$1"
+    sudo chmod u=rwX,g=rwX,o= "$1"
+}
+
+function shared_reset() {
+    find . -type f -group self 2>/dev/null | while read file; do
+        shared_file "$file"
+    done
+    find . -type d -group self 2>/dev/null | while read dir; do
+        shared_folder "$dir"
+    done
+}
+
+######################
+# Fast User Switching
+# (Pausing processes)
+####################
+source ${USR_SCRIPT}/pauser.bash
+source ${USR_SCRIPT}/mac_switch_user.bash
+
+alias mac_switch_user="switch_user"
+alias mac_logout="switch_out"
+alias afk="switch_out"
+
+########################
+# IPS
+#####################
+# IP addresses
+# alias ip="curl --silent http://icanhazip.com"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip_local="ipconfig getifaddr en0"
+function ip_main() {
+    ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}'
+}
+alias ip_all="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+
+
+
+
+##################
+# File Path
+#################
+
+# Output is returned in the $REPLY dedicated variable
+# $REPLY_PATH = filepath
+# $REPLY_DIR  = directory
+# $REPLY_NAME = filename
+# $REPLY_EXT  = extension
+function splitfilepath() {
+    fullpath=$1
+
+    # Strip longest match of */ from start
+    filename="${fullpath##*/}"
+    # Substring from 0 thru pos of filename
+    dir="${fullpath:0:${#fullpath} - ${#filename}}"
+    # Strip shortest match of . plus at least one non-dot char from end
+    base="${filename%.[^.]*}"
+    # Substring from len of base thru end
+    ext="${filename:${#base} + 1}"
+
+    # If we have an extension and no base, it's really the base
+    if [[ -z "$base" && -n "$ext" ]]; then
+        base=".$ext"
+        ext=""
+    fi
+
+    REPLY_PATH=$fullpath
+    REPLY_DIR=$dir
+    REPLY_NAME=$base
+    REPLY_EXT=$ext
+
+    echo -e "$fullpath:\n\tdir  = \"$dir\"\n\tbase = \"$base\"\n\text  = \"$ext\""
+}

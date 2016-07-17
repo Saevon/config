@@ -1,0 +1,7 @@
+#
+#
+# Script that runs as the bash shell exits
+# can be used to e.g. save history or show messages, core-dump etc
+#
+
+echo 'Goodbye'

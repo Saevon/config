@@ -1,17 +1,13 @@
 # -*- Makefile for ssh config files -*-
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
-CP ?= ln
-CPI ?= ${CP} -i
-
-export CP
-export CPI
+include ../variables.makefile
 
 SSH_DIR = ${HOME}/.ssh
 
 .PHONY: all
 all: ${SSH_DIR}
-	@${CPI} config ${SSH_DIR}/config || true
+	@${COPY} "${PWD}/config" "${SSH_DIR}/config"
 
 	@echo ""
 	@echo "SSH configuration setup complete"

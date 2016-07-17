@@ -1,0 +1,87 @@
+#
+#
+# This file contains only env variables that are necessary for all shell usage
+#
+#
+
+# Prefer US English and use UTF-8.
+export LANG='en_CA.UTF-8'
+export LC_ALL='en_CA.UTF-8'
+
+################################
+# User specific lib/bin/scripts
+source .paths
+
+##########
+# Bin Path
+
+# Ruby
+PATH=${PATH}:${HOME}/.rvm/bin
+# Uwaterloo (OS)
+# PATH=${PATH}:${HOME}/.sys161/bin:${HOME}/.sys161/tools/bin
+# Usr binaries
+PATH=${PATH}:${USR_BIN}
+PATH=${PATH}:/usr/local/sbin
+# Brew additions
+PATH=${PATH}:/usr/local/opt/coreutils/libexec/gnubin
+
+
+export PATH
+
+
+
+
+########
+# Node
+NODE_PATH=${NODE_PATH}:/usr/local/lib/node_modules/
+export NODE_PATH
+
+
+########
+# Java
+# CLASSPATH=$CLASSPATH:$USR_LIB/java/
+# export CLASSPATH
+
+
+
+
+
+#####################
+# Compilition
+
+# library search path.
+# LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$USR_LIB
+# export LD_LIBRARY_PATH
+
+# library run path.
+# LD_RUN_PATH=$LD_RUN_PATH:$USR_LIB
+# export LD_RUN_PATH
+
+
+########################################
+# Editors
+#######################################
+export VISUAL=vim
+export EDITOR=vim
+
+
+
+#######################################
+# Python
+PYTHONPATH=${PYTHONPATH}:${PROJECT_HOME}/:${PROJECT_HOME}/Recipe
+PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python2.7/site-packages
+export PYTHONPATH
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Only use pip for virtualenvs, see .bash_aliases for a system wide
+# pip installer
+export PIP_REQUIRE_VIRTUALENV=true
+
+
+
+
+
+
+

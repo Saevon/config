@@ -1,0 +1,16 @@
+# bind -v
+
+# bind \\t rl_complete
+# bind jj vi-command-mode
+# bind C-a ed-move-to-end
+# bind C-e ed-move-to-beg
+# bind ed-prev-history
+# bind ed-next-history
+# ed-prev-word
+# ed-next-word
+# ed-prev-line
+# ed-next-line
+# bind C-x-e ed-command
+
+# bind l ed-next-char
+# bind h ed-prev-char

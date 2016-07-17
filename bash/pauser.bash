@@ -51,5 +51,19 @@ function status() {
     search_map "$1" echo
 }
 
-source ~/.pauser.custom.sh
+# Quit an OS X application from the command line
+# function quit_app () {
+#     for app in $*; do
+#         osascript -e 'quit app "'$app'"'
+#     done
+# }
+# function relaunch () {
+#     for app in $*; do
+#         osascript -e 'quit app "'$app'"';
+#         sleep 2;
+#         open -a $app
+#     done
+# }
+
+source ${HOME}/.pauser.custom.bash
 

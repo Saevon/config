@@ -16,9 +16,7 @@ function resume_all() {
 
 searches+=('Google Chrome.app')
 searches+=('Firefox.app')
-searches+=('IntelliJ IDEA 14.app')
 searches+=('GitX.app')
-searches+=('iTunes.app')
 searches+=('Skype.app')
 searches+=('mongod')
 searches+=('rabbitmq')
