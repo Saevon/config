@@ -10,7 +10,7 @@ if [[ $? == 1 ]]; then
 
     # TODO: Checksum is currently disabled
     if diff <(echo ${ACTUAL_MD5}) <(echo ${EXPECT_MD5}) > /dev/null || true; then
-        ruby -e <(${BREW_INSTALL})
+        ruby -e "$(${BREW_INSTALL})"
     else
         echo "md5 checksum for brew invalid"
         echo "Expected: ${EXPECT_MD5}"
