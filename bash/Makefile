@@ -133,7 +133,7 @@ python-main:
 	@echo "Python Setup"
 
 	@sudo easy_install pip
-	@sudo ${COPY} ${PWD}/syspip ${SYS_BIN}/
+	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
 
 	@syspip install virtualenv
 	@syspip install virtualenvwrapper
