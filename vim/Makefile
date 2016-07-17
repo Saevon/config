@@ -6,20 +6,13 @@ CP=ln
 CPI=${CP} -i
 
 .PHONY: all
-all: pre ${HOME}/.vimrc ${VIM_DIR} post
+all: ${VIM_DIR}
+	@${CPI} ${PWD}/vimrc ${HOME}/.vimrc || true
 
-.PHONY: pre
-pre:
-
-.PHONY: post
-post:
 	@echo ""
 	@echo "Vim Setup Config complete"
 
-${HOME}/.vimrc: ${PWD}/vimrc
-	${CPI} $? $@
-
-${VIM_DIR}: ${PWD}/vim
+${VIM_DIR}:
 	# TODO: Recursive Copy here
-	ln -i -s $? $@
+	ln -i -s ${PWD}/vim $@
 
