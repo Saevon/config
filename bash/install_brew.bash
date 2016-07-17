@@ -5,7 +5,7 @@ if [[ $? == 1 ]]; then
     BREW_INSTALL=$(curl -fsSL 'https://raw.githubusercontent.com/Homebrew/install/master/install')
 
     # Install Homebrew
-    EXPECT_MD5=90277433f4cdd6034fb14173163b374f
+    EXPECT_MD5=d21086ee75f3f1ae20577e5e428f79de
     ACTUAL_MD5=$(md5 -q <(echo ${BREW_INSTALL}))
 
     if diff <(echo ${ACTUAL_MD5}) <(echo ${EXPECT_MD5}) > /dev/null; then
