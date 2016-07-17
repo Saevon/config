@@ -141,7 +141,7 @@ python-main:
 		cat python_profile | sudo tee -a /etc/profile >/dev/null; \
 	fi
 
-	@sudo ${COPY} "pydistutils.cfg" "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/"
+	@sudo ${COPY} "pydistutils.cfg" "/Library/Python/2.7/site-packages/"
 
 	@# Fixes the profile not being reloaded, and a python warning appearing
 	@$(bash -l sudo -H easy_install pip)
