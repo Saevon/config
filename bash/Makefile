@@ -148,7 +148,7 @@ python-main:
 	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
 
 	@syspip install virtualenv
-	@syspip install virtualenvwrapper
+	@syspip install virtualenvwrapper --ignore-installed six
 
 .PHONY: python-extra
 python-extra: CP=cp
