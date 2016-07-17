@@ -1,0 +1,4 @@
+Spaces re-arrange themselves (turn off)
+Enable Dashboard
+Hot corners
+Screensaver/desktop

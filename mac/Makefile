@@ -47,3 +47,9 @@ hd:
 server-bin:
 	@sudo cp -i ${PWD}/servername.sh /usr/bin/servername
 
+
+# apps:
+# 	brew cask install gimp
+# 	brew cask install inkscape
+# 	brew cask install xquartz
+

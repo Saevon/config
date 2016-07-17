@@ -242,22 +242,11 @@ rpl_app
 ICON="trashfull@2x.png"
 rpl_app
 
-ICON="trashfullreflection.png"
-backup_app
-ICON="trashfullreflection@2x.png"
-backup_app
-
-
 NEW="./Trash Set/Trash ~ Empty.png"
 ICON="trashempty.png"
 rpl_app
 ICON="trashempty@2x.png"
 rpl_app
-
-ICON="trashemptyreflection.png"
-backup_app
-ICON="trashemptyreflection@2x.png"
-backup_app
 
 
 #######################
@@ -290,11 +279,10 @@ ICON="shortcut.icns"
 rpl_app
 
 
-
-REQ="$HOME/Library/Application Support/Steam/steamapps/common/vvvvvv/VVVVVV.app"
-NEW="Games/VVVVVV.icns"
-ICON="VVVVVV.icns"
-rpl_app
+#REQ="$HOME/Library/Application Support/Steam/steamapps/common/vvvvvv/VVVVVV.app"
+#NEW="Games/VVVVVV.icns"
+#ICON="VVVVVV.icns"
+#rpl_app
 
 
 #######################
