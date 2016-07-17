@@ -177,7 +177,6 @@ brew-cmd:
 	@brew install ack
 	@brew install rename
 	@brew install watch
-	@brew install
 
 .PHONY: brew-gnu
 OPTS=--with-default-names
