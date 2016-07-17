@@ -2,7 +2,7 @@
 
 which -s brew
 if [[ $? == 1 ]]; then
-    BREW_INSTALL="curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install"
+    BREW_INSTALL="curl -fsSL 'https://raw.githubusercontent.com/Homebrew/install/master/install'"
 
     # Install Homebrew
     EXPECT_MD5=90277433f4cdd6034fb14173163b374f
