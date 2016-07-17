@@ -8,6 +8,9 @@ Host github.com
     IdentityFile ~/.ssh/github
     VisualHostKey no
 
+Host dmitryblotsky.com
+    User saevon
+
 Host dmitry
     Hostname dmitryblotsky.com
     User saevon
