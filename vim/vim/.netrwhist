@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/usr/local/Cellar/bash-completion/1.3_1/etc'
+let g:netrw_dirhist_2='/usr/local/Cellar/bash-completion/1.3_1/etc/bash_completion.d'
+let g:netrw_dirhist_3='/usr/local/etc/profile.d'
+let g:netrw_dirhist_4='/usr/local/Caskroom'
+let g:netrw_dirhist_5='/Users/Saevon/Projects/config/cmac/icons'
+let g:netrw_dirhist_6='/Users/Saevon/Projects/blog/theme/templates'
+let g:netrw_dirhist_7='/Users/Saevon/Library/Application Support/Sublime Text 2/Packages/User'
+let g:netrw_dirhist_8='/Users/Saevon/.vim'
+let g:netrw_dirhist_9='/Users/Saevon/.ssh'
