@@ -1,6 +1,12 @@
 # -*- makefile to copy over config files -*-
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
+CP=ln
+CPI=${CP} -i
+
+export CP
+export CPI
+
 
 .PHONY: help
 help:
@@ -12,26 +18,25 @@ help:
 	@echo "Config Files:"
 	@echo "  bash"
 	@echo "  django"
+	@echo "  file_server"
+	@echo "  fortunes"
 	@echo "  git"
 	@echo "  mac"
+	@echo "  ssh"
 	@echo "  vim"
-	@echo "  fortunes"
-
-
-SHELL = /bin/bash
 
 
 # A list of all valid config file types, each one should correspond to a folder
 # here, or a custom make command in this file
-VALID = bash django git vim mac fortunes
+VALID = bash django git vim mac fortunes ssh file_server
 
-.PHONY: all
+.PHONY: all ${VALID}
 all: ${VALID}
 
 # Wrapper around any config type creation, moves to the corresponding folder
 # and runs the makefile there
-%:
+${VALID}:
 	@([[ "${VALID}" =~ $@ ]] \
-		&& ((cd c$@ && make HOME=${HOME}) || echo "Error while creating config type '$@'") \
+		&& ((cd $@ && make HOME=${HOME}) || echo "Error while creating config type '$@'") \
 		|| echo "Invalid config type: '$@'" \
 	)
