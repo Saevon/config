@@ -23,7 +23,7 @@ else
 fi
 
 # Update the user's default bash
-sudo chsh -s /usr/local/bin/bash
+chsh -s /usr/local/bin/bash
 
 # Cleanup sudo privledges
 sudo -k
