@@ -21,5 +21,8 @@
     pff = pull --ff-only
     fetchfull = fetch --all --prune
     tree = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+    upstream = rev-parse --abbrev-ref @{upstream}
+    push-to = !branch=`git rev-parse --abbrev-ref HEAD` && git push ${1} ${branch}:${2} && :
+    del-branch = !git push ${1} :${2} && :
 [color]
 	ui = true
