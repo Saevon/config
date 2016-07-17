@@ -12,8 +12,8 @@ include ../variables.makefile
 
 
 .PHONY: all
-all: environment completion sys_bin usr_bin python bashup brew
-minimal: environment completion sys_bin-main python-main bashup brew-install brew-cmd brew-gnu brew-net
+all: environment completion sys_bin usr_bin python brew bashup
+minimal: environment completion sys_bin-main python-main brew-install brew-cmd brew-gnu brew-net bashup
 
 
 .PHONY: environment
@@ -270,7 +270,7 @@ endif
 # brew install xpdf
 
 .PHONY: bashup
-bashup:
+bashup: brew-install
 	@echo 'This will change system files'
 	@if [ "${FORCE}" == "true" ] || ./bin/ask 'Update Bash?' ; then\
 		./bash_update.sh; \
