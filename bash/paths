@@ -7,3 +7,8 @@ export MARKPATH=${HOME}/.marks
 export COMP_DIR=${HOME}/.bash_completion.d
 
 export PROJECT_HOME=${HOME}/Projects
+
+
+###############################
+# Python usr install
+export GLOBAL_PYTHON_PREFIX=/usr/local/lib/python2.7

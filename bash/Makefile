@@ -131,16 +131,28 @@ python-main: CPI=cp -i
 python-main:
 	@echo "Python Setup"
 
-	@sudo easy_install pip
+	# Adds to the python path so we can install in a user directory
+	@if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH' /etc/profile)" -eq 1 ]]; then \
+		if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH-v1.1' /etc/profile)" -eq 0 ]]; then \
+			>&2 echo "/etc/profile was already edited, but with an old version of CUSTOM-GLOBAL-PYTHONPATH, remove the old version"; \
+			exit 1; \
+		fi \
+	else \
+		cat python_profile | sudo tee -a /etc/profile >/dev/null; \
+	fi
+
+	@sudo ${COPY} "pydistutils.cfg" "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/"
+
+	@# Fixes the profile not being reloaded, and a python warning appearing
+	@$(bash -l sudo -H easy_install pip)
 	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
 
-	@syspip install virtualenv
-	@# Fixes El Capitan
-	@syspip install virtualenvwrapper --ignore-installed six
+	@sudo syspip install virtualenv
+	@sudo syspip install virtualenvwrapper
 
 .PHONY: python-extra
-python-main: CP=cp
-python-main: CPI=cp -i
+python-extra: CP=cp
+python-extra: CPI=cp -i
 python-extra:
 	@sudo ${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
 
