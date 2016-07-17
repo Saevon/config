@@ -14,11 +14,8 @@ if [ "$(uname)" == "Darwin" ]; then
 	# Setup up the folder to store all the fortunes data
 	sudo mkdir -p ${MAIN}
 
-	# First we need to setup the fortunes binary
-	sudo cp ${PWD}/${MAIN_SH} ${MAIN}/
-
 	# Copy over the fortunes document
-	sudo cp ${PWD}/${TXT} ${MAIN}/
+	sudo cp ${PWD}/${TXT} ${MAIN}
 
 	# Now we setup the login message daemon executable
 	sudo cp ${PWD}/${DAEMON_SH} ${MAIN}/
@@ -32,12 +29,9 @@ if [ "$(uname)" == "Darwin" ]; then
 	sudo launchctl load -w ${DAEMONS}/${PLIST}
 fi
 
-# Also make sure to add a link to the /usr/bin/
-if [[ -a ${BIN} ]]; then
-    echo "  Warning: File exists ${BIN}"
-else
-    sudo ln -s ${MAIN}/${MAIN_SH} ${BIN}
-fi
+# Add the fortunes binary
+sudo cp ${PWD}/${MAIN_SH} ${BIN}
+chmod o+rx ${BIN}
 
 # Start with a login message right away
 if [ "$(uname)" == "Darwin" ]; then

@@ -28,6 +28,10 @@ Nobody is more dangerous than he who imagines himself pure in heart; for his pur
 When you pick the only option you have to choose from, can you really call that your own decision? -- Hayato Hayama
 The only ones who should kill are those who are prepared to be killed! -- Lelouch
  I see now that the circumstances of one's birth are irrelevant; it is what you do with the gift of life that determines who you are. -- Mewtwo
+Amateurs rush in where professionals fear to tread
+Cowards die many times before their deaths; The valiant never taste of death but once. -- William Shakespeare, Julius Caesar
+Don’t argue with fools because they will drag you down to their level and then beat you with experience.
+Tradition is just how you excuse your hopelessly outdated ways when they are questioned and serve as an excuse to continue doing what you've been doing since time immemorial simply because you've been doing it since time immemorial. -- Harry Potter (Oh God Not Again)
 #
 #
 # Evil
@@ -36,6 +40,7 @@ Never attribute conditions to villainy that simply result from stupidity -- Robe
 If people are good only because they fear punishment, and hope for reward, then we are a sorry lot indeed. -- Albert Einstein
 if you want to do something evil put it inside something boring -- John Oliver
 Those who surrender freedom for security will not have, nor do they deserve, either one -- Benjamin Franklin
+Forget whatever atrocities adults participate in, whatever crimes they may commit, for they all pale in comparison to the wanton cruelty of youth. -- Hate
 #
 #
 # Education
@@ -44,11 +49,13 @@ The man who does not read good books has no advantage over the man who cannot re
 It is the mark of an educated mind to be able to entertain a thought without accepting it. -- Aristotle
 University is easy... It's like riding a bike. Except the bike is on fire, and you're on fire, and everything is on fire... and you're in hell.
 When Students cheat on exams it's because our School System values grades more than Students value learning. -- Neil deGrasse Tyson
+Education will be based on the illimitable freedom of the human mind. For we are not afraid to follow truth wherever it may lead, nor to tolerate any error so long as reason is left free to combat it -- Thomas Jefferson
 #
 #
 # Work & Motivation
 Once you eliminate the impossible, whatever remains, no matter how improbable, must be the truth. -- Sherlock Holmes
 Nothing is impossible, the word itself says "I'm possible!" -- Audrey Hepburn
+Impossible is just another way of saying you haven't tried hard enough yet
 When I am working on a problem I never think about beauty. I only think about how to solve the problem. But when I have finished, if the solution is not beautiful, I know it is wrong. -- Buckminister Fuller
 Be liberal in the input you accept, and conservative in what you output -- Jon Postel
 The difference between involvement and commitment is like an eggs-and-ham breakfast: the chicken was involved - the pig was committed
@@ -71,6 +78,7 @@ It is one of the blessings of old friends that you can afford to be stupid with 
 It's the friends you can call up at 4 a.m. that matter. -- Marlene Dietrich
 I would rather walk with a friend in the dark, than alone in the light. -- Helen Keller
 Don't walk behind me; I may not lead. Don't walk in front of me; I may not follow. Just walk beside me and be my friend. -- Albert Camus
+To all my friends that that think I've cut them off: We're adults & busy, no reason to be in constant contact with you to prove my friendship to you. Just know when/if you need me, I'm here.
 #
 #
 # Sanity
@@ -82,6 +90,9 @@ Why is it considered necessary to nail down the lid of a coffin?
 Insanity: doing the same thing over and over again and expecting different results. -- Albert Einstein
 Why would I be offended? I've seen your version of sanity, It bores me. -- Luna
 Though I did not know the place, I set out for the land of my dreams. Having arrived at the land of my dreams, I found I did not know the place. -- Kino
+I wear the chain I forged in life, I made it link by link, and yard by yard; I girded it on of my own free will, and of my own free will I wore it. -- Charles Dickens
+The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown. -- HP Lovecraft 
+Kings alter the laws of man as they see fit, Why should the laws of nature be any different -- The Wizard
 #
 #
 # Coding
@@ -97,7 +108,6 @@ They shall not pass [THE UNIT TESTS] -- Gandalf
 There are two ways of constructing software: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.
 Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -- Bill Gates
 Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
-When debugging, novices insert corrective code; experts remove defective code.” -- Richard Pattis
 Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. -- Rich Cook
 If builders build buildings the way programmers wrote programs, then the first woodpecker that came along would destroy civilization.
 I'd like to make the world a better place, but they won't give me the source code.
@@ -154,3 +164,7 @@ If no one comes from the future to stop you from doing it than how bad of a deci
 They say that in hard times, you'll never in your life forget the person who gave you a cup of water. -- Yumiko Sakaki
 Lying tears hurt others. Lying smiles hurt oneself -- C.C
 There is no such thing as objective information, Journalism is, after all, a human creation. -- Diethard
+Are you breaking that? ... "Yeah, it's mine" -- Roman Blotsky
++3 Girlfriend is totally unoptimized. You are better off with a +1 Keen Witty girlfriend and then appling Greater Magic Make-up to increase her enhancement bonus. -- Keld Denar
+When the world throws you squirrels, you better get used to dealing with the nuts -- Harry Dresden (Gabriel Blessing)
+"You can't prove anything, and even if you could, you can never stop phase three," Milo said. He liked the sound of that phase three. It implied that there had already been not one, but two successful phases in whatever it was that people thought he was up to. -- Milo
