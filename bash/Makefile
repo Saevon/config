@@ -157,8 +157,8 @@ python-extra:
 
 
 
-.PHONY: brew
 ifeq ($(UNAME),Darwin)
+.PHONY: brew
 brew: brew-install brew-helpers brew-cmd brew-coding brew-sys-monit brew-net brew-media
 
 .PHONY: brew-install

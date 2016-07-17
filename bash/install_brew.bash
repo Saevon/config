@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 which -s brew
-if [[ $? == 0 ]]; then
+if [[ $? == 1 ]]; then
     BREW_INSTALL="curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install"
 
     # Install Homebrew
