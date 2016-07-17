@@ -144,7 +144,7 @@ python-main:
 	@sudo ${COPY} "pydistutils.cfg" "/Library/Python/2.7/site-packages/"
 
 	@# Fixes the profile not being reloaded, and a python warning appearing
-	@$(bash -l sudo -H easy_install pip)
+	@sudo -H -i easy_install pip
 	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
 
 	@syspip install virtualenv
