@@ -32,7 +32,7 @@ if shopt -q restricted_shell ; then
 fi
 
 # Show a fortune cookie for the user
-/Library/Fortunes/fortune.sh || true
+fortune || true
 
 
 

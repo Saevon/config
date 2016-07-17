@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
+
 # if ask "Should I do this?"; then
 #    exec cmd
 # fi
-echo -n "$@" '[y/n] ' ; read ans
+echo -n "$@" '[y/n] '; read ans
 case "$ans" in
     y*|Y*) exit 0 ;;
     *) exit 1 ;;

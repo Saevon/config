@@ -10,7 +10,7 @@ export LC_ALL='en_CA.UTF-8'
 
 ################################
 # User specific lib/bin/scripts
-source .paths
+source ${HOME}/.paths
 
 ##########
 # Bin Path

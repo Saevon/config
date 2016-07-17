@@ -13,10 +13,7 @@ include ../variables.makefile
 
 .PHONY: all
 all: environment completion sys_bin usr_bin python bashup brew
-
-
-# link: .vim .vimrc .gvimrc .ackrc .gitconfig .screenrc .ctags .gitignore_global .bash_profile jump.bash git-completion.bash virtualenv_config.bash
-# 	$(foreach file, $^, ln -s $(CURDIR)/$(file) ~; )
+minimal: environment completion sys_bin-main python-main bashup brew-install brew-cmd brew-gnu brew-net
 
 
 .PHONY: environment
@@ -27,7 +24,7 @@ environment: ${USR_SCRIPT}
 	@${COPY} "${PWD}/editrc" "${HOME}/.editrc"
 
 	@${COPY} "${PWD}/profile" "${HOME}/.profile"
-	@${COPY} "${PWD}/profile" "${HOME}/.paths"
+	@${COPY} "${PWD}/paths" "${HOME}/.paths"
 	@${COPY} "${PWD}/bashrc" "${HOME}/.bashrc"
 	@${COPY} "${PWD}/bash_logout" "${HOME}/.bash_logout"
 	@${COPY} "${PWD}/bash_profile" "${HOME}/.bash_profile"
@@ -46,7 +43,7 @@ endif
 	@${COPY} "${PWD}/jump.bash" "${USR_SCRIPT}/jump.bash"
 	@${COPY} "${PWD}/pauser.bash" "${USR_SCRIPT}/pauser.bash"
 	@${COPY} "${PWD}/mac_switch_user.bash" "${USR_SCRIPT}/mac_switch_user.bash"
-	@cp -i ${PWD}/pauser_template.bash ${HOME}/.pauser.custom.bash || true
+	@CP=cp CPI="${CP} -i" ${COPY} "${PWD}/pauser_template.bash" "${HOME}/.pauser.custom.bash"
 
 
 ##########################
@@ -60,14 +57,18 @@ ${USR_SCRIPT}:
 # Completions
 
 # The directory of completions to copy over
-COMP_ADD_DIR=bash_completion.d
+COMP_ADD_DIR=${PWD}/bash_completion.d
+# The completions themselves
 COMPLETIONS=$(shell find ${COMP_ADD_DIR} -iname *.complete.bash -exec basename {} \;)
 
-.PHONY: completion
-completion: pre_completion $(addprefix ${COMP_DIR}/,${COMPLETIONS})
+.PHONY: FORCE
+FORCE:
 
-${COMP_DIR}/%.complete.bash: ./${COMP_ADD_DIR}/%.complete.bash
-	${COPY} $? $@ || true
+.PHONY: completion
+completion: pre_completion ${COMPLETIONS}
+
+%.complete.bash: FORCE
+	@${COPY} "${COMP_ADD_DIR}/$@" "${COMP_DIR}/$@"
 
 .PHONY: pre_completion
 pre_completion: ${COMP_DIR} ${HOME}/.bash_completion
@@ -85,38 +86,62 @@ ${HOME}/.bash_completion: ${PWD}/bash_completion.bash
 #######################
 
 .PHONY: sys_bin
-sys_bin:
+sys_bin: sys_bin-main sys_bin-extra
+
+
+.PHONY: sys_bin-main
+sys_bin-main: CP=cp
+sys_bin-main: CPI=cp -i
+sys_bin-main:
 	@echo "Copying system binaries to ${SYS_BIN}"
 	sudo -v
 
 ifeq ($(UNAME),Darwin)
-	@sudo cp -i ${PWD_BIN}/changeInput ${SYS_BIN}/ || true
+	@sudo ${COPY} "${PWD_BIN}/as" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/changeInput" "${SYS_BIN}/"
 endif
 
+	@sudo ${COPY} "${PWD_BIN}/ask" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/cputhrottle" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/sitedown" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/try" "${SYS_BIN}/"
 
-	# @sudo cp -i ${PWD_BIN}/ack ${SYS_BIN}/ || true
-	@sudo cp -i ${PWD_BIN}/album_art ${SYS_BIN}/ || true
-	@sudo cp -i ${PWD_BIN}/ask ${SYS_BIN}/ || true
-	@sudo cp -i ${PWD_BIN}/cputhrottle ${SYS_BIN}/ || true
-	@sudo cp -i ${PWD_BIN}/sitedown ${SYS_BIN}/ || true
-	@sudo cp -i ${PWD_BIN}/try ${SYS_BIN}/ || true
+
+.PHONY: sys_bin-extra
+sys_bin-extra: CP=cp
+sys_bin-extra: CPI=cp -i
+sys_bin-extra:
+	@sudo ${COPY} "${PWD_BIN}/album_art" "${SYS_BIN}/"
+
 
 .PHONY: usr_bin
 usr_bin:
 	@echo "Copying user binaries to ${USR_BIN}"
 
 ifeq ($(UNAME),Darwin)
-	@${COPY} "${PWD_BIN}/as" "${USR_BIN}/as"
 	@${COPY} "${PWD_BIN}/itunes.sh" "${USR_BIN}/itunes"
 endif
 
 
 .PHONY: python
-python:
+python: python-main python-extra
+
+.PHONY: python-main
+python-main: CP=cp
+python-main: CPI=cp -i
+python-main:
 	@echo "Python Setup"
 
 	@sudo easy_install pip
-	@sudo cp -i ${PWD}/syspip ${SYS_BIN}/ || true
+	@sudo ${COPY} ${PWD}/syspip ${SYS_BIN}/
+
+	@syspip install virtualenv
+	@syspip install virtualenvwrapper
+
+.PHONY: python-extra
+python-main: CP=cp
+python-main: CPI=cp -i
+python-extra:
 	@sudo ${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
 
 	@syspip install eyeD3
@@ -127,14 +152,18 @@ python:
 	# Audio library
 	@syspip install mutagen
 
+	# Networking
 	@syspip install bottle
-	@syspip install virtualenv
-	@syspip install virtualenvwrapper
 
 
 
 .PHONY: brew
-brew: brew-helpers brew-cmd brew-coding brew-sys-monit brew-net brew-media
+ifeq ($(UNAME),Darwin)
+brew: brew-install brew-helpers brew-cmd brew-coding brew-sys-monit brew-net brew-media
+
+.PHONY: brew-install
+brew-install:
+	@./install_brew.bash
 
 # Brew Helpers
 .PHONY: brew-helpers
@@ -148,6 +177,18 @@ brew-cmd:
 	@brew install ack
 	@brew install rename
 	@brew install watch
+	@brew install
+
+.PHONY: brew-gnu
+OPTS=--with-default-names
+brew-gnu:
+	@brew install coreutils ${OPTS}
+	# @brew install findutils ${OPTS}
+	@brew install gnu-which ${OPTS}
+	# @brew install gnu-sed ${OPTS}
+	# @brew install gawk ${OPTS}
+	# @brew install grep ${OPTS}
+
 
 # Common things used for coding (languages)
 .PHONY: brew-coding
@@ -191,6 +232,10 @@ brew-video:
 brew-image:
 	@brew install imagemagick
 
+else
+brew brew-%:
+	@:
+endif
 
 # 	brew tap homebrew/dupes
 
@@ -225,5 +270,7 @@ brew-image:
 
 .PHONY: bashup
 bashup:
-	@echo "Updating Bash"
-	@./bash_update.sh
+	@echo 'This will change system files'
+	@if [ "${FORCE}" == "true" ] || ./bin/ask 'Update Bash?' ; then\
+		./bash_update.sh; \
+	fi
