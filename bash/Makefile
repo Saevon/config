@@ -136,7 +136,8 @@ python-main:
 	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
 
 	@syspip install virtualenv
-	@syspip install virtualenvwrapper
+	@# Fixes El Capitan
+	@syspip install virtualenvwrapper --ignore-installed six
 
 .PHONY: python-extra
 python-main: CP=cp
