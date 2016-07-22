@@ -269,9 +269,11 @@ fi
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ip_local="ipconfig getifaddr en0"
 function ip_main() {
-    ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}'
+    return ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}'
 }
-alias ip_all="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+function ip_all() {
+    return ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'
+}
 
 
 
