@@ -1,21 +1,21 @@
 [user]
-	name = Serghei Filippov
-	email = blastowind@gmail.com
+    name = Serghei Filippov
+    email = blastowind@gmail.com
 [core]
-	editor = vim
-	precomposeunicode = true
-	excludesfile = ~/.gitignore
+    editor = vim
+    precomposeunicode = true
+    excludesfile = ~/.gitignore
 [bash]
-	showDirtyState = 1
+    showDirtyState = 1
 [merge]
-	tool = opendiff
+    tool = opendiff
 [push]
-	default = simple
+    default = simple
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 [alias]
-	amend = commit --amend
+    amend = commit --amend
     st = status
     ff = merge --ff-only
     pff = pull --ff-only
@@ -25,4 +25,4 @@
     push-to = !branch=`git rev-parse --abbrev-ref HEAD` && git push ${1} ${branch}:${2} && :
     del-branch = !git push ${1} :${2} && :
 [color]
-	ui = true
+    ui = true
