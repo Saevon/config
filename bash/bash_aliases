@@ -254,6 +254,7 @@ function shared_reset() {
 # (Pausing processes)
 ####################
 source ${USR_SCRIPT}/pauser.bash
+source ${USR_SCRIPT}/pauser.custom.bash
 source ${USR_SCRIPT}/mac_switch_user.bash
 
 alias mac_switch_user="switch_user"

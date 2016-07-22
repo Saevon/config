@@ -43,7 +43,7 @@ endif
 	@${COPY} "${PWD}/pauser.bash" "${USR_SCRIPT}/pauser.bash"
 	@${COPY} "${PWD}/alias_completion.bash" "${USR_SCRIPT}/alias_completion.bash"
 	@${COPY} "${PWD}/mac_switch_user.bash" "${USR_SCRIPT}/mac_switch_user.bash"
-	@CP=cp CPI="${CP} -i" ${COPY} "${PWD}/pauser_template.bash" "${HOME}/.pauser.custom.bash"
+	@CP=cp CPI="${CP} -i" ${COPY} "${PWD}/pauser_template.bash" "${USR_SCRIPT}/pauser.custom.bash"
 
 
 ##########################

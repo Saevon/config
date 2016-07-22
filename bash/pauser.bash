@@ -65,5 +65,3 @@ function status() {
 #     done
 # }
 
-source ${HOME}/.pauser.custom.bash
-
