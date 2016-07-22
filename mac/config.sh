@@ -462,7 +462,7 @@ defaults write com.google.Chrome ExtensionInstallSources -array "https://*.githu
 
 
 echo "Now change the following:"
-echo "Terminal: enable 'Option as meta key'""
+echo "Terminal: enable 'Option as meta key'"
 
 
 
