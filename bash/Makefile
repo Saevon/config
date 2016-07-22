@@ -196,10 +196,11 @@ OPTS=--with-default-names
 brew-gnu:
 	@brew install coreutils ${OPTS}
 	# @brew install findutils ${OPTS}
-	@brew install gnu-which ${OPTS}
 	# @brew install gnu-sed ${OPTS}
 	@brew install gawk ${OPTS}
 	# @brew install grep ${OPTS}
+
+	@brew install gnu-which
 
 
 # Common things used for coding (languages)
