@@ -124,7 +124,7 @@ alias serve="python $PROJECT_HOME/file-server/file_server.py --open "
 ###############
 
 # Search history for something
-alias hs="history | grep '$@'"
+alias hs="history | grep -i '$@'"
 
 
 ##############
