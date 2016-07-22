@@ -1,7 +1,7 @@
 # -*- Makefile for copying with links -*-
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
-CP ?= ln
+CP ?= ln -s
 CPI ?= ${CP} -i
 
 export CP
