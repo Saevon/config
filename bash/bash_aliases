@@ -31,10 +31,6 @@ function imgur() {
     curl -F "image=@$1" -F "key=ANONYMOUS_IMGUR_API_KEY" https://api.imgur.com/2/upload | egrep -o "<original>.+?</original>" | egrep -o "http://imgur\.com/[^<]+" | sed "s/imgur.com/i.imgur.com/" | tee >(pbcopy);
 }
 
-function bell() {
-    printf '\a';
-}
-
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
@@ -116,7 +112,7 @@ function disksize() {
 ###############
 # Servers
 ###############
-alias serve="python $PROJECT_HOME/file-server/file_server.py --open "
+alias serve="file_server.py --open"
 
 
 ###############
@@ -206,7 +202,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Volume Editing
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias mac_volume="osascript -e 'set volume output volume $1'"
-alias mac_mute="osascript -e 'set volume output muted true'"
+function mac_mute() {
+   osascript -e 'set volume output muted true'
+}
 alias mac_audio_info="osascript -e 'get volume settings'"
 alias mac_is_muted="osascript -e 'output muted of (get volume settings)'"
 
@@ -216,6 +214,10 @@ if [ "${UNAME}" == "darwin" ]; then
     alias audio_info="mac_audio_info"
     alias is_muted="mac_is_muted"
 fi
+
+function bell() {
+    printf '\a';
+}
 
 
 ###############
