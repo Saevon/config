@@ -26,7 +26,7 @@ if [ "$(uname)" == "Darwin" ]; then
 	sudo chown root:wheel ${DAEMONS}/${PLIST}
 
 	# Make sure to add this right now so we don't require a restart
-	sudo launchctl unload -w ${DAEMONS}/${PLIST} || true
+	sudo launchctl unload -w ${DAEMONS}/${PLIST} 2&>1 > /dev/null || true
 	sudo launchctl load -w ${DAEMONS}/${PLIST}
 fi
 
