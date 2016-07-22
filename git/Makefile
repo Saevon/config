@@ -7,8 +7,8 @@ include ../variables.makefile
 all: ${USR_SCRIPT}
 	# TODO: add git prompt
 	#${COPY} "${PWD}/git-prompt.sh" "${USR_SCRIPT}/git-prompt.sh"
-	${COPY} "${PWD}/gitconfig" "${HOME}/.gitconfig"
-	${COPY} "${PWD}/gitignore" "${HOME}/.gitignore"
+	@${COPY} "${PWD}/gitconfig" "${HOME}/.gitconfig"
+	@${COPY} "${PWD}/gitignore" "${HOME}/.gitignore"
 
 	@echo ""
 	@echo "Git Config Setup complete, If you didn't run the bash setup"
