@@ -1,5 +1,8 @@
 # !/bin/sh
 
+UNAME=$(uname | tr '[:upper:]' '[:lower:]')
+UNAME_FULL=$(uname -v | tr '[:upper:]' '[:lower:]')
+
 ##############
 # shortcuts
 ##############
@@ -129,8 +132,27 @@ alias hs="history | grep '$@'"
 ##############
 alias mac_restart_audio="sudo pgrep coreaudiod | xargs sudo kill"
 
+if [ "${UNAME}" == "darwin" ]; then
+    alias restart_audio="mac_restart_audio"
+fi
+
 # Flush Directory Service cache (DNS)
-alias mac_dns_flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+case "${UNAME_FULL}" in
+*"darwin"*"version 14"*)
+    alias mac_dns_flush="sudo discoveryutil mdnsflushcache || sudo killall -HUP mDNSResponder"
+    ;;
+*"darwin"*"version 1[1235]"*)
+    alias mac_dns_flush="sudo killall -HUP mDNSResponder"
+    ;;
+*"darwin"*"version 10"*)
+    alias mac_dns_flush="sudo dscacheutil -flushcache"
+    ;;
+esac
+
+
+if [ "${UNAME}" == "darwin" ]; then
+    alias dns_flush="mac_dns_flush"
+fi
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias mac_lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -157,8 +179,13 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 
 alias pbclean="pbpaste | pbcopy"
-alias quicklook="qlmanage -p 2>/dev/null"
+alias mac_quicklook="qlmanage -p 2>/dev/null"
+
+if [ "${UNAME}" == "darwin" ]; then
+    alias quicklook="mac_quiclook"
+fi
 alias ql="quicklook"
+
 
 alias notify='notify-send'
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -178,12 +205,17 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Volume Editing
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias mac_volume="volume"
-alias volume="osascript -e 'set volume output volume $1'"
-alias mac_mute="mute"
-alias mute="osascript -e 'set volume output muted true'"
+alias mac_volume="osascript -e 'set volume output volume $1'"
+alias mac_mute="osascript -e 'set volume output muted true'"
 alias mac_audio_info="osascript -e 'get volume settings'"
-alias is_muted="osascript -e 'output muted of (get volume settings)'"
+alias mac_is_muted="osascript -e 'output muted of (get volume settings)'"
+
+if [ "${UNAME}" == "darwin" ]; then
+    alias mute="mac_mute"
+    alias volume="mac_volume"
+    alias audio_info="mac_audio_info"
+    alias is_muted="mac_is_muted"
+fi
 
 
 ###############
@@ -224,7 +256,10 @@ source ${USR_SCRIPT}/mac_switch_user.bash
 
 alias mac_switch_user="switch_user"
 alias mac_logout="switch_out"
-alias afk="switch_out"
+
+if [ "${UNAME}" == "darwin" ]; then
+    alias afk="switch_out"
+fi
 
 ########################
 # IPS
