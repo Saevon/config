@@ -2,7 +2,7 @@
 
 MAIN="/Library/Fortunes"
 DAEMONS="/Library/LaunchDaemons"
-BIN="/usr/bin/fortune"
+BIN="/usr/local/bin/fortune"
 
 MAIN_SH="fortune.sh"
 DAEMON_SH="login_fortune.sh"
@@ -16,7 +16,6 @@ if [ "$(uname)" == "Darwin" ]; then
 
 	# Copy over the fortunes document
 	sudo cp ${PWD}/${TXT} ${MAIN}/
-    ln -s ${PWD}/${TXT} ${HOME}/.fortunes
 
 	# Now we setup the login message daemon executable
 	sudo cp ${PWD}/${DAEMON_SH} ${MAIN}/

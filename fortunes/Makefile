@@ -4,11 +4,15 @@
 include ../variables.makefile
 
 .PHONY: all
-all: completion
-	sudo bash -c "source ${PWD}/setup.sh"
+all: docs completion
+	@sudo bash -c "source ${PWD}/setup.sh"
 
 	@echo ""
 	@echo "Fortunes Setup Complete"
+
+docs:
+	@${COPY} fortunes.txt ${HOME}/.fortunes
+	@sudo cp fortunes.txt /Library/Fortunes/
 
 
 include ../completion.makefile
