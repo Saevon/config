@@ -12,7 +12,6 @@ help:
 	@echo ""
 	@echo "Config Files:"
 	@echo "  bash"
-	@echo "  django"
 	@echo "  file-server"
 	@echo "  fortunes"
 	@echo "  git"
@@ -23,7 +22,7 @@ help:
 
 # A list of all valid config file types, each one should correspond to a folder
 # here, or a custom make command in this file
-VALID = bash django git vim mac fortunes ssh file-server
+VALID = bash git vim mac fortunes ssh file-server
 
 .PHONY: all ${VALID}
 all: ${VALID}

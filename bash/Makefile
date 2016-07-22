@@ -163,7 +163,7 @@ python-extra:
 	@syspip install pillow
 
 	# Audio library
-	@syspip install mutagen
+	# @syspip install mutagen
 
 	# Networking
 	@syspip install bottle
