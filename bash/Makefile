@@ -197,7 +197,7 @@ brew-gnu:
 	# @brew install findutils ${OPTS}
 	@brew install gnu-which ${OPTS}
 	# @brew install gnu-sed ${OPTS}
-	# @brew install gawk ${OPTS}
+	@brew install gawk ${OPTS}
 	# @brew install grep ${OPTS}
 
 
