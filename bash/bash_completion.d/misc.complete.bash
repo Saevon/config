@@ -35,7 +35,7 @@ complete -f -o default -X '!*.+(zip|ZIP|z|Z|gz|GZ|bz2|BZ2)' extract
 
 
 _killall() {
-    local cur prev
+    local cur
     COMPREPLY=()
     cur=${COMP_WORDS[COMP_CWORD]}
 
