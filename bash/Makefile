@@ -67,6 +67,13 @@ FORCE:
 .PHONY: completion
 completion: pre_completion ${COMPLETIONS}
 
+.PHONY: reset-completion
+reset-completion: $(addprefix REMOVE--,${COMPLETIONS})
+	@rmdir ${COMP_DIR} --ignore-fail-on-non-empty
+
+REMOVE--%.complete.bash: FORCE
+	@rm -i ${COMP_DIR}/$(@:REMOVE--%=%) || true
+
 %.complete.bash: FORCE
 	@${COPY} "${COMP_ADD_DIR}/$@" "${COMP_DIR}/$@"
 
@@ -290,3 +297,33 @@ bashup: brew-install
 	@if [ "${FORCE}" == "true" ] || ./bin/ask 'Update Bash?' ; then\
 		./bash_update.sh; \
 	fi
+
+# Resets the files that get linked for relinking
+.PHONY: reset
+reset: reset-environment reset-completion
+
+.PHONY: reset-environment
+reset-environment:
+	@rm -i ${HOME}/.inputrc || true
+	@rm -i ${HOME}/.editrc || true
+
+	@rm -i ${HOME}/.profile || true
+	@rm -i ${HOME}/.paths || true
+	@rm -i ${HOME}/.bashrc || true
+	@rm -i ${HOME}/.bash_logout || true
+	@rm -i ${HOME}/.bash_profile || true
+	@rm -i ${HOME}/.bash_helpers || true
+	@rm -i ${HOME}/.bash_aliases || true
+
+	@rm -i ${USR_SCRIPT}/jump.bash || true
+	@rm -i ${USR_SCRIPT}/pauser.bash || true
+	@rm -i ${USR_SCRIPT}/alias_completion.bash || true
+	@rm -i ${USR_SCRIPT}/mac_switch_user.bash || true
+
+	@rm -i ${USR_SCRIPT}/python_startup.py || true
+
+
+
+
+
+

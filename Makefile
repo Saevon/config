@@ -24,13 +24,28 @@ help:
 # here, or a custom make command in this file
 VALID = bash git vim mac fortunes ssh file-server
 
+# A List of all valid commands that undo part/all of what they do
+# VALID_RESET=$(addprefix reset-,${VALID})
+VALID_RESET = reset-bash reset-git
+
 .PHONY: all ${VALID}
 all: ${VALID}
+
+.PHONY: reset ${VALID_RESET}
+reset: ${VALID_RESET}
+	echo ${VALID_RESET}
+
 
 # Wrapper around any config type creation, moves to the corresponding folder
 # and runs the makefile there
 ${VALID}:
 	@([[ "${VALID}" =~ $@ ]] \
 		&& ((cd $@ && make HOME=${HOME}) || echo "Error while creating config type '$@'") \
+		|| echo "Invalid config type: '$@'" \
+	)
+
+${VALID_RESET}:
+	@([[ "${VALID_RESET}" =~ $@ ]] \
+		&& ((cd $(@:reset-%=%) && make reset HOME=${HOME}) || echo "Error while resetting config type '$@'") \
 		|| echo "Invalid config type: '$@'" \
 	)
