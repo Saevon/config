@@ -13,7 +13,7 @@ include ../variables.makefile
 
 .PHONY: all
 all: environment completion sys_bin usr_bin brew python bashup
-minimal: environment completion
+minimal: environment python-env completion
 
 .PHONY: environment
 environment: ${USR_SCRIPT}
@@ -124,7 +124,7 @@ endif
 
 
 .PHONY: python
-python: python-main python-extra
+python: python-env python-main python-extra
 
 .PHONY: python-main
 python-main: CP=cp
@@ -151,12 +151,15 @@ python-main:
 	@syspip install virtualenv
 	@syspip install virtualenvwrapper --ignore-installed six
 
+.PHONY: python-env
+python-env:
+	@sudo ${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
+
+
 .PHONY: python-extra
 python-extra: CP=cp
 python-extra: CPI=cp -i
 python-extra:
-	@sudo ${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
-
 	@syspip install eyeD3
 
 	# Imaging Library (PIL fork)
