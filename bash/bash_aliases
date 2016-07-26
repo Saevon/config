@@ -120,7 +120,9 @@ alias serve="file_server.py --open"
 ###############
 
 # Search history for something
-alias hs="history | grep -i '$@'"
+function hs {
+    history | grep -i "$*"
+}
 
 
 ##############
