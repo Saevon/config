@@ -8,7 +8,8 @@ function pause_process() {
         return;
     fi
 
-    echo "  pausing: " ${PID}
+    echo -n "  pausing: "
+    ps -c -o pid=,command= -p ${PID} |  awk '{if ($2 == "bash") { system("ps -o pid=,command= -p " $1) } else { print $0 } }'
     kill -STOP ${PID};
 }
 
@@ -20,7 +21,8 @@ function resume_process() {
         return;
     fi
 
-    echo "  resuming: " ${PID}
+    echo -n "  resuming: "
+    ps -c -o pid=,command= -p ${PID} |  awk '{if ($2 == "bash") { system("ps -o pid=,command= -p " $1) } else { print $0 } }'
     kill -CONT ${PID};
 }
 
