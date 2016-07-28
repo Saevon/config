@@ -14,7 +14,7 @@ function code() {
 
 alias perm='sudo chmod -R 000 *; sudo chmod -R u=rwX, g=rwX *'
 alias majik='cl ~/Projects/majik'
-alias add_cmd='vim /Users/Saevon/Projects/Recipe/cmd.bash'
+alias add_cmd='${EDITOR} /Users/Saevon/Projects/Recipe/cmd.bash'
 
 
 ################
