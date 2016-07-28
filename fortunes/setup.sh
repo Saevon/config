@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MAIN="/Library/Fortunes"
 DAEMONS="/Library/LaunchDaemons"

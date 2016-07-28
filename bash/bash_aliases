@@ -1,4 +1,4 @@
-# !/bin/sh
+#! /usr/bin/env bash
 
 UNAME=$(uname | tr '[:upper:]' '[:lower:]')
 UNAME_FULL=$(uname -v | tr '[:upper:]' '[:lower:]')
