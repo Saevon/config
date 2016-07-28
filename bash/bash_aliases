@@ -38,32 +38,6 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-function update_all() {
-    # OSX
-    sudo softwareupdate -i -a
-
-    # Brews
-    brew update
-    brew upgrade --all
-    brew cleanup
-
-    # Node
-    npm install npm -g
-    npm update -g
-
-    # Ruby
-    sudo gem update --system
-    sudo gem update
-
-    # Python
-    syspip install --upgrade pip
-    for pkg in $( syspip list --outdated | cut -d' ' -f 1 ); do
-        syspip install -U echo "$pkg"
-    done
-}
-
-
 function webm_convert {
     find . -name "*.webm" -exec sh -c 'ffmpeg -i "$0" "${0%.webm}.mp4" -c:v libx264 -c:a aac -strict experimental -b:a 192k -b:v 1M && rm -i "$0"' {} \;
 }
@@ -106,6 +80,69 @@ function disksize() {
     else
         du $arg .[^.]* ./*;
     fi;
+}
+
+#############################
+# SysAdmin
+################
+function orphans() {
+    local FORMAT="-o user,pid,ppid,%cpu,%mem,vsz,rss,tt,stat,lstart,time,command"
+    local IGNORE=""
+    IGNORE+="("
+    IGNORE+="(/Applications/.*\.app)"
+    IGNORE+="|(/System/Library/.*\.app)"
+    IGNORE+="|(/System/Library/CoreServices/.*)"
+    IGNORE+="|(/System/Library/(Private)?Frameworks/.*\.framework)"
+    IGNORE+="|(/System/Library/(Private)?Frameworks/KerberosHelper)"
+    IGNORE+="|(/System/Library/Services/.*\.service)"
+    IGNORE+="|(System Events.app)"
+    IGNORE+=")"
+
+    ps ${FORMAT} -A | awk 'BEGIN {linenum=1}; { if (linenum == 1 || ($3 == 1 && $1 != "root")) {print $0}; linenum++}' | grep -v -P -e"${IGNORE}"
+}
+function zombies() {
+    local FORMAT="-o user,pid,ppid,%cpu,%mem,vsz,rss,tt,stat,lstart,time,command"
+
+    ps -A ${FORMAT} | awk 'BEGIN {linenum=1}; { if (linenum == 1 || (substr($9,0,1) == "Z")) { print $0 }; linenum++}'
+}
+
+function ports() {
+    sudo lsof -PiTCP -sTCP:LISTEN
+}
+
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+function update_all() {
+    # OSX
+    if [ "$UNAME" == "Darwin" ]; then
+        sudo softwareupdate -i -a
+    fi
+
+    # Homebrew
+    if [ $(which -s brew && echo $?) == 0 ]; then
+        brew update
+        brew upgrade --all
+        brew cleanup
+    fi
+
+    # Node
+    if [ $(which -s npm && echo $?) == 0 ]; then
+        npm install npm -g
+        npm update -g
+    fi
+
+    # Ruby
+    if [ $(which -s gem && echo $?) == 0 ]; then
+        sudo gem update --system
+        sudo gem update
+    fi
+
+    # Python
+    if [ $(which -s syspip && echo $?) == 0 ]; then
+        syspip install --upgrade pip
+        for pkg in $( syspip list --outdated | cut -d' ' -f 1 ); do
+            syspip install -U echo "$pkg"
+        done
+    fi
 }
 
 
