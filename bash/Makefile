@@ -56,36 +56,20 @@ ${USR_SCRIPT}:
 ########################
 # Completions
 
+
 # The directory of completions to copy over
 COMP_ADD_DIR=${PWD}/bash_completion.d
 # The completions themselves
 COMPLETIONS=$(shell find ${COMP_ADD_DIR} -iname *.complete.bash -exec basename {} \;)
+PRE_COMP_DEPS=${HOME}/.bash_completion
 
-.PHONY: FORCE
-FORCE:
+include ../completion.makefile
 
-.PHONY: completion
-completion: pre_completion ${COMPLETIONS}
-
-.PHONY: reset-completion
-reset-completion: $(addprefix REMOVE--,${COMPLETIONS})
-	@rmdir ${COMP_DIR} --ignore-fail-on-non-empty
-
-REMOVE--%.complete.bash: FORCE
-	@rm -i ${COMP_DIR}/$(@:REMOVE--%=%) || true
-
-%.complete.bash: FORCE
-	@${COPY} "${COMP_ADD_DIR}/$@" "${COMP_DIR}/$@"
-
-.PHONY: pre_completion
-pre_completion: ${COMP_DIR} ${HOME}/.bash_completion
-
-${COMP_DIR}:
-	@mkdir -p ${COMP_DIR}
+# %.complete.bash: FORCE
+# 	@${COPY} "${COMP_ADD_DIR}/$@" "${COMP_DIR}/$@"
 
 ${HOME}/.bash_completion: ${PWD}/bash_completion.bash
 	@${COPY} $? $@ || true
-
 
 
 

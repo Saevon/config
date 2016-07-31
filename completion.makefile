@@ -12,8 +12,29 @@ TOP := $(dir $(lastword $(MAKEFILE_LIST)))
 .PHONY: FORCE
 FORCE:
 
+################
+# Cleanup
+
+.PHONY: reset-completion
+reset-completion: ${PRE_COMP_RESET_DEP} $(addprefix REMOVE--,${COMPLETIONS}) ${POST_COMP_RESET_DEP}
+	@# Remove the completion directory if its empty too
+	@if [ $(find ${COMP_DIR} -maxdepth 0 -type d -empty) ]; then \
+		rmdir ${COMP_DIR}; \
+		rm ${HOME}/.bash_completion; \
+	fi
+
+REMOVE--%.complete.bash: FORCE
+	@RM_FILE=${COMP_DIR}/$(@:REMOVE--%=%); \
+	if [ -f $${RM_FILE} ]; then \
+		rm -i $${RM_FILE} || true; \
+	fi
+
+
+
+################
+# Setup
 .PHONY: completion
-completion: ${COMP_DIR} ${COMPLETIONS}
+completion: ${PRE_COMP_DEP} ${COMP_DIR} ${COMPLETIONS} ${POST_COMP_DEP}
 
 %.complete.bash: FORCE
 	@${TOP}/cpi.bash "${PWD}/$@" "${COMP_DIR}/$@"

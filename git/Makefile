@@ -16,7 +16,7 @@ all: ${USR_SCRIPT} completion
 	@echo "so watch out!"
 
 .PHONY: reset
-reset:
+reset: reset-completion
 	@rm -i ${HOME}/.gitconfig || true
 	@rm -i ${HOME}/.gitignore || true
 
