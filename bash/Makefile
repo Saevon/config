@@ -160,7 +160,7 @@ python-main:
 
 .PHONY: python-env
 python-env:
-	@sudo ${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
+	@${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
 
 
 .PHONY: python-extra
