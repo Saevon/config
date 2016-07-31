@@ -3,6 +3,11 @@
 # This file is loaded when running an interactive shell (non-login)
 #
 
+# Load the Profile
+if [ -f $HOME/.profile ]; then
+    source $HOME/.profile
+fi
+
 
 # Adds Colors and Times for PS1
 if [ -f $HOME/.bash_helpers ]; then
