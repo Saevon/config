@@ -22,6 +22,7 @@
     # merging
     mergecommit = merge --no-ff
     ff = merge --ff-only
+    rebase-up = !git rebase $(git upstream) $@
 
     # Fetching
     pff = pull --ff-only
