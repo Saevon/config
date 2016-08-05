@@ -20,6 +20,7 @@ help:
 	@echo "itunes:      installs the itunes scripts"
 	@echo "server:      changes the servername"
 	@echo "server-bin:  installs the servername binary"
+	@echo "login-screen changes the login screen"
 	@echo "hd:          renames the main drive"
 	@echo "all:         updates everyhing"
 
@@ -54,6 +55,13 @@ hd:
 server-bin:
 	@sudo cp -i ${PWD}/servername.sh /usr/local/bin/servername
 
+
+
+
+.PHONY: login-screen
+login-screen:
+	@sudo ./login_back.sh Backgrounds/Login-Background.jpg
+	@echo "If using a newer mac: this is overwritten if you change your desktop... so run this again"
 
 # apps:
 # 	brew cask install gimp

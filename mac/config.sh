@@ -97,9 +97,6 @@ systemsetup -setrestartfreeze on
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 
-# Set the Login Background
-sudo ./login_back.sh Backgrounds/Login-Background.jpg
-
 
 ##################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input

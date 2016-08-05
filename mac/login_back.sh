@@ -20,4 +20,7 @@ RES=/System/Library/PrivateFrameworks/LoginUIKit.framework/Versions/A/Frameworks
 /bin/cp $OUT $RES/apple_s1.png
 /bin/cp $OUT $RES/apple_s1@2x.png
 
+# Cover the Newer macs
+/usr/local/bin/convert $OUT /Library/Caches/com.apple.desktop.admin.png
+
 /bin/rm $OUT
