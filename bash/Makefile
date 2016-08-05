@@ -57,10 +57,7 @@ ${USR_SCRIPT}:
 # Completions
 
 
-# The directory of completions to copy over
-COMP_ADD_DIR=${PWD}/bash_completion.d
-# The completions themselves
-COMPLETIONS=$(shell find ${COMP_ADD_DIR} -iname *.complete.bash -exec basename {} \;)
+# Extra work
 PRE_COMP_DEPS=${HOME}/.bash_completion
 
 include ../completion.makefile
