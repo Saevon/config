@@ -151,6 +151,7 @@ python-env:
 python-extra: CP=cp
 python-extra: CPI=cp -i
 python-extra:
+	@sysip install request
 	@syspip install eyeD3
 
 	# Imaging Library (PIL fork)
