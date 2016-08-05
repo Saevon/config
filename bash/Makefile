@@ -206,6 +206,7 @@ brew-coding:
 .PHONY: brew-sys-monit
 brew-sys-monit:
 	@brew install stress
+	@brew install blueutil
 
 # Network
 .PHONY: brew-net

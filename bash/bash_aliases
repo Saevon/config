@@ -172,6 +172,33 @@ if [ "${UNAME}" == "darwin" ]; then
     alias restart_audio="mac_restart_audio"
 fi
 
+
+if which -s blueutil; then
+    function mac_restart_bluetooth() {
+        blueutil power 0
+        blueutil power 1
+    }
+else
+    case "${UNAME_FULL}" in
+    *"darwin"*"version 15"*)
+        function mac_restart_bluetooth() {
+            echo 'Not Implemented'
+        }
+        ;;
+    *"darwin"*"version 1"[1234]*)
+        function mac_restart_bluetooth() {
+            sudo kextunload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+            sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+        }
+        ;;
+    esac
+fi
+
+if [ "${UNAME}" == "darwin" ]; then
+    alias restart_bluetooth="mac_restart_bluetooth"
+fi
+
+
 # Flush Directory Service cache (DNS)
 case "${UNAME_FULL}" in
 *"darwin"*"version 14"*)
