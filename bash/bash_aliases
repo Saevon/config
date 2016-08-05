@@ -204,7 +204,7 @@ case "${UNAME_FULL}" in
 *"darwin"*"version 14"*)
     alias mac_dns_flush="sudo discoveryutil mdnsflushcache || sudo killall -HUP mDNSResponder"
     ;;
-*"darwin"*"version 1[1235]"*)
+*"darwin"*"version 1"[1235]*)
     alias mac_dns_flush="sudo killall -HUP mDNSResponder"
     ;;
 *"darwin"*"version 10"*)
