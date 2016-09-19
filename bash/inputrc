@@ -29,36 +29,43 @@ set editing-mode vi
 $if mode=vi
     # normal mode
     set keymap vi-command
-    "j": previous-history
-    "k": next-history
 
+    "j": noop
+    "k": noop
     "h": backward-char
     "l": forward-char
 
     "G": end-of-history
 
+    "\C-p": previous-history
+    "\C-n": next-history
+
     # "<ctrl-r>": reverse-search-history
-    Control-a: beginning-of-line
-    Control-e: end-of-line
-    Meta-b: forward-word
-    Meta-f: backward-word
+    "\C-a": beginning-of-line
+    # ERROR?
+    "\C-e": end-of-line
+    "\ef": forward-word
+    "\eb": backward-word
 
     Control-l: clear-screen
     "\C-x\C-e": edit-and-execute-command
     "\C-x\C-v": display-shell-version
-    # "\M-\C-e": shell-expand-line
+    "\e\C-e": shell-expand-line
 
-    "\M-x\C-v": display-shell-version
+    "\C-o": operate-and-get-next
 
     # insert mode
     set keymap vi-insert
     "jj": vi-movement-mode
 
     # "<ctrl-r>": reverse-search-history
-    Control-a: beginning-of-line
-    Control-e: end-of-line # ERROR?
-    Meta-b: forward-word
-    Meta-f: backward-word
+    "\C-a": beginning-of-line
+    "\C-e": end-of-line
+    "\ef": forward-word
+    "\eb": backward-word
+
+    "\C-p": previous-history
+    "\C-n": next-history
 
     Control-l: clear-screen
     "\C-x\C-e": edit-and-execute-command
@@ -66,7 +73,7 @@ $if mode=vi
 
     "\C-x\C-f": complete-filename
     "\C-x\C-i": complete-command
-    "\M\C-e": shell-expand-line
+    "\e\C-e": shell-expand-line
 $endif
 
 
