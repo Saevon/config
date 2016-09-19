@@ -121,9 +121,6 @@ cmap w!! %!sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Use tab to find matching braces
 " nnoremap <TAB> %
-" Searching shortcut
-nnoremap / /\v
-
 " Ctrl-j Ctrl-k page-up page-down
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-b>
@@ -134,8 +131,6 @@ nnoremap <C-k> <C-b>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Use tab to find matching braces
 " vnoremap <TAB> %
-" Searching shortcut
-vnoremap / /\v
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
