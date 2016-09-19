@@ -40,6 +40,7 @@ endif
 	@mkdir -p ${PROJECT_HOME}
 
 	@${COPY} "${PWD}/jump.bash" "${USR_SCRIPT}/jump.bash"
+	@${COPY} "${PWD}/copy.bash" "${USR_SCRIPT}/copy.bash"
 	@${COPY} "${PWD}/pauser.bash" "${USR_SCRIPT}/pauser.bash"
 	@${COPY} "${PWD}/alias_completion.bash" "${USR_SCRIPT}/alias_completion.bash"
 	@${COPY} "${PWD}/mac_switch_user.bash" "${USR_SCRIPT}/mac_switch_user.bash"

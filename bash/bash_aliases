@@ -240,8 +240,15 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 
 
+# Clipboard
+if [[ "$UNAME" != "darwin" ]]; then
+    alias pbcopy="xclip -selection c"
+    alias pbpaste="xclip -selection clipboard -o"
+fi
+source ${USR_SCRIPT}/copy.bash
+alias pbclean="pbpaste | copy"
 
-alias pbclean="pbpaste | pbcopy"
+
 alias mac_quicklook="qlmanage -p 2>/dev/null"
 
 if [ "${UNAME}" == "darwin" ]; then
