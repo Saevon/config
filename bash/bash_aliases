@@ -23,8 +23,9 @@ alias add_cmd='${EDITOR} /Users/Saevon/Projects/Recipe/cmd.bash'
 
 # set strongest compression level as ‘default’ for gzip
 alias gzip="gzip -9n"
+
 # ping 5 times ‘by default’
-alias ping="ping -c 5"
+# alias ping="ping -c 5"
 
 # Upload image to Imgur and return its URL. Get API key at http://imgur.com/register/api_anon
 function imgur() {
