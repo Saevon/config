@@ -123,7 +123,8 @@ cmap w!! %!sudo tee % > /dev/null
 " nnoremap <TAB> %
 " Searching shortcut
 nnoremap / /\v
-" Ctrl-j Ctrl- pag-up page-down
+
+" Ctrl-j Ctrl-k page-up page-down
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-b>
 

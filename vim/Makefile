@@ -2,7 +2,7 @@
 # Copyright 2013 Saevon <saevon.kyomae@gmail.com>
 
 VIM_DIR=${HOME}/.vim/
-CP=ln
+CP=ln -s
 CPI=${CP} -i
 
 .PHONY: all
