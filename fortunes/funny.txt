@@ -1,0 +1,32 @@
+There's no place like 127.0.0.1
+It compiles, Let's ship it.
+Program, noun: A magic spell cast upon a computer to enable it to turn input into error messages.
+Keyboard not found. Press F1 to continue...
+Always blame the cache.
+To understant recursion, you must first understand recursion.
+Dont worry thats not a bug its a feature,
+Programming is like sex. One mistake and you have to support it for the rest of your life. -- Michael Sinz
+They shall not not pass [THE UNIT TESTS] -- Gandalf
+May the -f be with you.
+You want the source code, YOU CANT HANDLE THE SOURCE CODE!!!
+Ill make you an offer you cant refuse 'rm -rf /'
+Try it 'open /Application/*' you know you want to
+This is not the terminal you are looking for.
+Hello, this is ttys032, you killed my father, fear my wrath.
+When all else fails, RAGE QUIT.
+echo "Wake up, Neo." > /dev/tty1
+Take the blue pill
+Take the red pill
+
+# Coding
+ミ田 Thank You for supporting Microsoft(r) by purchasing our latest OSX Mavericks ミ田 
+/private/tmp/macWrapper_1.9/main.h:9:10: fatal error: 'C://Windows/System32/kernel.dll' file not found
+Updating to ミ田 
+OSError: [Errno 13] Permission denied: '/bin/bash/'
+=== This is the Honor System Virus === If you are running a Macintosh, OS/2, Unix, or Linux computer, please randomly delete several files from your hard disk drive and forward this message to everyone you know.
+
+
+
+
+
+
