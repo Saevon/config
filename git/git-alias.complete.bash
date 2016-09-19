@@ -8,7 +8,6 @@ _git_branches_all() {
 	git branch -a | gawk 'match($0, / *[*]? *(remotes\/([^/]+)\/)?([^ ]+)/, cap) { if (index(cap[3], "HEAD") == 0) { print cap[3] }}' | sort | uniq
 }
 
-
 _git_push_to() {
 	local cur prev
 	COMPREPLY=()
@@ -37,3 +36,16 @@ _git_del_branch() {
 	fi
 }
 
+_git_fetchff() {
+	local cur prev
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+	if [ ${COMP_CWORD} == 2 ]; then
+		_git_ls_remote
+	elif [ ${COMP_CWORD} == 3 ]; then
+		local branches=$(_git_branches_all $1)
+		COMPREPLY=( $(compgen -W "$branches" -- ${cur}) )
+	fi
+}

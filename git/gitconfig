@@ -22,6 +22,7 @@
     # merging
     mergecommit = merge --no-ff
     ff = merge --ff-only
+    fetchff = !git fetch $1 $2:$2 -- ${@:3} && :
     rebase-up = !git rebase $(git upstream) $@
 
     # Fetching
@@ -29,12 +30,13 @@
     fetchfull = fetch --all --prune
 
 
+
     tree = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[35m%x20%an%x1b[0m%x20%s"
 
     # Working with branches
     upstream = rev-parse --abbrev-ref @{upstream}
     # pushes up to a branch
-    push-up = !branch=`git rev-parse --abbrev-ref HEAD` && git push --set-upstream origin ${branch} ${@}
+    push-up = !branch=`git rev-parse --abbrev-ref HEAD` && git push --set-upstream origin ${branch}
     push-to = !branch=`git rev-parse --abbrev-ref HEAD` && git push ${1} ${branch}:${2} ${@:3} && :
     del-branch = !git push ${1} :${2} ${@:3} && :
 [color]
