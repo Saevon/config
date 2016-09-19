@@ -74,8 +74,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # TODO: allow .d files?
-if [ -f ${USR_SCRIPT}/bash_completion ]; then
-     source ${USR_SCRIPT}/bash_completion
+if [ -f ${HOME}/.bash_completion ]; then
+     source ${HOME}/.bash_completion
 fi
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
