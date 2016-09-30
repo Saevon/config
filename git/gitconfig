@@ -17,7 +17,7 @@
 [alias]
     # Simple aliases
     amend = commit --amend
-    st = status
+    st = status --short --branch
 
     # merging
     mergecommit = merge --no-ff
