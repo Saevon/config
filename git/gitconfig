@@ -19,17 +19,25 @@
 [alias]
     # Simple aliases
     amend = commit --amend
-    st = status
+    st = status --short --branch
+
+    # Initializing
+    empty-commit = commit --allow-empty
 
     # merging
     mergecommit = merge --no-ff
     ff = merge --ff-only
-    fetchff = !git fetch $1 $2:$2 -- ${@:3} && :
-    rebase-up = !git rebase $(git upstream) $@
+    fetchff = !git fetch && git ff
+    rebase-up = !git rebase FETCH_HEAD $@
 
     # Fetching
     pff = pull --ff-only
-    fetchfull = fetch --all --prune
+    fetchfull = fetch --all --prune origin
+    prunetags = !git tag -d $(git tag) && git fetch --tags
+
+    # Tags
+    del-tag = !git push ${1} :${2} ${@:3} && :
+    del-branch = !git push ${1} :${2} ${@:3} && :
 
 
 
@@ -41,5 +49,9 @@
     push-up = !branch=`git rev-parse --abbrev-ref HEAD` && git push --set-upstream origin ${branch}
     push-to = !branch=`git rev-parse --abbrev-ref HEAD` && git push ${1} ${branch}:${2} ${@:3} && :
     del-branch = !git push ${1} :${2} ${@:3} && :
+
+    # Cleaup
+    cleanup = !find . \\( -name "*_BACKUP_*" -or -name "*_BASE_*" -or -name "*_LOCAL_*" -or -name "*_REMOTE_*" -or -name "*.orig"  \\) -exec rm -i {} \\+
+
 [color]
     ui = true
