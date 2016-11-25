@@ -36,7 +36,7 @@ function map() {
 PGREP_FLAGS="-U ${USER}"
 
 function search_map() {
-    map "pgrep ${PGREP_FLAGS} -f \"$1\"" $2
+    map "pgrep ${PGREP_FLAGS} -f '$1'" $2
 }
 
 function pause_app() {
