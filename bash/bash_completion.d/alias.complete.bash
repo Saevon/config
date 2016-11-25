@@ -21,3 +21,5 @@ complete -F _noop hs
 
 complete -F _noop restart_audio dns_flush
 
+complete -A function helpfunc
+complete -A builtin helpman
