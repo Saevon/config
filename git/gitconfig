@@ -11,6 +11,8 @@
     tool = opendiff
 [push]
     default = simple
+    # Any refs being pushed with new tags? Also push the tags!
+	followTags = true
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
