@@ -4,6 +4,13 @@
 #
 #
 
+
+# Ensure this gets loaded only once
+if [ "${__PROFILE_LOADED}" == "true" ]; then
+    return
+fi
+export __PROFILE_LOADED=true
+
 # Prefer US English and use UTF-8.
 export LANG='en_CA.UTF-8'
 export LC_ALL='en_CA.UTF-8'
@@ -15,12 +22,14 @@ source ${HOME}/.paths
 ##########
 # Bin Path
 
+
 # Ruby
 PATH=${PATH}:${HOME}/.rvm/bin
 # Uwaterloo (OS)
 # PATH=${PATH}:${HOME}/.sys161/bin:${HOME}/.sys161/tools/bin
 # Usr binaries
 PATH=${PATH}:${USR_BIN}
+# Brew Binaries
 PATH=${PATH}:/usr/local/sbin
 # Brew additions
 PATH=${PATH}:/usr/local/opt/coreutils/libexec/gnubin
