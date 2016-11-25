@@ -87,6 +87,7 @@ function disksize() {
 #############################
 # SysAdmin
 ################
+alias ps_orphans="orphans"
 function orphans() {
     local FORMAT="-o user,pid,ppid,%cpu,%mem,vsz,rss,tt,stat,lstart,time,command"
     local IGNORE=""
@@ -102,6 +103,10 @@ function orphans() {
 
     ps ${FORMAT} -A | awk 'BEGIN {linenum=1}; { if (linenum == 1 || ($3 == 1 && $1 != "root")) {print $0}; linenum++}' | grep -v -P -e"${IGNORE}"
 }
+function ps_extras() {
+    ps aux | grep -E "(node|python|git)" | grep -v grep
+}
+alias ps_zombies=zombies
 function zombies() {
     local FORMAT="-o user,pid,ppid,%cpu,%mem,vsz,rss,tt,stat,lstart,time,command"
 
