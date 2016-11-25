@@ -253,7 +253,7 @@ alias pbclean="pbpaste | copy"
 alias mac_quicklook="qlmanage -p 2>/dev/null"
 
 if [ "${UNAME}" == "darwin" ]; then
-    alias quicklook="mac_quiclook"
+    alias quicklook="mac_quicklook"
 fi
 alias ql="quicklook"
 
