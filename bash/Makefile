@@ -201,7 +201,7 @@ brew-gnu:
 brew-coding:
 	@brew install go
 	@brew install mongodb
-	# @brew install python3
+	@brew install python3
 
 # System Monitoring
 .PHONY: brew-sys-monit
