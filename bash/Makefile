@@ -122,7 +122,7 @@ python-main:
 	@echo "Python Setup"
 
 	# Adds to the python path so we can install in a user directory
-	@if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH' /etc/profile)" -eq 1 ]]; then \
+	@#if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH' /etc/profile)" -eq 1 ]]; then \
 		if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH-v1.1' /etc/profile)" -eq 0 ]]; then \
 			>&2 echo "/etc/profile was already edited, but with an old version of CUSTOM-GLOBAL-PYTHONPATH, remove the old version"; \
 			exit 1; \
@@ -131,7 +131,7 @@ python-main:
 		cat python_profile | sudo tee -a /etc/profile >/dev/null; \
 	fi
 
-	@sudo ${COPY} "pydistutils.cfg" "/Library/Python/2.7/site-packages/"
+	@#sudo ${COPY} "pydistutils.cfg" "/Library/Python/2.7/site-packages/"
 
 	@# Fixes the profile not being reloaded, and a python warning appearing
 	@sudo -H -i easy_install pip
