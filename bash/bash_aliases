@@ -459,3 +459,36 @@ function splitfilepath() {
 
     echo -e "$fullpath:\n\tdir  = \"$dir\"\n\tbase = \"$base\"\n\text  = \"$ext\""
 }
+
+
+
+
+
+#####################
+# Mac Helpers
+#####################
+
+function setting_diff() {
+    SETTING_PATH=$@
+    TMP_OLD=/tmp/plist_diff_old.txt
+    TMP_PREV=/tmp/plist_diff_prev.txt
+    TMP_NEW=/tmp/plist_diff_new.txt
+
+    defaults read ${SETTING_PATH} > ${TMP_NEW}
+
+    if [ ! -f ${TMP_PREV} ]; then
+        # First run: don't show the diff
+        echo "nothing to diff, settings saved"
+    else
+        # Later runs: show a diff
+        diff ${TMP_PREV} ${TMP_NEW} -U 10
+        cp ${TMP_PREV} ${TMP_OLD}
+    fi
+
+    # Replace the source file we'll compare to next run
+    mv ${TMP_NEW} ${TMP_PREV}
+}
+
+
+
+
