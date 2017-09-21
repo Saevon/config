@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-MAIN="/Library/Fortunes"
 DAEMONS="/Library/LaunchDaemons"
-BIN="/usr/local/bin/fortune"
+MAIN="/Library/Fortunes"
 
-MAIN_SH="fortune.sh"
 DAEMON_SH="login_fortune.sh"
 PLIST="com.saevon.fortunes.plist"
 TXT="fortunes.txt"
@@ -28,10 +26,6 @@ if [ "$(uname)" == "Darwin" ]; then
 	sudo launchctl unload -w ${DAEMONS}/${PLIST} 2>&1 > /dev/null || true
 	sudo launchctl load -w ${DAEMONS}/${PLIST}
 fi
-
-# Add the fortunes binary
-sudo cp ${PWD}/${MAIN_SH} ${BIN}
-chmod o+rx ${BIN}
 
 # Start with a login message right away
 if [ "$(uname)" == "Darwin" ]; then
