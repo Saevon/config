@@ -5,8 +5,8 @@ include ../variables.makefile
 
 .PHONY: all
 all: ${USR_SCRIPT} completion
-	# TODO: add git prompt
-	#${COPY} "${PWD}/git-prompt.sh" "${USR_SCRIPT}/git-prompt.sh"
+	@# TODO: add git prompt
+	@#${COPY} "${PWD}/git-prompt.sh" "${USR_SCRIPT}/git-prompt.sh"
 	@${COPY} "${PWD}/gitconfig" "${HOME}/.gitconfig"
 	@${COPY} "${PWD}/gitignore" "${HOME}/.gitignore"
 
