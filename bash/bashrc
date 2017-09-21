@@ -31,7 +31,7 @@ if shopt -q restricted_shell ; then
 fi
 
 # Show a fortune cookie for the user
-if [ -f `which fortune` ]; then fortune; fi
+if [ "`which fortune`" != "" ]; then fortune; fi
 
 
 
@@ -47,7 +47,13 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # Python startup commands
 export PYTHONSTARTUP=${USR_SCRIPT}/python_startup.py
 
-source /usr/local/bin/virtualenvwrapper.sh || source ${USR_SCRIPT}/virtualenvwrapper.sh
+
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+elif [ -f ${USR_SCRIPT}/virtualenvwrapper.sh ]; then
+    source ${USR_SCRIPT}/virtualenvwrapper.sh
+fi
 alias workoff="deactivate"
 
 
@@ -78,7 +84,7 @@ if [ -f ${HOME}/.bash_completion ]; then
      source ${HOME}/.bash_completion
 fi
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if [ "`which brew`"  != "" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 fi
 
