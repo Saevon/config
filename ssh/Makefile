@@ -12,6 +12,12 @@ all: ${SSH_DIR}
 	@echo ""
 	@echo "SSH configuration setup complete"
 
+work: ${SSH_DIR}
+	@${COPY} "${PWD}/work_config" "${SSH_DIR}/config"
+
+	@echo ""
+	@echo "SSH configuration setup complete"
+
 
 ${SSH_DIR}:
 	@mkdir -p $@

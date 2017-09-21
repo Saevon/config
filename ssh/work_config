@@ -1,0 +1,31 @@
+VisualHostKey yes
+
+
+# Personal Repo Key
+Host saevon.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-saevon
+    VisualHostKey no
+
+Host saevon.bitbucket.org
+    IdentityFile ~/.ssh/bitbucket-saevon
+    VisualHostKey no
+
+
+# Work Keys (Default for any other repo)
+Host bitbucket.org
+    IdentityFile ~/.ssh/bitbucket
+    VisualHostKey no
+
+Host github.com
+    IdentityFile ~/.ssh/github
+    VisualHostKey no
+
+
+# Creates a link from my port 9906 to the remote's port 3306
+#Host tunnel
+#    HostName database.example.com
+#    IdentityFile ~/.ssh/tunnel.example.key
+#    LocalForward 9906 127.0.0.1:3306
+#    User username
