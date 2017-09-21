@@ -8,6 +8,9 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
+MINIMAL=${MINIMAL:-False}
+
+
 
 ##################################################
 # General UI/UX
@@ -16,10 +19,14 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # TODO: see systemsetup for a BSD/OSX preferences editor
 
 # Menu bar: transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
+if [ "$MINIMAL" != "False" ]; then
+	defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
+fi
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+if [ "$MINIMAL" != "False" ]; then
+	sudo nvram SystemAudioVolume=" "
+fi
 
 # Set standby delay to 24 hours (default is 1 hour)
 # sudo pmset -a standbydelay 86400
@@ -33,13 +40,16 @@ sudo nvram SystemAudioVolume=" "
 # 		"/System/Library/CoreServices/Menu Extras/User.menu"
 	# "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
 # Listing only ones to keep
-defaults write com.apple.systemuiserver menuExtras -array \
-	"/System/Library/CoreServices/Menu Extras/Volume.menu" \
-	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-	"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-	"/System/Library/CoreServices/Menu Extras/Clock.menu" \
-	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
-	"/System/Library/CoreServices/Menu Extras/TextInput.menu" \
+
+if [ "$MINIMAL" != "False" ]; then
+	defaults write com.apple.systemuiserver menuExtras -array \
+		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
+		"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+		"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+		"/System/Library/CoreServices/Menu Extras/Clock.menu" \
+		"/System/Library/CoreServices/Menu Extras/Battery.menu" \
+		"/System/Library/CoreServices/Menu Extras/TextInput.menu"  \
+fi
 
 
 # Set highlight color to green
@@ -61,12 +71,12 @@ defaults write NSGlobalDomain AppleHighlightColor -string "`echo $HIGH_RED / 255
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+# defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 
 # Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+# defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 # Disable the “Are you sure you want to open this application?” dialog
 # defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -75,27 +85,56 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Disable Resume system-wide
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+
+if [ "$MINIMAL" != "False" ]; then
+	defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+fi
 
 
 # Disable automatic termination of inactive apps
-defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+# defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Disable the crash reporter
 #defaults write com.apple.CrashReporter DialogType -string "none"
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+if [ "$MINIMAL" != "False" ]; then
+	sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+fi
 
 # Restart automatically if the computer freezes
-systemsetup -setrestartfreeze on
+
+if [ "$MINIMAL" != "False" ]; then
+	systemsetup -setrestartfreeze on
+fi
 
 # Check for software updates daily, not just once per week
 # defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
+
+
+
+
+##############################################
+# Menu Bar
+##############################################
+
+# Clock
+defaults write com.apple.menuextra.clock DateFormat -string "h:mm a"
+
+
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+
+
+# Show battery percentage in menubar
+defaults write com.apple.menuextra.battery ShowPercent -tring "YES"
+
+
+
 
 
 ##################################################
@@ -106,7 +145,10 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Trackpad map Double tap tp right click
+# Trackpad triple finger tap for Lookup (dict), instead of using hard click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
+
+# Trackpad map Double tap to right click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 
@@ -117,25 +159,29 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+if [ "$MINIMAL" != "False" ]; then
+	defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+fi
 
 # Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
+# (e.g. Tab through everything)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 
 # Enable access for assistive devices
-echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
-sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
+# echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
+# sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 
+# Scroll style: small box on screen (as opposed to the entire screen)
+defaults write com.apple.universalaccess closeViewZoomMode -bool true
+
 
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
@@ -147,13 +193,16 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "ru" "ja" "fr"
+defaults write NSGlobalDomain AppleLanguages -array "en-CA" "ru-CA" "ja-CA" "fr-CA"
 defaults write NSGlobalDomain AppleLocale -string "en_CA@currency=CAD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleTemperatureUnit -string "Celsius"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `systemsetup -listtimezones` for other values
-systemsetup -settimezone "America/Toronto" > /dev/null
+if [ "$MINIMAL" != "False" ]; then
+	systemsetup -settimezone "America/Toronto" > /dev/null
+fi
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -228,9 +277,11 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Disable disk image verification
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+if [ "$MINIMAL" != "False" ]; then
+	defaults write com.apple.frameworks.diskimages skip-verify -bool true
+	defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+	defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+fi
 
 # Automatically open a new Finder window when a volume is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
@@ -301,6 +352,7 @@ defaults write com.apple.dock tilesize -int 60
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
 # Show indicator lights for open applications in the Dock
+# BROKEN?
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Don’t animate opening applications from the Dock
@@ -403,6 +455,9 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
 #defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
 
+# Don't show a visual bel
+defaults write com.apple.terminal "VisualBell" -bool false
+defaults write com.apple.terminal "useOptionAsMetaKey" -bool true
 
 
 ##################################################
@@ -458,10 +513,6 @@ defaults write com.google.Chrome ExtensionInstallSources -array "https://*.githu
 
 
 
-echo "Now change the following:"
-echo "Terminal: enable 'Option as meta key'"
-
-
 
 
 
@@ -488,4 +539,5 @@ for app in "Address Book" \
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
-echo "Suggest: Change the modifier key (CAPS)>>(CTRL)"
+echo "Manual TODO: "
+echo "  Change the modifier key (CAPS)>>(CTRL)"
