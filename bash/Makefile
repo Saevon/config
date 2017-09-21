@@ -12,7 +12,7 @@ include ../variables.makefile
 
 
 .PHONY: all
-all: environment completion sys_bin usr_bin brew python bashup
+all: environment completion sys_bin usr_bin brew python bashup gcc
 minimal: environment python-env completion
 
 .PHONY: environment
@@ -274,6 +274,16 @@ endif
 # brew install tcptrace
 # brew install ucspi-tcp # `tcpserver` etc.
 # brew install xpdf
+
+
+
+.PHONY: gcc
+gcc:
+ifeq ($(shell uname),Darwin)
+	@xcode-select --install
+else
+	@echo  2>&1 'Warning: gcc not installed'
+endif
 
 .PHONY: bashup
 bashup: brew-install
