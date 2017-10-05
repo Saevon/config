@@ -52,7 +52,7 @@ HIGH_BLUE=200
 # HIGH_BLUE=145
 defaults write NSGlobalDomain AppleHighlightColor -string "`echo $HIGH_RED / 255 | bc -l` `echo $HIGH_GREEN / 255 | bc -l` `echo $HIGH_BLUE / 255 | bc -l`"
 # Uncomment to reset highlight color
-defaults delete -g AppleHighlightColor
+# defaults delete -g AppleHighlightColor
 
 # Always show scrollbars
 # defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
