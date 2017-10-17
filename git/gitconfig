@@ -53,6 +53,11 @@
     # Cleaup
     cleanup = !find . \\( -name "*_BACKUP_*" -or -name "*_BASE_*" -or -name "*_LOCAL_*" -or -name "*_REMOTE_*" -or -name "*.orig"  \\) -exec rm -i {} \\+
 
+[help]
+    # If you make a mistake and there is only 1 valid autocorrected command
+    # Wait (N/10) seconds before running it
+    autocorrect = 20
+
 [color]
     ui = true
 
