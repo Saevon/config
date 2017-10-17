@@ -16,6 +16,8 @@ alias perm='sudo chmod -R 000 *; sudo chmod -R u=rwX, g=rwX *'
 alias majik='cl ~/Projects/majik'
 alias add_cmd='${EDITOR} /Users/Saevon/Projects/Recipe/cmd.bash'
 
+alias haskell='ghci'
+
 
 ################
 # Misc

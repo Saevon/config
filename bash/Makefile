@@ -12,8 +12,8 @@ include ../variables.makefile
 
 
 .PHONY: all
-all: environment completion sys_bin usr_bin brew python bashup gcc
 minimal: environment python-env completion
+all: environment completion sys_bin usr_bin brew python haskell bashup gcc
 
 .PHONY: environment
 environment: ${USR_SCRIPT}
@@ -160,6 +160,37 @@ python-extra:
 
 	# Networking
 	@syspip install bottle
+
+
+
+
+#######################
+# Haskell
+
+.PHONY: haskell
+haskell: haskell-env
+
+# Config folder for haskell
+${HOME}/.ghc/:
+	@mkdir -p $@
+
+
+.PHONY: haskell-main
+haskell-main:
+	@echo "Haskell Setup"
+
+	@brew cask install haskell-platform
+	@cabal install hlint --global
+
+
+.PHONY: haskell-env
+haskell-env: ${HOME}/.ghc/
+	@mkdir -p "${HOME}/.ghc"
+	@${COPY} "${PWD}/haskell-ghci.conf" "${HOME}/.ghc/"
+
+
+
+#######################
 
 
 
