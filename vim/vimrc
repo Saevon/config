@@ -110,6 +110,19 @@ set smartcase
 " Clear last Search Highlighting
 nnoremap <leader><space> :noh<CR>
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Clipboard
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copy
+vnoremap "@y :w !pbcopy<CR><CR>
+vnoremap "+y :w !pbcopy<CR><CR>
+
+"Paste: (TODO)
+" noremap "@p :r !pbpaste<CR><CR>
+"noremap "+p :r !pbpaste<CR><CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Line
 """""""""""""""""""""""""""""""""""""""""""""""""""
