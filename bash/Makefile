@@ -197,8 +197,7 @@ haskell-main:
 
 .PHONY: haskell-env
 haskell-env: ${HOME}/.ghc/
-	@mkdir -p "${HOME}/.ghc"
-	@${COPY} "${PWD}/haskell-ghci.conf" "${HOME}/.ghc/"
+	@${COPY} "${PWD}/haskell-ghci.conf" "${HOME}/.ghc/ghci.config"
 
 
 
@@ -358,6 +357,7 @@ reset-environment:
 	@rm -i ${USR_SCRIPT}/mac_switch_user.bash || true
 
 	@rm -i ${USR_SCRIPT}/python_startup.py || true
+	@rm -i ${USR_SCRIPT}/.ghc/ghci.conf || true
 
 
 
