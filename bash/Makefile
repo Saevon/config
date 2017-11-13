@@ -50,7 +50,7 @@ endif
 ##########################
 # User folder structure
 ${USR_SCRIPT}:
-	@mkdir -p ${USR_SCRIPT}
+	@mkdir -p $@
 
 
 
@@ -112,6 +112,9 @@ ifeq ($(UNAME),Darwin)
 endif
 
 
+#######################
+
+
 .PHONY: python
 python: python-env python-main python-extra
 
@@ -120,6 +123,7 @@ python-main: CP=cp
 python-main: CPI=cp -i
 python-main:
 	@echo "Python Setup"
+	# TODO: install pip with easy install?
 
 	# Adds to the python path so we can install in a user directory
 	@#if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH' /etc/profile)" -eq 1 ]]; then \
@@ -138,11 +142,15 @@ python-main:
 	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
 
 	@syspip install virtualenv
+
+	# El-Capitan BUG: six can't be overwritten, but pip can't see it, so you need to use the installed one
 	@syspip install virtualenvwrapper --ignore-installed six
 
 .PHONY: python-env
 python-env:
 	@${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
+
+
 
 
 .PHONY: python-extra
