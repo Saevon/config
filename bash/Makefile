@@ -169,6 +169,10 @@ python-extra:
 	# Networking
 	@syspip install bottle
 
+	# System Monitoring
+	@syspip install glances
+
+
 
 
 
