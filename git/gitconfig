@@ -5,10 +5,16 @@
     editor = vim
     precomposeunicode = true
     excludesfile = ~/.gitignore
+    # insanely beautiful diffs
+    pager = diff-highlight | diff-so-fancy | less --tabs=4 -RFX
 [bash]
     showDirtyState = 1
 [merge]
     tool = opendiff
+    conflictstyle = diff3
+[mergetool]
+    # Don't create *.orig files
+    #keepBackup = false
 [push]
     default = simple
     # Any refs being pushed with new tags? Also push the tags!
@@ -32,16 +38,18 @@
 
     # Fetching
     pff = pull --ff-only
-    fetchfull = fetch --all --prune origin
+    fetchfull = fetch --all --prune
     prunetags = !git tag -d $(git tag) && git fetch --tags
 
     # Tags
     del-tag = !git push ${1} :${2} ${@:3} && :
-    del-branch = !git push ${1} :${2} ${@:3} && :
 
 
-
+    # History
+    list = ls-tree --name-only -r HEAD
     tree = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[35m%x20%an%x1b[0m%x20%s"
+    finddeleted = !git log --all --diff-filter=D --full-history --summary -- ${1} ${@:2}
+
 
     # Working with branches
     upstream = rev-parse --abbrev-ref @{upstream}
@@ -49,9 +57,13 @@
     push-up = !branch=`git rev-parse --abbrev-ref HEAD` && git push --set-upstream origin ${branch}
     push-to = !branch=`git rev-parse --abbrev-ref HEAD` && git push ${1} ${branch}:${2} ${@:3} && :
     del-branch = !git push ${1} :${2} ${@:3} && :
+    kill-branch = !( git del-branch ${1} ${2} || true ) && ( git branch -d ${2} || true) && :
+    push-commit = "!branch=`git rev-parse --abbrev-ref HEAD` && ( git checkout -b push-commit-tmp ${2} && git push ${1} push-commit-tmp:${3} ${@:4} ) ; ( git checkout ${branch} && git branch -D push-commit-tmp ) && :"
+
 
     # Cleaup
     cleanup = !find . \\( -name "*_BACKUP_*" -or -name "*_BASE_*" -or -name "*_LOCAL_*" -or -name "*_REMOTE_*" -or -name "*.orig"  \\) -exec rm -i {} \\+
+    cleanfolder = !git st | grep -E '^\\?\\?' | sed 's/^\\?\\? //' | xargs -o -I % sh -c 'read -p "delete % ?" count; [[ "$count" == "y" ]] && rm -rf %'
 
 [help]
     # If you make a mistake and there is only 1 valid autocorrected command
