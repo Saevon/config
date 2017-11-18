@@ -16,3 +16,7 @@ ${VIM_DIR}:
 	# TODO: Recursive Copy here
 	ln -i -s ${PWD}/vim $@
 
+# Check if vim is properly installed
+# Will error if it isn't
+clipboard-check:
+	@vim --version | grep -q '\+clipboard'; if [[ $$? == 1 ]]; then 1>&2 echo 'vim clipboard is not installed'; exit 1; fi
