@@ -11,9 +11,9 @@ include paths
 include ../variables.makefile
 
 
-.PHONY: all
-minimal: environment python-env completion
+.PHONY: all minimal
 all: environment completion sys_bin usr_bin brew python haskell bashup gcc
+minimal: environment completion
 
 .PHONY: environment
 environment: ${USR_SCRIPT}
@@ -217,7 +217,7 @@ haskell-env: ${HOME}/.ghc/
 
 ifeq ($(UNAME),Darwin)
 .PHONY: brew
-brew: brew-install brew-helpers brew-cmd brew-coding brew-sys-monit brew-net brew-media
+brew: brew-install brew-helpers brew-cmd brew-coding brew-sys-monit brew-net brew-media brew-fs brew-security
 
 .PHONY: brew-install
 brew-install:
@@ -251,15 +251,21 @@ brew-gnu:
 # Common things used for coding (languages)
 .PHONY: brew-coding
 brew-coding:
-	@brew install go
+	# Databases
 	@brew install mongodb
+	@brew install sqldiff
+
+	# Other Languages
+	@brew install go
 	@brew install python3
+	@brew install lua
 
 # System Monitoring
 .PHONY: brew-sys-monit
 brew-sys-monit:
 	@brew install stress
 	@brew install blueutil
+	@brew install pstree
 
 # Network
 .PHONY: brew-net
@@ -291,6 +297,22 @@ brew-video:
 brew-image:
 	# Needed for sublime colour plugin
 	@brew install imagemagick
+
+	@brew install libicns
+
+# FileSystem
+.PHONY: brew-fs
+brew-fs:
+	@brew cask install osxfuse
+	@brew install homebrew/fuse/ext4fuse
+
+# Security
+.PHONY: brew-security
+brew-security:
+	@brew install gpg
+	@brew install pinentry-mac
+	@echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+
 
 else
 brew brew-%:
