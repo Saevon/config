@@ -61,7 +61,7 @@
     push-commit = "!branch=`git rev-parse --abbrev-ref HEAD` && ( git checkout -b push-commit-tmp ${2} && git push ${1} push-commit-tmp:${3} ${@:4} ) ; ( git checkout ${branch} && git branch -D push-commit-tmp ) && :"
 
     # Cleaup
-    cleanup = !find . \\( -name "*_BACKUP_*" -or -name "*_BASE_*" -or -name "*_LOCAL_*" -or -name "*_REMOTE_*" -or -name "*.orig"  \\) -exec rm -i {} \\+
+    cleanup = "!find . \\( -name '*_BACKUP_*' -or -name '*_BASE_*' -or -name '*_LOCAL_*' -or -name '*_REMOTE_*' -or -name '*.orig' \\) -exec rm -i {} \\+"
     cleanfolder = !git st | grep -E '^\\?\\?' | sed 's/^\\?\\? //' | xargs -o -I % sh -c 'read -p "delete % ?" count; [[ "$count" == "y" ]] && rm -rf %'
 
 [help]
