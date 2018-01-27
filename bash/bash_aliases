@@ -19,6 +19,9 @@ alias add_cmd='${EDITOR} /Users/Saevon/Projects/Recipe/cmd.bash'
 alias haskell='ghci'
 
 
+
+
+
 ################
 # Misc
 ################
