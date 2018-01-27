@@ -54,6 +54,7 @@ $if mode=vi
     "\C-x\C-v": display-shell-version
     "\e\C-e": shell-expand-line
 
+    # Runs the command, end fetches the one after it for editing
     "\C-o": operate-and-get-next
 
     # insert mode
@@ -76,6 +77,9 @@ $if mode=vi
     "\C-x\C-f": complete-filename
     "\C-x\C-i": complete-command
     "\e\C-e": shell-expand-line
+
+    # Runs the command, end fetches the one after it for editing
+    "\C-o": operate-and-get-next
 $endif
 
 
