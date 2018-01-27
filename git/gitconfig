@@ -41,7 +41,7 @@
     fetchfull = fetch --all --prune
     prunetags = !git tag -d $(git tag) && git fetch --tags
 
-    # Tags
+    # Tags & Branches
     del-tag = !git push ${1} :${2} ${@:3} && :
 
 
@@ -59,7 +59,6 @@
     del-branch = !git push ${1} :${2} ${@:3} && :
     kill-branch = !( git del-branch ${1} ${2} || true ) && ( git branch -d ${2} || true) && :
     push-commit = "!branch=`git rev-parse --abbrev-ref HEAD` && ( git checkout -b push-commit-tmp ${2} && git push ${1} push-commit-tmp:${3} ${@:4} ) ; ( git checkout ${branch} && git branch -D push-commit-tmp ) && :"
-
 
     # Cleaup
     cleanup = !find . \\( -name "*_BACKUP_*" -or -name "*_BASE_*" -or -name "*_LOCAL_*" -or -name "*_REMOTE_*" -or -name "*.orig"  \\) -exec rm -i {} \\+
