@@ -16,8 +16,11 @@ fi
 
 
 
-########################
+
+
+#########################################################
 # Interactive Only options
+#--------------------------------------------------------
 
 # If not running interactively, don't do anything
 case $- in
@@ -36,8 +39,12 @@ if [ "`which fortune`" != "" ]; then fortune; fi
 
 
 
-################################
+
+
+#########################################################
 # Python
+#--------------------------------------------------------
+
 
 # virtual env wrapper
 export WORKON_HOME=$HOME/.environments
@@ -57,20 +64,27 @@ fi
 alias workoff="deactivate"
 
 
-################################
+
+
+
+
+
+########################################################
 # Ruby
+#--------------------------------------------------------
+
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 
 
-#######################
-# Prompt & Completions
-#
-# PS1 main prompt
-# PS2 line continuation prompt
-#######################
+
+
+#########################################################
+# Completions
+#--------------------------------------------------------
+
 
 # Git Completion
 export GIT_PS1_SHOWCOLORHINTS=1
@@ -89,21 +103,13 @@ if [ "`which brew`"  != "" ] && [ -f $(brew --prefix)/etc/bash_completion ]; the
 fi
 
 
-# Include Error code in bash prompt
-# ${?##0}
-
-# source $HOME/.git-prompt.sh
-# export PROMPT_COMMAND='__git_ps1 "$User@$Host:$PathFull" " \$ " " (%s)"'
-
-
-# ellipses for directories longer than X
-PROMPT_DIRTRIM=3
 
 
 
-
-##########################
+#########################################################
 # Auto-correct
+#--------------------------------------------------------
+
 
 # Allow cd to search all of the following directories
 # CDPATH=$CDPATH:"~"
@@ -126,8 +132,13 @@ fi
 
 
 
-###########################
+
+
+
+
+#########################################################
 # History
+#--------------------------------------------------------
 
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -159,8 +170,6 @@ shopt -s histverify
 # Repeat the line on failed history expansion
 shopt -s histreedit
 
-# Force history to update after command runs
-# PROMPT_COMMAND='history -a'
 
 
 
@@ -187,7 +196,7 @@ shopt -s checkwinsize
 
 
 # Enable vim mode by default
-set -o vi
+# set -o vi
 
 
 
@@ -215,6 +224,19 @@ source ${USR_SCRIPT}/alias_completion.bash
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+
+
+
+
+#--------------------------------------------------------------
+# Prompt
+#
+# PS1 main prompt
+# PS2 line continuation prompt
+
+
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -249,7 +271,10 @@ else
 fi
 unset color_prompt force_color_prompt
 
+
+
 # If this is an xterm set the title to user@host:dir
+# TODO: WARNING: this is what sets the terminal window title (overwriting custom tab names)
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -258,3 +283,28 @@ xterm*|rxvt*)
     ;;
 esac
 
+
+
+
+# source $HOME/.git-prompt.sh
+# export PROMPT_COMMAND='__git_ps1 "$User@$Host:$PathFull" " \$ " " (%s)"'
+
+
+# ellipses for directories longer than X
+PROMPT_DIRTRIM=2
+
+# Load the prompt
+if [ -f ${USR_SCRIPT}/prompt.bash ]; then
+     source ${USR_SCRIPT}/prompt.bash
+fi
+
+
+
+# Colors
+# Makes you type in colors, and the trap is to reset it in time for when you run the program
+# Warning! DEBUG runs before every simple command, whether ; && || separated
+# PS1="\[\e[38;05;37m\]${PS1}\[\e[38;05;39m\]"
+# trap 'tput sgr0' DEBUG
+
+
+#--------------------------------------------------------------
