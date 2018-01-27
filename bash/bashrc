@@ -198,6 +198,9 @@ shopt -s checkwinsize
 # Enable vim mode by default
 # set -o vi
 
+# Disable to consumption of Ctrl-O
+stty discard unset
+
 
 
 
