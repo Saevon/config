@@ -15,6 +15,9 @@ all: setup-login setup-bin docs completion
 	@echo ""
 	@echo "Fortunes Setup Complete"
 
+.PHONY: minimal
+minimal: local-docs setup-bin
+
 
 .PHONY: setup-login
 setup-login:
