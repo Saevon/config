@@ -95,6 +95,7 @@ endif
 	@sudo ${COPY} "${PWD_BIN}/cputhrottle" "${SYS_BIN}/"
 	@sudo ${COPY} "${PWD_BIN}/sitedown" "${SYS_BIN}/"
 	@sudo ${COPY} "${PWD_BIN}/try" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/highlight" "${SYS_BIN}/"
 
 
 .PHONY: sys_bin-extra
