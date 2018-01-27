@@ -55,6 +55,9 @@ server-bin:
 	@sudo cp -i ${PWD}/servername.sh /usr/local/bin/servername
 
 
+.PHONY: todo
+todo:
+	cat todo.txt
 
 
 .PHONY: login-screen

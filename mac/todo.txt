@@ -1,4 +1,44 @@
 Spaces re-arrange themselves (turn off)
 Enable Dashboard
 Hot corners
-Screensaver/desktop
+Dock Hiding
+
+Customize Finder
+> Sidebar
+> Secure Empty Trash
+
+Divvy
+> Setup shortcuts
+Magnet
+> Disable Shortcuts
+Bartender
+> Customize
+
+NoSleep
+> Failing install
+
+
+Suggest: Change the modifier key (CAPS)>>(CTRL)
+Keyboard Shortcuts
+
+Terminal.app: Profiles -> Keyboard -> Option as Meta Key
+Update ScreenSaver
+Update Desktop Image
+
+Dock:
+> Downloads as folder (right click on downloads folder in dock)
+> Downloads as Fan
+
+Accessibility -> Zoom -> Enable Ctrl Zoom
+Accessibility -> Zoom -> Picture in Picture
+Accessibility -> Zoom -> More Options -> Disable Temp Zoom
+
+Screenshots folder:
+?? defaults write com.apple.screencapture location ~/Desktop/screenshots/
+?? killall SystemUIServer
+
+sudo launchctl setenv PATH "/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin"
+
+
+Apps:
+NTFS
