@@ -1,5 +1,6 @@
 VisualHostKey yes
 
+
 Host bitbucket.org
     IdentityFile ~/.ssh/bitbucket
     VisualHostKey no
@@ -46,3 +47,12 @@ Host schoolconst
 #    IdentityFile ~/.ssh/tunnel.example.key
 #    LocalForward 9906 127.0.0.1:3306
 #    User username
+
+# Creates a link from remote's port 9906 to my 3306
+#    RemoteForward 9906 127.0.0.1:3306
+# Also exposes the port on all interfaces
+# (You need "GatewayPorts yes" on the remote server to have permission to do this)
+#    RemoteForward 9906 0.0.0.0:127.0.0.1:3306
+
+# Helpful link
+# https://explainshell.com/explain?cmd=ssh+-R+0.0.0.0%3A5000%3A127.0.0.1%3A5000+phab+-NT
