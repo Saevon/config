@@ -201,7 +201,7 @@ function update_all() {
 
     # Python
     if [ $(which -s syspip && echo $?) == 0 ]; then
-        syspip install --upgrade pip
+        syspip install -U pip setuptools
         for pkg in $( syspip list --outdated | cut -d' ' -f 1 ); do
             syspip install -U echo "$pkg"
         done
