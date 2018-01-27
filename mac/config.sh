@@ -9,6 +9,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
 MINIMAL=${MINIMAL:-False}
+WORK=${WORK:-False}
 
 
 
@@ -48,7 +49,7 @@ if [ "$MINIMAL" != "False" ]; then
 		"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
 		"/System/Library/CoreServices/Menu Extras/Clock.menu" \
 		"/System/Library/CoreServices/Menu Extras/Battery.menu" \
-		"/System/Library/CoreServices/Menu Extras/TextInput.menu"  \
+		"/System/Library/CoreServices/Menu Extras/TextInput.menu"
 fi
 
 
@@ -131,7 +132,7 @@ defaults write com.apple.menuextra.clock DateFormat -string "h:mm a"
 
 
 # Show battery percentage in menubar
-defaults write com.apple.menuextra.battery ShowPercent -tring "YES"
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 
 
@@ -214,8 +215,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ##################################################
 
 # Require password short while after screensaver/sleep
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 3600
+if [ "$WORK" != "True" ]; then
+	defaults write com.apple.screensaver askForPassword -int 1
+	defaults write com.apple.screensaver askForPasswordDelay -int 3600
+fi
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
@@ -426,6 +429,9 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 # Disable the iTunes store link arrows
 defaults write com.apple.iTunes show-store-link-arrows -bool false
 
+# Enable Half Stars
+defaults write com.apple.iTunes allow-half-stars -bool true
+
 
 
 ##################################################
@@ -468,7 +474,9 @@ defaults write com.apple.terminal "useOptionAsMetaKey" -bool true
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+if [ "$WORK" != "True" ]; then
+	hash tmutil &> /dev/null && sudo tmutil disablelocal
+fi
 
 
 
@@ -541,3 +549,7 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 
 echo "Manual TODO: "
 echo "  Change the modifier key (CAPS)>>(CTRL)"
+echo "  Terminal: Visual Bel off"
+echo "  Terminal: Option as Meta"
+echo "  Terminal: Default window: Pro"
+echo "  Terminal: ANSI Colours (Blue)"
