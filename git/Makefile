@@ -15,13 +15,12 @@ all: ${USR_SCRIPT} completion
 	@echo "Then the completion, and prompt scripts won't work"
 	@echo "so watch out!"
 
-.PHONY
-
+.PHONY: plugins
+plugins:
 ifeq ($(UNAME),Darwin)
-else
-git-fancy-diff:
 	@brew install diff-so-fancy
 endif
+	@npm install --global git-open
 
 .PHONY: reset
 reset: reset-completion
