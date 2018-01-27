@@ -168,8 +168,14 @@ if has('gui_running')
     set guioptions-=T
     " Number of Colours
     set t_CO=256
-    colorscheme dark_II
+    try
+        colorscheme dark_II
+    catch
+    endtry
     set cursorline
 else
-    colorscheme dark_II
+    try
+        colorscheme dark_II
+    catch
+    endtry
 endif
