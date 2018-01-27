@@ -188,6 +188,10 @@ defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
+# But make sure the login screen is alright
+sudo defaults write /Library/Preferences/.GlobalPreferences.plist KeyRepeat -int 2
+sudo defaults write /Library/Preferences/.GlobalPreferences.plist InitialKeyRepeat -int 10
+
 
 
 
