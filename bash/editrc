@@ -1,12 +1,32 @@
-# bind -v
+#
+#
+# Modify input techniques (e.g. tab completion)
+#
+# This should stay synced with the inputrc
+#
+#
 
-# bind \\t rl_complete
-# bind jj vi-command-mode
-# bind C-a ed-move-to-end
-# bind C-e ed-move-to-beg
-# bind ed-prev-history
-# bind ed-next-history
-# ed-prev-word
+# Enable vim mode
+#bind -v
+
+bind \\t rl_complete
+
+# Don't go through history using up down
+
+#bind jj vi-command-mode
+
+# Remember! you can type "v" to open vim and edit the command
+# Also the \c- shortcuts don't work in insert mode
+
+
+bind \C-a ed-move-to-end
+bind \C-e ed-move-to-beg
+
+
+bind C-p ed-prev-history
+bind C-n ed-next-history
+
+# bind \\e-f ed-prev-word
 # ed-next-word
 # ed-prev-line
 # ed-next-line
@@ -14,3 +34,4 @@
 
 # bind l ed-next-char
 # bind h ed-prev-char
+

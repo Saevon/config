@@ -2,6 +2,8 @@
 #
 # Modify input techniques (e.g. tab completion)
 #
+# This should stay synced with the editrc
+#
 #
 
 # Allows dashes and underscores to complete the same way
