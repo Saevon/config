@@ -6,7 +6,7 @@
     precomposeunicode = true
     excludesfile = ~/.gitignore
     # insanely beautiful diffs
-    pager = diff-highlight | diff-so-fancy | less --tabs=4 -RFX
+    pager = "if (command -v diff-so-fancy >/dev/null 2>&1); then diff-so-fancy | less --tabs=4 -RFX; else less; fi"
 [bash]
     showDirtyState = 1
 [merge]
@@ -85,14 +85,14 @@
     nobranch = red
 # TODO: CHeck that these make sense
 [color "diff"]
-    meta = yellow bold
+    meta = white dim
     commit = green bold
     frag = magenta bold
     old = red bold
     new = green bold
     whitespace = red reverse
 [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = "red bold 52"
-    newNormal = "green bold"
-    newHighlight = "green bold 22"
+    oldNormal = red
+    oldHighlight = "red bold ul"
+    newNormal = "green"
+    newHighlight = "green bold ul"

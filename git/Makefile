@@ -15,6 +15,14 @@ all: ${USR_SCRIPT} completion
 	@echo "Then the completion, and prompt scripts won't work"
 	@echo "so watch out!"
 
+.PHONY
+
+ifeq ($(UNAME),Darwin)
+else
+git-fancy-diff:
+	@brew install diff-so-fancy
+endif
+
 .PHONY: reset
 reset: reset-completion
 	@rm -i ${HOME}/.gitconfig || true
