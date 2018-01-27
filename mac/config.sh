@@ -460,6 +460,8 @@ defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.apple.terminal "Default Window Settings" -string "Pro"
 defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
 
+defaults write com.apple.terminal "Window Settings"useOptionAsMetaKey
+
 # Enable “focus follows mouse” for Terminal.app and all X11 apps
 # i.e. hover over a window and start typing in it without clicking first
 #defaults write com.apple.terminal FocusFollowsMouse -bool true
@@ -512,6 +514,7 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 ##################################################
 
 # Enable the debug menu in Disk Utility
+# WARN: Disabled in El Capitan...
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
