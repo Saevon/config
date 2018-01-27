@@ -271,7 +271,7 @@ brew-sys-monit:
 .PHONY: brew-net
 brew-net:
 	@brew install openssl
-	brew link --force openssl
+	@brew link --force openssl
 	@brew install wget
 	@brew install ssh-copy-id
 	@brew install nmap
