@@ -1,7 +1,9 @@
+from __future__ import print_function
+
 try:
     from folder_list import *
 except ImportError:
-    print "Can't import FolderList"
+    print("Can't import FolderList")
 else:
     root = FolderList('.')
 
@@ -20,7 +22,7 @@ import math
 def nCr(n,r):
      f = math.factorial
      return f(n) / f(r) / f(n-r)
- 
+
 def min_one(percent, shots):
     probability = 0
     for i in range(1, shots + 1):
