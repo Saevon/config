@@ -47,18 +47,19 @@ endif
 	@CP=cp CPI="${CP} -i" ${COPY} "${PWD}/pauser_template.bash" "${USR_SCRIPT}/pauser.custom.bash"
 
 
-##########################
+#-------------------------------------
 # User folder structure
 ${USR_SCRIPT}:
 	@mkdir -p $@
 
 
 
-########################
+#-------------------------------------
 # Completions
 
 
 # Extra work
+# TODO:!!! this doesn't get installed
 PRE_COMP_DEPS=${HOME}/.bash_completion
 
 include ../completion.makefile
@@ -72,7 +73,7 @@ ${HOME}/.bash_completion: ${PWD}/bash_completion.bash
 
 
 
-#######################
+#-------------------------------------
 
 .PHONY: sys_bin
 sys_bin: sys_bin-main sys_bin-extra
@@ -112,7 +113,8 @@ ifeq ($(UNAME),Darwin)
 endif
 
 
-#######################
+
+#-------------------------------------
 
 
 .PHONY: python
@@ -151,13 +153,15 @@ python-env:
 	@${COPY} "${PWD}/python_startup.py" "${USR_SCRIPT}/"
 
 
-
+.PHONY: python-lint
+python-lint:
+	@syspip install flake8
+	@syspip install pyflakes
+	@syspip install pycodestyle
 
 .PHONY: python-extra
-python-extra: CP=cp
-python-extra: CPI=cp -i
 python-extra:
-	@sysip install request
+	@syspip install request
 	@syspip install eyeD3
 
 	# Imaging Library (PIL fork)
@@ -176,7 +180,7 @@ python-extra:
 
 
 
-#######################
+#-------------------------------------
 # Haskell
 
 .PHONY: haskell
@@ -187,12 +191,16 @@ ${HOME}/.ghc/:
 	@mkdir -p $@
 
 
+
 .PHONY: haskell-main
 haskell-main:
 	@echo "Haskell Setup"
 
+	@# brew install ghc cabal-install
 	@brew cask install haskell-platform
+	@cabal install cabal-install
 	@cabal install hlint --global
+	@# sublime add-repo https://github.com/SublimeLinter/SublimeLinter-hlint.git
 
 
 .PHONY: haskell-env
@@ -201,8 +209,9 @@ haskell-env: ${HOME}/.ghc/
 
 
 
-#######################
 
+
+#-------------------------------------
 
 
 ifeq ($(UNAME),Darwin)
@@ -279,6 +288,7 @@ brew-video:
 # Image Editing
 .PHONY: brew-image
 brew-image:
+	# Needed for sublime colour plugin
 	@brew install imagemagick
 
 else
