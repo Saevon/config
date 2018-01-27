@@ -19,7 +19,9 @@ set mark-symlinked-directories on
 set show-all-if-unmodified on
 
 # show vi editing mode
-# set show-mode-in-prompt on
+set show-mode-in-prompt on
+set vi-ins-mode-string "+ "
+set vi-cmd-mode-string ": "
 
 
 
