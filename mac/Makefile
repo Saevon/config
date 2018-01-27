@@ -26,12 +26,11 @@ help:
 
 .PHONY: icon
 icon:
-	sudo bash -c "source ${PWD}/icons.sh"
+	@sudo bash -c "source ${PWD}/icons.sh"
 
 .PHONY: config
 config:
-	sudo bash -c "source ${PWD}/config.sh"
-	sudo ln -i -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+	@sudo bash -c "source ${PWD}/config.sh"
 
 .PHONY: itunes
 itunes:
@@ -44,7 +43,7 @@ itunes:
 
 .PHONY: server
 server:
-	sudo bash -c "source ${PWD}/servername.sh"
+	@sudo bash -c "source ${PWD}/servername.sh"
 
 .PHONY: hd
 hd:
