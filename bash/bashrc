@@ -34,7 +34,7 @@ if shopt -q restricted_shell ; then
 fi
 
 # Show a fortune cookie for the user
-if [ "`which fortune`" != "" ]; then fortune; fi
+if [ -f "`which fortune`" ]; then fortune; fi
 
 
 
