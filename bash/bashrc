@@ -199,7 +199,7 @@ shopt -s checkwinsize
 # set -o vi
 
 # Disable to consumption of Ctrl-O
-stty discard unset
+stty discard '<undef>'
 
 
 
