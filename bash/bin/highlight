@@ -4,6 +4,7 @@
 # $''
 
 import argparse
+import itertools
 import re
 from collections import defaultdict
 
@@ -12,29 +13,35 @@ from collections import defaultdict
 
 
 
-COLOURS = {
-    'none': None,
-
-    'black': '0;30',
+SPECIAL_COLOURS = {
     'red': '0;31',
     'green': '0;32',
     'yellow': '0;33',
     'blue': '0;34',
     'purple': '0;35',
     'cyan': '0;36',
-    'white': '0;37',
 
-    'boldblack': '1;30',
     'lightred': '1;31',
     'lightgreen': '1;32',
     'lightyellow': '1;33',
     'lightblue': '1;34',
     'lightpurple': '1;35',
     'lightcyan': '1;36',
+}
+COLOURS = {
+    'black': '0;30',
+    'boldblack': '1;30',
+
+    'white': '0;37',
     'boldwhite': '1;37',
 
     'reset': '0',
+    'none': None,
 }
+COLOURS.update(SPECIAL_COLOURS)
+
+
+
 
 
 def ansi_colour(name):
@@ -85,6 +92,9 @@ class RegexAction(object):
     def __init__(self):
         self.colour = None
         self.replacement = None
+        self.unique = False
+        self.uniques = {}
+        self.colours = itertools.cycle(SPECIAL_COLOURS.keys())
 
     def replacer(self, matches):
         '''
@@ -113,10 +123,24 @@ class RegexAction(object):
 
 
     def replace(self, string, matches):
-        if self.replacement is None:
-            return string
+        replacement = string
+        if self.replacement is not None:
+            replacement = self.BACKREF_RE.sub(self.replacer(matches), self.replacement)
 
-        return self.BACKREF_RE.sub(self.replacer(matches), self.replacement)
+        colour = None
+        if self.unique:
+            if replacement in self.uniques:
+                colour = self.uniques[replacement]
+            else:
+                colour = self.colours.next()
+                self.uniques[replacement] = colour
+        elif self.colour:
+            colour = self.colour
+
+        return {
+            'result': replacement,
+            'colour': colour,
+        }
 
 
 class Statement(RegexAction):
@@ -136,15 +160,19 @@ class Statement(RegexAction):
 
         self.specials = defaultdict(RegexAction)
 
-
     def add_group(self, name, colour):
         self.specials[name].colour = colour
 
     def add_replacement(self, name, replacement):
         self.specials[name].replacement = replacement
 
+    def add_unique_group(self, name):
+        self.specials[name].unique = True
+
     def add_global_replacement(self, replacement):
         self.replacement = replacement
+
+
 
     def __repr__(self):
         data = [
@@ -196,20 +224,23 @@ class Statement(RegexAction):
             subvalue = match.group(groupname)
 
             # Perform a replace action if there was one
-            subvalue = regex_action.replace(subvalue, match)
+            result = regex_action.replace(subvalue, match)
+            subvalue = result["result"]
 
-            subvalue = ansi_colour(regex_action.colour) + subvalue
-            if self.colour is not None:
-                subvalue += ansi_colour(self.colour)
-            else:
-                subvalue += ansi_colour('reset')
+            if result["colour"] is not None:
+                subvalue = ansi_colour(result["colour"]) + subvalue
+                if self.colour is not None:
+                    subvalue += ansi_colour(self.colour)
+                else:
+                    subvalue += ansi_colour('reset')
 
             value = value[:left] + subvalue + value[right:]
 
         return value
 
     def replace_all(self, match):
-        return self.replace(match.group(0), match)
+        result = self.replace(match.group(0), match)
+        return results["result"]
 
     def __call__(self, data):
         replacement = self.regex.sub(self._replacer, data)
@@ -267,6 +298,17 @@ class ModalParser(object):
 
         self.current.add_global_replacement(replacement)
 
+    def add_unique_group(self, name):
+        try:
+            name = int(name)
+        except TypeError:
+            pass
+
+        if self.current is None:
+            raise Exception("Can not set replacement without a regex")
+
+        self.current.add_unique_group(name)
+
 
 
     def __call__(self, args):
@@ -292,7 +334,7 @@ class ModalParser(object):
             action=function_action(self.add_replacement),
             nargs=2,
             metavar=('groupname', 'replacement'),
-            help='Replaces the given group. `ALL` means the entire regex match',
+            help='Replaces the given group.',
         )
         parser.add_argument(
             '-R', '--replace-all',
@@ -301,7 +343,13 @@ class ModalParser(object):
             metavar=('replacement'),
             help='Replaces the entire match. overwrites any group/replacement options for the current re',
         )
-
+        parser.add_argument(
+            '-u', '--unique',
+            action=function_action(self.add_unique_group),
+            nargs=1,
+            metavar=('unique_group'),
+            help='Assigns the given group a unique colour (One for each unique match, based on the final replacement).',
+        )
         parser.parse_args(args)
         return self.statements
 
