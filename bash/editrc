@@ -9,7 +9,7 @@
 # Enable vim mode
 #bind -v
 
-bind \\t rl_complete
+# bind \\t rl_complete
 
 # Don't go through history using up down
 
@@ -18,13 +18,13 @@ bind \\t rl_complete
 # Remember! you can type "v" to open vim and edit the command
 # Also the \c- shortcuts don't work in insert mode
 
+# THESE DON'T WORK!!  just removes the Capital C from beign typed
+# bind \C-a ed-move-to-end
+# bind \C-e ed-move-to-beg
 
-bind \C-a ed-move-to-end
-bind \C-e ed-move-to-beg
 
-
-bind C-p ed-prev-history
-bind C-n ed-next-history
+# bind \C-p ed-prev-history
+# bind \C-n ed-next-history
 
 # bind \\e-f ed-prev-word
 # ed-next-word
