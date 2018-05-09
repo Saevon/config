@@ -80,38 +80,40 @@ sys_bin: sys_bin-main sys_bin-extra
 
 
 .PHONY: sys_bin-main
-sys_bin-main: CP=cp
-sys_bin-main: CPI=cp -i
+sys_bin-main: CP?=cp
+sys_bin-main: CPI?=cp -i
+sys_bin-extra: BIN_DIR?=${USR_BIN}
 sys_bin-main:
-	@echo "Copying system binaries to ${SYS_BIN}"
+	@echo "Copying system binaries to ${BIN_DIR}"
 	sudo -v
 
 ifeq ($(UNAME),Darwin)
-	@sudo ${COPY} "${PWD_BIN}/as" "${SYS_BIN}/"
-	@sudo ${COPY} "${PWD_BIN}/changeInput" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/as" "${BIN_DIR}/"
+	@sudo ${COPY} "${PWD_BIN}/changeInput" "${BIN_DIR}/"
 endif
 
-	@sudo ${COPY} "${PWD_BIN}/ask" "${SYS_BIN}/"
-	@sudo ${COPY} "${PWD_BIN}/cputhrottle" "${SYS_BIN}/"
-	@sudo ${COPY} "${PWD_BIN}/sitedown" "${SYS_BIN}/"
-	@sudo ${COPY} "${PWD_BIN}/try" "${SYS_BIN}/"
-	@sudo ${COPY} "${PWD_BIN}/highlight" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/ask" "${BIN_DIR}/"
+	@sudo ${COPY} "${PWD_BIN}/cputhrottle" "${BIN_DIR}/"
+	@sudo ${COPY} "${PWD_BIN}/sitedown" "${BIN_DIR}/"
+	@sudo ${COPY} "${PWD_BIN}/try" "${BIN_DIR}/"
 
 
 .PHONY: sys_bin-extra
-sys_bin-extra: CP=cp
-sys_bin-extra: CPI=cp -i
+sys_bin-extra: BIN_DIR?=${USR_BIN}
 sys_bin-extra:
-	@sudo ${COPY} "${PWD_BIN}/album_art" "${SYS_BIN}/"
+	@sudo ${COPY} "${PWD_BIN}/album_art" "${BIN_DIR}/"
 
 
 .PHONY: usr_bin
+usr_bin: BIN_DIR?=${USR_BIN}
 usr_bin:
-	@echo "Copying user binaries to ${USR_BIN}"
+	@echo "Copying user binaries to ${BIN_DIR}"
 
 ifeq ($(UNAME),Darwin)
-	@${COPY} "${PWD_BIN}/itunes.sh" "${USR_BIN}/itunes"
+	@${COPY} "${PWD_BIN}/itunes.sh" "${BIN_DIR}/itunes"
 endif
+
+
 
 
 
@@ -122,8 +124,8 @@ endif
 python: python-env python-main python-extra
 
 .PHONY: python-main
-python-main: CP=cp
-python-main: CPI=cp -i
+python-main: CP?=cp
+python-main: CPI?=cp -i
 python-main:
 	@echo "Python Setup"
 	# TODO: install pip with easy install?
@@ -146,7 +148,7 @@ python-main:
 
 	@syspip install virtualenv
 
-	# El-Capitan BUG: six can't be overwritten, but pip can't see it, so you need to use the installed one
+	@# El-Capitan BUG: six can't be overwritten, but pip can't see it, so you need to use the installed one
 	@syspip install virtualenvwrapper --ignore-installed six
 
 .PHONY: python-env
@@ -250,7 +252,7 @@ brew-cmd:
 	@brew install watch
 
 .PHONY: brew-gnu
-OPTS=--with-default-names
+brew-gnu: OPTS?=--with-default-names
 brew-gnu:
 	@brew install coreutils ${OPTS}
 	# @brew install findutils ${OPTS}
