@@ -113,6 +113,7 @@ ifeq ($(UNAME),Darwin)
 	@${COPY} "${PWD_BIN}/itunes.sh" "${BIN_DIR}/itunes"
 endif
 
+	@${COPY} "${PWD_BIN}/highlight" "${BIN_DIR}/"
 
 
 
