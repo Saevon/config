@@ -12,7 +12,7 @@ include ../variables.makefile
 
 
 .PHONY: all minimal
-all: environment completion sys_bin usr_bin brew python haskell bashup gcc
+all: environment completion sys_bin usr_bin brew python haskell bashup gcc sqlite
 minimal: environment completion
 
 .PHONY: environment
@@ -213,6 +213,19 @@ haskell-env: ${HOME}/.ghc/
 
 
 #-------------------------------------
+# Sqlite
+
+.PHONY: sqlite
+sqlite:
+	@${COPY} "${PWD}/sqliterc" "${HOME}/.sqliterc"
+
+.PHONY: reset-sqlite
+reset-sqlite:
+	@rm -i ${HOME}/.sqliterc || true
+
+
+
+#-------------------------------------
 
 
 ifeq ($(UNAME),Darwin)
@@ -369,7 +382,7 @@ bashup: brew-install
 
 # Resets the files that get linked for relinking
 .PHONY: reset
-reset: reset-environment reset-completion
+reset: reset-environment reset-completion reset-sqlite
 
 .PHONY: reset-environment
 reset-environment:
