@@ -157,6 +157,7 @@ function orphans() {
     IGNORE+="|(System Events.app)"
     IGNORE+=")"
 
+    # TODO: this uses brew grep...?
     ps ${FORMAT} -A | awk 'BEGIN {linenum=1}; { if (linenum == 1 || ($3 == 1 && $1 != "root")) {print $0}; linenum++}' | grep -v -P -e"${IGNORE}"
 }
 function ps_extras() {
@@ -205,6 +206,11 @@ function update_all() {
         for pkg in $( syspip list --outdated | cut -d' ' -f 1 ); do
             syspip install -U echo "$pkg"
         done
+    fi
+
+    # Haskell
+    if [ $(which -s cabal && echo $?) == 0 ]; then
+        sudo cabal install cabal-install
     fi
 }
 
