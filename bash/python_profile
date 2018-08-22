@@ -1,6 +1,0 @@
-
-# -- Generated Section CUSTOM-GLOBAL-PYTHONPATH-v1.1
-# Adds PythonPath
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-# -- End
-
