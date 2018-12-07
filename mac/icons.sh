@@ -113,11 +113,11 @@ rpl_app
 # Music
 
 # iTunes
-REQ="/Applications/iTunes.app"
-ICON="iTunes.icns"
-NEW="Music/iTunes.icns"
-NAME="iTunes"
-rpl_app
+# REQ="/Applications/iTunes.app"
+# ICON="iTunes.icns"
+# NEW="Music/iTunes.icns"
+# NAME="iTunes"
+# rpl_app
 
 # Misc Files
 REQ="/Applications/iTunes.app"
@@ -155,18 +155,18 @@ rpl_app
 # Misc Apps
 
 # Calculator
-REQ="/Applications/Calculator.app"
-ICON="calculator.icns"
-NEW="Calculator.icns"
-NAME="Calculator"
-rpl_app
+# REQ="/Applications/Calculator.app"
+# ICON="calculator.icns"
+# NEW="Calculator.icns"
+# NAME="Calculator"
+# rpl_app
 
 # Chrome
-REQ="/Applications/Google Chrome.app"
-ICON="app.icns"
-NEW="Chrome Sleek.icns"
-NAME="Chrome"
-rpl_app
+# REQ="/Applications/Google Chrome.app"
+# ICON="app.icns"
+# NEW="Chrome Sleek.icns"
+# NAME="Chrome"
+# rpl_app
 
 # Gimp
 REQ="/Applications/Gimp.app"
@@ -180,7 +180,7 @@ rpl_app
 
 # Console Logger
 REQ="/Applications/Utilities/Console.app"
-ICON="Console.icns"
+ICON="AppIcon.icns"
 NEW="Console Logs.icns"
 NAME="Console"
 rpl_app
@@ -221,11 +221,11 @@ NAME="FireFox"
 rpl_app
 
 # GitX
-REQ="/Applications/GitX.app"
-ICON="gitx.icns"
-NEW="GitX.icns"
-NAME="GitX"
-rpl_app
+# REQ="/Applications/GitX.app"
+# ICON="gitx.icns"
+# NEW="GitX.icns"
+# NAME="GitX"
+# rpl_app
 
 
 
@@ -261,28 +261,30 @@ rpl_app
 NAME="SteamGames"
 ICON="shortcut.icns"
 
-REQ="$HOME/Applications/Steam/Bastion.app"
-NEW="Games/Bastion.icns"
-ICON="shortcut.icns"
-rpl_app
-REQ="$HOME/Applications/Steam/VVVVVV.app"
-NEW="Games/VVVVVV.icns"
-ICON="shortcut.icns"
-rpl_app
-REQ="$HOME/Applications/Steam/Transistor.app"
-NEW="Games/Transistor.icns"
-ICON="shortcut.icns"
-rpl_app
-REQ="$HOME/Applications/Steam/Plague Inc Evolved.app"
-NEW="Games/PlagueInc.icns"
-ICON="shortcut.icns"
-rpl_app
 
+# Games which all use the same icon format
+ALL_GAMES=()
+ALL_GAMES+=('Bastion')
+ALL_GAMES+=('VVVVVV')
+ALL_GAMES+=('Transistor')
+ALL_GAMES+=('Plague Inc Evolved')
+ALL_GAMES+=('Mark of the Ninja')
+ALL_GAMES+=('Evoland 2')
 
-#REQ="$HOME/Library/Application Support/Steam/steamapps/common/vvvvvv/VVVVVV.app"
-#NEW="Games/VVVVVV.icns"
-#ICON="VVVVVV.icns"
-#rpl_app
+for ((index = 0; index < ${#ALL_GAMES[@]}; index++)); do
+	game=${ALL_GAMES[index]}
+
+	REQ="$HOME/Applications/Steam/$game.app"
+	NEW="Games/$game.icns"
+	ICON="shortcut.icns"
+	rpl_app
+	echo $game
+done
+
+REQ="$HOME/Applications/Steam/Slime Rancher.app"
+NEW="Games/Slime Rancher ~ Tabby.icns"
+ICON="shortcut.icns"
+rpl_app
 
 
 #######################

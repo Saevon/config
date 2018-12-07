@@ -6,6 +6,8 @@ Dock Hiding
 Customize Finder
 > Sidebar
 > Secure Empty Trash
+> Enable "folders on top" (Sierra+)
+> Enable: System Preferences > Keyboard > Shortcuts > Services >> New Terminal at Folder
 
 Divvy
 > Setup shortcuts

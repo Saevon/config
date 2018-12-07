@@ -13,10 +13,11 @@ replace_icon(){
 
     remove_icon $droplet
 
-    DeRez -only icns $icon > /tmp/icns.rsrc
-    Rez -append /tmp/icns.rsrc -o $droplet$'/Icon\r'
-    SetFile -a C $droplet
-    SetFile -a V $droplet$'/Icon\r'
+    # DeRez -only icns $icon > /tmp/icns.rsrc
+    # Rez -append /tmp/icns.rsrc -o $droplet$'/Icon\r'
+    # SetFile -a C $droplet
+    # SetFile -a V $droplet$'/Icon\r'
+    set-icon $icon $droplet
 }
 
 
