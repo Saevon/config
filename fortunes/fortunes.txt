@@ -5,7 +5,7 @@ A person that values privileges above principles soon loses both. -- Dwight Eise
 The opposite of a correct statement is a false statement. The opposite of a profound truth may well be another profound truth. -- Niels Bohr
 Yesterday is history, tomorrow is a mystery, today is a gift to us, which is why we call it the present.
 Being deeply loved by someone gives you strength, while loving someone deeply gives you courage. -- Lao Tzu
-I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world. -- Albert Einstein
+I am enough of an artist to raw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world. -- Albert Einstein
 I had a thought, but it got lonely and went away.
 Money talks and mine says "Good-bye".
 A bird doesn't sing because it has an answer, it sings because it has a song.
@@ -17,6 +17,7 @@ Life isn't about waiting for the storm to pass; it's about learning to dance in 
 Life is what happens to you while you're busy making other plans. -- Allen Saunders
 The world is not beautiful, And that, lends it a sort of beauty. -- Kino
 If you want to build a ship, don't drum up the men to gather wood, divide the work, and give orders. Instead, teach them to yearn for the vast and endless sea. -- Antoine de Saint-Exupery
+It is possible to commit no mistakes and still lose. That is not a Weakness. That is Life -- Picard
 #
 #
 # Judgement
@@ -34,6 +35,7 @@ Cowards die many times before their deaths; The valiant never taste of death but
 Don’t argue with fools because they will drag you down to their level and then beat you with experience.
 Tradition is just how you excuse your hopelessly outdated ways when they are questioned and serve as an excuse to continue doing what you've been doing since time immemorial simply because you've been doing it since time immemorial. -- Harry Potter (Oh God Not Again)
 I'm not upset that you lied to me, I'm upset that from now on I can't believe you. -- Friedrich Nietszche (Paraphrase)
+It is possible to commit no mistakes, and still lose... That is not a weakness, that is Life -- Jean-Luc Picard
 #
 #
 # Evil
@@ -57,6 +59,7 @@ It is the mark of an educated mind to be able to entertain a thought without acc
 University is easy... It's like riding a bike. Except the bike is on fire, and you're on fire, and everything is on fire... and you're in hell.
 When Students cheat on exams it's because our School System values grades more than Students value learning. -- Neil deGrasse Tyson
 Education will be based on the illimitable freedom of the human mind. For we are not afraid to follow truth wherever it may lead, nor to tolerate any error so long as reason is left free to combat it -- Thomas Jefferson
+One mark of a great man is the legacy of men he leaves behind him, to whom he's passed on his skills. If you think them so small as to have stifled all possible others around him, spreading smallness like a plague, then perhaps we are better off without him." -- Captain Cordelia Vorkosigan
 #
 #
 # Work & Motivation
@@ -101,7 +104,7 @@ Insanity: doing the same thing over and over again and expecting different resul
 Why would I be offended? I've seen your version of sanity, It bores me. -- Luna
 Though I did not know the place, I set out for the land of my dreams. Having arrived at the land of my dreams, I found I did not know the place. -- Kino
 I wear the chain I forged in life, I made it link by link, and yard by yard; I girded it on of my own free will, and of my own free will I wore it. -- Charles Dickens
-The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown. -- HP Lovecraft 
+The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown. -- HP Lovecraft
 Kings alter the laws of man as they see fit, Why should the laws of nature be any different -- The Wizard
 #
 #
@@ -180,3 +183,4 @@ The reason Latin is a dead language is because they kept accidentally summoning 
 If you don't take what is yours, it will never be yours -- Saevon
 We're not going anywhere, but that doesn't mean we don't have anywhere to be. (While trapped and the Player is wasting time) -- Prey
 The safer equipment becomes, the more chances users will take, in order to keep the fatality rate constant
+A bullet may have your name on it, but a grenade simply says: "To Whomever this may Concern"
