@@ -25,57 +25,25 @@ alias haskell='ghci'
 # Misc
 ################
 
-# Manpage style help for builtin functions
 function helpman() {
+    # Manpage style help for builtin functions
+    #
     help -m $@ | less
 }
 
-# Finds the given function, showing its contents if needed
-function helpfunc() {
-    function __show_help() {
-        echo 'helpfunc [-vh] FUNC_NAME'
-        echo ''
-        echo '  Gets information about the given function name (whether it exists)'
-        echo ''
-        echo '  -h    Help: Prints this help text'
-        echo '  -v    Verbose: Prints entire function contents'
-    }
+function help_func() {
+    # Prints the source of a function
 
-    local OPTIND=1
-    local verbose=false
-    while getopts ":hv" opt; do
-          case $opt in
-              h)
-                __show_help
-                return
-                ;;
-            v)
-                verbose=true
-                ;;
-            \?)
-                echo "Invalid option: -$OPTARG" >&2
-                ;;
-        esac
-    done
+    # Turn on extended shell debugging
+    shopt -s extdebug
 
-    # Shift off the options and optional --.
-    shift "$((OPTIND-1))"
+    # Dump the function's name, line number and fully qualified source file
+    declare -F $1
 
-    # Checks that we got a pos argument
-    if [ -z "$1" ]; then
-        __show_help
-        return
-    fi
-
-    # Main Code
-    if [ "${verbose}" == "true" ]; then
-        typeset -f | sed -n -e "/^$1 ()/,/^}/ p"
-    else
-        typeset -F | awk '{ print $3 }' | grep -E "\b($1)\b"
-    fi
-
-    unset -f __show_help
+    # Turn off extended shell debugging
+    shopt -u extdebug
 }
+
 
 # set strongest compression level as ‘default’ for gzip
 alias gzip="gzip -9n"
@@ -138,6 +106,18 @@ function disksize() {
     else
         du $arg .[^.]* ./*;
     fi;
+}
+
+function extfs() {
+    extfsPath=$(brew --prefix e2fsprogs)/sbin/
+
+    # Update the path
+    if [[ ":${PATH}:" != *":${extfsPath}:"* ]]; then
+        export PATH=$PATH:${extfsPath}
+    fi
+
+    # Show available commands
+    ls ${extfsPath}
 }
 
 #############################
@@ -205,6 +185,12 @@ function update_all() {
         syspip install -U pip setuptools
         for pkg in $( syspip list --outdated | cut -d' ' -f 1 ); do
             syspip install -U echo "$pkg"
+        done
+    fi
+    if [ $(which -s syspip3 && echo $?) == 0 ]; then
+        syspip3 install -U pip setuptools
+        for pkg in $( syspip3 list --outdated | cut -d' ' -f 1 ); do
+            syspip3 install -U echo "$pkg"
         done
     fi
 
