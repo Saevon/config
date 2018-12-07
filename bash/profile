@@ -78,7 +78,6 @@ export EDITOR=vim
 #######################################
 # Python
 PYTHONPATH=${PYTHONPATH}:${PROJECT_HOME}/:${PROJECT_HOME}/Recipe
-PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python2.7/site-packages
 export PYTHONPATH
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
