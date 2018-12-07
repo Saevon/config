@@ -15,6 +15,7 @@ include ../variables.makefile
 all: environment completion sys_bin usr_bin brew python haskell bashup gcc sqlite
 minimal: environment completion
 
+
 .PHONY: environment
 environment: ${USR_SCRIPT}
 	@echo "Setting up system environment"
@@ -307,7 +308,6 @@ brew-video:
 brew-image:
 	# Needed for sublime colour plugin
 	@brew install imagemagick
-
 	@brew install libicns
 
 # FileSystem

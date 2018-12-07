@@ -242,6 +242,8 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 # Finder
 ##################################################
 
+
+
 # Disable quiting using ⌘ Q
 defaults write com.apple.finder QuitMenuItem -bool false
 
