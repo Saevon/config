@@ -131,23 +131,10 @@ python-main: CP?=cp
 python-main: CPI?=cp -i
 python-main:
 	@echo "Python Setup"
-	# TODO: install pip with easy install?
-
-	# Adds to the python path so we can install in a user directory
-	@#if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH' /etc/profile)" -eq 1 ]]; then \
-		if [[ "$$(grep --count 'CUSTOM-GLOBAL-PYTHONPATH-v1.1' /etc/profile)" -eq 0 ]]; then \
-			>&2 echo "/etc/profile was already edited, but with an old version of CUSTOM-GLOBAL-PYTHONPATH, remove the old version"; \
-			exit 1; \
-		fi \
-	else \
-		cat python_profile | sudo tee -a /etc/profile >/dev/null; \
-	fi
-
-	@#sudo ${COPY} "pydistutils.cfg" "/Library/Python/2.7/site-packages/"
-
 	@# Fixes the profile not being reloaded, and a python warning appearing
 	@sudo -H -i easy_install pip
 	@sudo ${COPY} ${PWD_BIN}/syspip ${SYS_BIN}/
+	@sudo ${COPY} ${PWD_BIN}/syspip3 ${SYS_BIN}/
 
 	@syspip install virtualenv
 
@@ -169,6 +156,7 @@ python-lint:
 python-extra:
 	@syspip install request
 	@syspip install eyeD3
+	@syspip install pyyaml
 
 	# Imaging Library (PIL fork)
 	@syspip install pillow
@@ -181,6 +169,10 @@ python-extra:
 
 	# System Monitoring
 	@syspip install glances
+
+	# Matlib
+	# @PIP_REQUIRE_VIRTUALENV= python3 -mpip install matplotlib
+
 
 
 

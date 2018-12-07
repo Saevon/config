@@ -51,10 +51,14 @@ export WORKON_HOME=$HOME/.environments
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
+
 # Python startup commands
 export PYTHONSTARTUP=${USR_SCRIPT}/python_startup.py
 
 
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh

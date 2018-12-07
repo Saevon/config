@@ -8,7 +8,6 @@ else:
     root = FolderList('.')
 
 
-
 import subprocess
 def pbcopy(output):
     process = subprocess.Popen(
