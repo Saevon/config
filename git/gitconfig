@@ -54,7 +54,7 @@
     # Working with branches
     upstream = rev-parse --abbrev-ref @{upstream}
     # pushes up to a branch
-    push-up = !branch=`git rev-parse --abbrev-ref HEAD` && git push --set-upstream origin ${branch}
+    push-up = !branch=`git rev-parse --abbrev-ref HEAD` && git push --set-upstream ${1:-origin} ${branch} ${@:2} && :
     push-to = !branch=`git rev-parse --abbrev-ref HEAD` && git push ${1} ${branch}:${2} ${@:3} && :
     del-branch = !git push ${1} :${2} ${@:3} && :
     kill-branch = !( git del-branch ${1} ${2} || true ) && ( git branch -d ${2} || true) && :
