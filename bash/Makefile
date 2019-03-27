@@ -211,7 +211,7 @@ haskell-main:
 
 .PHONY: haskell-env
 haskell-env: ${HOME}/.ghc/
-	@${COPY} "${PWD}/haskell-ghci.conf" "${HOME}/.ghc/ghci.config"
+	@${COPY} "${PWD}/haskell-ghci.conf.hs" "${HOME}/.ghc/ghci.config"
 
 
 
