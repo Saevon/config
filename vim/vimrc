@@ -9,6 +9,7 @@ if version >= 700
    set nospell
 endif
 
+
 " Allows backspacing over all characters
 set backspace=indent,eol,start
 " Allows using arrowkeys to wrap around lines (but not h,l)
@@ -110,6 +111,19 @@ set smartcase
 " Clear last Search Highlighting
 nnoremap <leader><space> :noh<CR>
 
+" Search for selected text, forwards or backwards.
+" With lots of customizations
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -128,7 +142,7 @@ vnoremap "+y :w !pbcopy<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Set char for command completion
 set wildchar=<TAB>
-" allow list of `completed` commands
+" allow list of `completed` command
 set wildmenu
 " ignore files
 set wildignore+=*.0,*.0bj,.git,*.rbc,*.pyc
