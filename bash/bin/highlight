@@ -222,6 +222,9 @@ class Statement(RegexAction):
             right -= start
 
             subvalue = match.group(groupname)
+            if subvalue is None:
+                # Optional group probably, not found
+                return value
 
             # Perform a replace action if there was one
             result = regex_action.replace(subvalue, match)
@@ -273,7 +276,7 @@ class ModalParser(object):
     def add_group(self, name, colour):
         try:
             name = int(name)
-        except TypeError:
+        except ValueError:
             pass
 
         if self.current is None:
@@ -283,7 +286,7 @@ class ModalParser(object):
     def add_replacement(self, name, replacement):
         try:
             name = int(name)
-        except TypeError:
+        except ValueError:
             pass
 
         if self.current is None:
@@ -301,7 +304,7 @@ class ModalParser(object):
     def add_unique_group(self, name):
         try:
             name = int(name)
-        except TypeError:
+        except ValueError:
             pass
 
         if self.current is None:
