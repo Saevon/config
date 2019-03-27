@@ -41,7 +41,7 @@ REMOVE--%.complete.bash: FORCE
 completion: ${PRE_COMP_DEP} ${COMP_DIR} ${COMPLETIONS} ${POST_COMP_DEP}
 
 %.complete.bash: FORCE
-	@${COPY} "$@" "${COMP_DIR}/$$(basename $@)"
+	@CPI="${CPI}" ${COPY} "$@" "${COMP_DIR}/$$(basename $@)"
 
 ${COMP_DIR}:
 	@mkdir -p $@
