@@ -28,6 +28,9 @@ SPECIAL_COLOURS = {
     'lightpurple': '1;35',
     'lightcyan': '1;36',
 }
+ALIASES = {
+    'violet': 'purple',
+}
 COLOURS = {
     'black': '0;30',
     'boldblack': '1;30',
@@ -39,9 +42,8 @@ COLOURS = {
     'none': None,
 }
 COLOURS.update(SPECIAL_COLOURS)
-
-
-
+for alias, color in ALIASES.items():
+    COLOURS[alias] = COLOURS[color]
 
 
 def ansi_colour(name):
@@ -57,17 +59,21 @@ def ansi_colour(name):
     return '\x1b[{0}m'.format(code)
 
 
-"[-f regex/word colour [-g groupname colour]+ [-r groupname replacement ]+ ]"
-""
-"-f starts a regex, it also requires a colour (which can be none) that would highlight the entire matched regex"
-"    You can also specify multiple -g options which would colour just the selected named/positional group"
-"    There must be no overlap between regexs as if multiple of them match, they "
-"-r replacement text, the replacement will be surrounded with the colour if you use the -g option"
-"    if use use `ALL` as the $groupname then then the entire regex will be replaced"
-"    Python style backreferences will be used:"
-"      `\\g<name>`: \g<keyword>"
-"      `\\g<number>`: \g<1> \g<20>"
-"      `\\number`: \1 \20"
+help_text = (
+    "[-f regex/word colour [-g groupname colour]+ [-r groupname replacement ]+ ]"
+    ""
+    "-f starts a regex, it also requires a colour (which can be none) that would highlight the entire matched regex"
+    "    You can also specify multiple -g options which would colour just the selected named/positional group"
+    "    There must be no overlap between regexs as if multiple of them match, they "
+    "-r replacement text, the replacement will be surrounded with the colour if you use the -g option"
+    "    if use use `ALL` as the $groupname then then the entire regex will be replaced"
+    "    Python style backreferences will be used:"
+    "      `\\g<name>`: \\g<keyword>"
+    "      `\\g<number>`: \\g<1> \\g<20>"
+    "      `\\number`: \\1 \\20"
+    "      "
+    "      DO NOT use overlapping groups, they are not supported"
+)
 
 
 
@@ -170,9 +176,7 @@ class Statement(RegexAction):
         self.specials[name].unique = True
 
     def add_global_replacement(self, replacement):
-        self.replacement = replacement
-
-
+        self.add_replacement(0, replacement)
 
     def __repr__(self):
         data = [
@@ -189,18 +193,13 @@ class Statement(RegexAction):
         return 'Statement<' + ', '.join(data) + '>'
 
     def _replacer(self, match):
-        if self.replacement:
-            value = self.replace_all(match)
-        else:
-            value = self.replace_groups(match)
+        value = self.replace_groups(match)
 
         # Add the overall colour
         if self.colour is not None:
             value = ansi_colour(self.colour) + value + ansi_colour('reset')
 
         return value
-
-
 
     def replace_groups(self, match):
         # Get the entire match
@@ -224,7 +223,7 @@ class Statement(RegexAction):
             subvalue = match.group(groupname)
             if subvalue is None:
                 # Optional group probably, not found
-                return value
+                continue
 
             # Perform a replace action if there was one
             result = regex_action.replace(subvalue, match)
@@ -240,10 +239,6 @@ class Statement(RegexAction):
             value = value[:left] + subvalue + value[right:]
 
         return value
-
-    def replace_all(self, match):
-        result = self.replace(match.group(0), match)
-        return results["result"]
 
     def __call__(self, data):
         replacement = self.regex.sub(self._replacer, data)
@@ -375,6 +370,7 @@ def main():
 
         # Apply each highlight
         for statement in statements:
+            # TODO: these can get in each other's way
             line = statement(line)
 
         # Continue the data pipe
@@ -387,6 +383,20 @@ if __name__ == '__main__':
         main()
     except KeyboardInterrupt:
         pass
+
+
+# BUGS:
+#    searching for a number after a colourization messes up colours
+#       -f '[0-9]+sec' red  -f '\b[0-9]+\b' red
+#    Multiple replacements in a statement messes up (Since I'm using pre-replacement indexes when inserting ansi)
+#       -f '([0-9]+) (?:(sec)|(min))' violet   -g 1 cyan   -g 2 green  -g 3 red
+
+
+
+
+
+
+
 
 
 
