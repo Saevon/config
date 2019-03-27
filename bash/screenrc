@@ -1,0 +1,13 @@
+# Don't use CTRL-A as the trigger, as thats used for "beggining of line"
+escape ^Kk
+
+
+# If the session hangs up always detach the screen (and leave it running)
+autodetach on
+
+
+# Allow bold colors - necessary for some reason
+attrcolor b ".I"
+
+# http://superuser.com/questions/126606/how-to-get-mac-os-x-terminal-app-and-screen-vim-scrolling-to-play-nice/316900#316900
+termcapinfo xterm-256color|xterm-color|xterm|xterms|xs|rxvt ti@:te@

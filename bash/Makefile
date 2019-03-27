@@ -21,6 +21,7 @@ environment: ${USR_SCRIPT}
 
 	@${COPY} "${PWD}/inputrc" "${HOME}/.inputrc"
 	@${COPY} "${PWD}/editrc" "${HOME}/.editrc"
+	@${COPY} "${PWD}/screenrc" "${HOME}/.screenrc"
 
 	@${COPY} "${PWD}/profile" "${HOME}/.profile"
 	@${COPY} "${PWD}/paths" "${HOME}/.paths"
@@ -86,6 +87,7 @@ sys_bin-extra: BIN_DIR?=${USR_BIN}
 sys_bin-main:
 	@echo "Copying system binaries to ${BIN_DIR}"
 	sudo -v
+
 
 ifeq ($(UNAME),Darwin)
 	@sudo ${COPY} "${PWD_BIN}/as" "${BIN_DIR}/"
@@ -329,7 +331,6 @@ brew-security:
 	@brew install pinentry-mac
 	@echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
 
-
 else
 brew brew-%:
 	@:
@@ -391,6 +392,7 @@ reset: reset-environment reset-completion reset-sqlite
 reset-environment:
 	@rm -i ${HOME}/.inputrc || true
 	@rm -i ${HOME}/.editrc || true
+	@rm -i ${HOME}/.screenrc || true
 
 	@rm -i ${HOME}/.profile || true
 	@rm -i ${HOME}/.paths || true
