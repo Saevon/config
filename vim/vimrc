@@ -96,6 +96,15 @@ endfunction
 nmap <C-T><C-T> :call ToggleTabs()<CR>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Controls
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Allow horizontal movement to go to the next line
+" (solves issue where jumping by word in visual mode
+"   would get you stuck on the next line)
+" Also simply allows you to keep moving sideways on lines
+set whichwrap+=<,>,h,l,[,]
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Searching
