@@ -40,12 +40,12 @@ reset: ${VALID_RESET}
 # and runs the makefile there
 ${VALID}:
 	@([[ "${VALID}" =~ $@ ]] \
-		&& ((cd $@ && make HOME=${HOME}) || echo "Error while creating config type '$@'") \
+		&& ( (cd $@ && make HOME=${HOME} ) || echo "Error while creating config type '$@'") \
 		|| echo "Invalid config type: '$@'" \
 	)
 
 ${VALID_RESET}:
 	@([[ "${VALID_RESET}" =~ $@ ]] \
-		&& ((cd $(@:reset-%=%) && make reset HOME=${HOME}) || echo "Error while resetting config type '$@'") \
+		&& ( (cd $(@:reset-%=%) && make reset HOME=${HOME} ) || echo "Error while resetting config type '$@'") \
 		|| echo "Invalid config type: '$@'" \
 	)
