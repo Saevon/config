@@ -5,12 +5,15 @@
 # This should stay synced with the editrc
 #
 #
-
-# Allows dashes and underscores to complete the same way
-set completion-map-case on
+# Syntax Help:
+# https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html
 
 # Ignore case
 set completion-ignore-case on
+
+# Allows dashes and underscores to complete the same (as if they're case differences)
+set completion-map-case on
+
 
 # completed symlinks get a trailing slash
 set mark-symlinked-directories on
