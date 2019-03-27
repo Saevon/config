@@ -112,8 +112,8 @@ Data expands to fill the space available for storage -- Parkinson
 A good coder is someone who looks both ways before crossing a one-way street -- Doug Linder
 If debugging is the process of removing bugs, then programming must be the process of adding them -- Edsger Dijkstra
 When debugging, novices insert corrective code; experts remove defective code. -- Richard Pattis
-They shall not pass [THE UNIT TESTS] -- Gandalf
 There are two ways of constructing software: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.
+They shall not pass [THE UNIT TESTS] -- Gandalf
 Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -- Bill Gates
 Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
 Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. -- Rich Cook
