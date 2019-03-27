@@ -1,0 +1,3089 @@
+"UserRoamingConfigStore"
+{
+	"Software"
+	{
+		"Valve"
+		{
+			"Steam"
+			{
+				"SSAVersion"		"3"
+				"DesktopShortcutCheck"		"0"
+				"StartMenuShortcutCheck"		"0"
+				"AutoLaunchGameListCheck"		"0"
+				"SteamDefaultDialog"		"#app_store"
+				"apps"
+				{
+					"239820"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Sim"
+						}
+					}
+					"200260"
+					{
+						"tags"
+						{
+							"0"		"Brawler"
+							"1"		"Complete"
+						}
+					}
+					"219740"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Roguelike"
+						}
+					}
+					"70"
+					{
+						"tags"		""
+						"Hidden"		"1"
+					}
+					"220"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"380"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"420"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"340"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"238010"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+						}
+					}
+					"218620"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Shooter"
+							"2"		"Team-Game"
+							"3"		"VR"
+						}
+					}
+					"228300"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Brawler"
+							"1"		"Incomplete"
+						}
+					}
+					"203140"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Stealth"
+							"3"		"Story"
+						}
+					}
+					"205930"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Shooter"
+						}
+					}
+					"224760"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"35700"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Multiplayer"
+							"2"		"Puzzle"
+						}
+					}
+					"205100"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"Stealth"
+						}
+					}
+					"72850"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"RPG"
+							"3"		"Sandbox"
+						}
+					}
+					"232750"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+						}
+					}
+					"200510"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Strategy"
+						}
+					}
+					"234000"
+					{
+						"cloudenabled"		"1"
+						"Hidden"		"1"
+					}
+					"221910"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Story"
+						}
+					}
+					"214730"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Sandbox"
+						}
+					}
+					"237930"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Brawler"
+							"2"		"Complete"
+							"3"		"Story"
+						}
+					}
+					"250400"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Multiplayer"
+						}
+					}
+					"107100"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Brawler"
+							"2"		"Complete"
+							"3"		"Story"
+						}
+					}
+					"282070"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Roguelike"
+						}
+					}
+					"274310"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+							"2"		"Story"
+						}
+					}
+					"219890"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+							"3"		"Story"
+						}
+					}
+					"277680"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Puzzle"
+						}
+					}
+					"239800"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Complete"
+						}
+					}
+					"26800"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+							"3"		"Story"
+						}
+					}
+					"65930"
+					{
+						"Hidden"		"1"
+					}
+					"221810"
+					{
+						"tags"
+						{
+							"0"		"Puzzle"
+						}
+					}
+					"10"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"80"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"100"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"730"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"240"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"91310"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Multiplayer"
+						}
+					}
+					"40"
+					{
+						"Hidden"		"1"
+					}
+					"322330"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Roguelike"
+						}
+					}
+					"286260"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"65800"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"30"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"300"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"65300"
+					{
+						"tags"
+						{
+							"0"		"Platformer"
+						}
+					}
+					"38740"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+						}
+					}
+					"212680"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Roguelike"
+						}
+					}
+					"216290"
+					{
+						"Hidden"		"1"
+					}
+					"232810"
+					{
+						"Hidden"		"1"
+					}
+					"206190"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Stealth"
+						}
+					}
+					"280"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+						"cloudenabled"		"1"
+					}
+					"320"
+					{
+						"Hidden"		"1"
+					}
+					"360"
+					{
+						"Hidden"		"1"
+					}
+					"130"
+					{
+						"Hidden"		"1"
+					}
+					"50"
+					{
+						"Hidden"		"1"
+					}
+					"297370"
+					{
+						"Hidden"		"1"
+					}
+					"215670"
+					{
+						"Hidden"		"1"
+					}
+					"205730"
+					{
+						"Hidden"		"1"
+					}
+					"271730"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+							"2"		"Stealth"
+						}
+					}
+					"48000"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+						}
+					}
+					"223530"
+					{
+						"Hidden"		"1"
+					}
+					"214560"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Stealth"
+						}
+					}
+					"113020"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Multiplayer"
+							"3"		"Team-Game"
+						}
+					}
+					"252670"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+						}
+					}
+					"22000"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+						}
+					}
+					"70300"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+						}
+					}
+					"400"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+							"3"		"Story"
+						}
+					}
+					"620"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Multiplayer"
+							"3"		"Puzzle"
+							"4"		"Story"
+						}
+					}
+					"203160"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Awesome"
+							"2"		"Complete"
+							"3"		"Story"
+						}
+					}
+					"246620"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Sim"
+						}
+					}
+					"40800"
+					{
+						"tags"
+						{
+							"0"		"Platformer"
+						}
+					}
+					"16720"
+					{
+						"Hidden"		"1"
+					}
+					"238890"
+					{
+						"Hidden"		"1"
+					}
+					"297740"
+					{
+						"tags"
+						{
+							"0"		"Shooter"
+						}
+						"Hidden"		"1"
+					}
+					"234190"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"35720"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Multiplayer"
+							"2"		"Puzzle"
+						}
+					}
+					"261030"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Story"
+						}
+						"Hidden"		"1"
+					}
+					"207610"
+					{
+						"tags"
+						{
+							"0"		"Story"
+						}
+						"Hidden"		"1"
+					}
+					"222730"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+						}
+					}
+					"220780"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+						}
+					}
+					"206440"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Story"
+						}
+					}
+					"20900"
+					{
+						"tags"
+						{
+							"0"		"RPG"
+						}
+					}
+					"50300"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"Story"
+						}
+						"cloudenabled"		"1"
+					}
+					"440"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"20"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"253630"
+					{
+						"Hidden"		"1"
+					}
+					"60"
+					{
+						"Hidden"		"1"
+					}
+					"233450"
+					{
+						"tags"
+						{
+							"0"		"Sim"
+						}
+					}
+					"239030"
+					{
+						"tags"
+						{
+							"0"		"Puzzle"
+							"1"		"Roguelike"
+							"2"		"Sim"
+						}
+					}
+					"354240"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+						}
+					}
+					"550"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"500"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"317790"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"248820"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Complete"
+							"2"		"Multiplayer"
+							"3"		"Roguelike"
+						}
+					}
+					"211260"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Brawler"
+							"1"		"Incomplete"
+						}
+					}
+					"57300"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+						}
+					}
+					"289500"
+					{
+						"Hidden"		"1"
+					}
+					"292160"
+					{
+						"Hidden"		"1"
+					}
+					"217200"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"239160"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"RPG"
+							"2"		"Stealth"
+						}
+					}
+					"35130"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Multiplayer"
+							"3"		"Platformer"
+						}
+					}
+					"10150"
+					{
+						"tags"
+						{
+							"0"		"Brawler"
+							"1"		"Complete"
+						}
+					}
+					"13600"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+						}
+					}
+					"244160"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Story"
+							"3"		"Strategy"
+						}
+					}
+					"223730"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+						}
+					}
+					"42910"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Complete"
+							"2"		"Multiplayer"
+							"3"		"Team-Game"
+						}
+					}
+					"258180"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Stealth"
+						}
+					}
+					"4920"
+					{
+						"Hidden"		"1"
+					}
+					"15100"
+					{
+						"tags"
+						{
+							"0"		"Brawler"
+							"1"		"Incomplete"
+							"2"		"Stealth"
+						}
+					}
+					"22300"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"RPG"
+							"2"		"Sandbox"
+						}
+					}
+					"289480"
+					{
+						"Hidden"		"1"
+					}
+					"46280"
+					{
+						"Hidden"		"1"
+					}
+					"46260"
+					{
+						"Hidden"		"1"
+					}
+					"46270"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Strategy"
+						}
+					}
+					"289400"
+					{
+						"Hidden"		"1"
+					}
+					"8190"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Sandbox"
+							"2"		"Shooter"
+						}
+					}
+					"298630"
+					{
+						"Hidden"		"1"
+					}
+					"48240"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Strategy"
+						}
+					}
+					"6920"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Stealth"
+						}
+					}
+					"6910"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Stealth"
+						}
+					}
+					"65790"
+					{
+						"Hidden"		"1"
+					}
+					"13500"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"33320"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"13530"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"317710"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+						}
+					}
+					"258010"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+						}
+					}
+					"327310"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Stealth"
+						}
+					}
+					"246070"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+						}
+						"Hidden"		"1"
+					}
+					"304930"
+					{
+						"cloudenabled"		"1"
+					}
+					"239070"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Multiplayer"
+							"2"		"RPG"
+						}
+					}
+					"344770"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"259080"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+						}
+					}
+					"243970"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Stealth"
+						}
+					}
+					"72000"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+						"cloudenabled"		"1"
+					}
+					"368650"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"265890"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+						}
+					}
+					"304410"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Incomplete"
+							"2"		"Puzzle"
+						}
+					}
+					"92800"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Puzzle"
+						}
+					}
+					"271900"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"211360"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"383870"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Story"
+						}
+					}
+					"341800"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Multiplayer"
+							"2"		"Puzzle"
+							"3"		"VR"
+						}
+					}
+					"463390"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"427520"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Sandbox"
+							"2"		"Sim"
+						}
+					}
+					"317400"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"8850"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Shooter"
+							"2"		"Story"
+						}
+					}
+					"8870"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Shooter"
+							"2"		"Story"
+						}
+					}
+					"204060"
+					{
+						"tags"
+						{
+							"0"		"Adventure"
+							"1"		"Incomplete"
+						}
+					}
+					"422420"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Strategy"
+						}
+						"Hidden"		"1"
+					}
+					"498330"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Puzzle"
+						}
+					}
+					"221380"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Strategy"
+						}
+					}
+					"7670"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"630"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Multiplayer"
+							"2"		"Team-Game"
+						}
+					}
+					"10130"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+						}
+					}
+					"500810"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"RPG"
+							"3"		"Sandbox"
+						}
+					}
+					"204240"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"244870"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Platformer"
+						}
+					}
+					"222880"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Multiplayer"
+							"2"		"Shooter"
+						}
+						"cloudenabled"		"1"
+					}
+					"251870"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"277430"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Strategy"
+						}
+					}
+					"288160"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"6980"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Stealth"
+						}
+					}
+					"327410"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"409710"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"409720"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"394510"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Team-Game"
+						}
+					}
+					"1250"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Shooter"
+							"2"		"Team-Game"
+						}
+					}
+					"375600"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Multiplayer"
+						}
+					}
+					"108710"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+						}
+					}
+					"388210"
+					{
+						"tags"
+						{
+							"0"		"Adventure"
+							"1"		"Awesome"
+							"2"		"Complete"
+						}
+					}
+					"220200"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Sim"
+						}
+					}
+					"551110"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"461840"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Dropped"
+							"2"		"Puzzle"
+						}
+						"Hidden"		"1"
+					}
+					"287980"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Awesome"
+							"2"		"Puzzle"
+						}
+					}
+					"413150"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Farm"
+							"2"		"Multiplayer"
+							"3"		"RPG"
+							"4"		"Sim"
+							"5"		"Team-Game"
+						}
+					}
+					"42670"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Shooter"
+						}
+					}
+					"1510"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Roguelike"
+							"2"		"Sim"
+						}
+					}
+					"252490"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Survival"
+						}
+					}
+					"244710"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+						}
+					}
+					"105600"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Awesome"
+							"2"		"Complete"
+							"3"		"Multiplayer"
+							"4"		"Sandbox"
+						}
+					}
+					"289760"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+						}
+					}
+					"367450"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"294100"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Roguelike"
+							"2"		"Sim"
+							"3"		"Survival"
+						}
+					}
+					"210970"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"391220"
+					{
+						"cloudenabled"		"1"
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"Story"
+							"3"		"VR"
+						}
+					}
+					"238370"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"Multiplayer"
+							"3"		"Team-Game"
+						}
+					}
+					"383270"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+						}
+					}
+					"540840"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+						}
+					}
+					"261570"
+					{
+						"Hidden"		"1"
+					}
+					"437920"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Multiplayer"
+							"2"		"Versus"
+						}
+					}
+					"323850"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Multiplayer"
+							"2"		"Versus"
+						}
+					}
+					"397080"
+					{
+						"Hidden"		"1"
+					}
+					"286690"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+							"3"		"Story"
+						}
+					}
+					"386070"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Strategy"
+						}
+					}
+					"433340"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Farm"
+							"2"		"RPG"
+							"3"		"Sim"
+						}
+					}
+					"335100"
+					{
+						"tags"
+						{
+							"0"		"Card"
+						}
+						"Hidden"		"1"
+					}
+					"435530"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Complete"
+							"2"		"Horror"
+						}
+						"Hidden"		"1"
+					}
+					"40400"
+					{
+						"tags"
+						{
+							"0"		"Strategy"
+						}
+					}
+					"308420"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Roguelike"
+							"2"		"Shooter"
+						}
+					}
+					"543080"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+							"2"		"Sim"
+						}
+					}
+					"326410"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Sandbox"
+						}
+					}
+					"322190"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"RPG"
+							"2"		"Strategy"
+						}
+					}
+					"305620"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Sim"
+							"2"		"Survival"
+						}
+					}
+					"221640"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+						}
+					}
+					"475550"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"RPG"
+						}
+					}
+					"356570"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Complete"
+						}
+						"Hidden"		"1"
+					}
+					"359310"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Awesome"
+							"2"		"Complete"
+							"3"		"Platformer"
+							"4"		"RPG"
+						}
+					}
+					"224480"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Physics"
+						}
+					}
+					"226740"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Visual Novel"
+						}
+					}
+					"287390"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+						}
+					}
+					"368730"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+						}
+						"Hidden"		"1"
+					}
+					"319470"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Platformer"
+						}
+					}
+					"251130"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"RPG"
+							"2"		"Strategy"
+						}
+					}
+					"315460"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Sandbox"
+							"2"		"Survival"
+						}
+					}
+					"448510"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Awesome"
+							"2"		"Multiplayer"
+							"3"		"Team-Game"
+						}
+					}
+					"280220"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Strategy"
+						}
+					}
+					"48700"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"RPG"
+							"3"		"Strategy"
+						}
+					}
+					"207140"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Platformer"
+						}
+					}
+					"367520"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"Platformer"
+						}
+					}
+					"559910"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Sim"
+						}
+					}
+					"514620"
+					{
+						"tags"
+						{
+							"0"		"Bullet-Hell"
+							"1"		"Incomplete"
+						}
+					}
+					"49600"
+					{
+						"tags"
+						{
+							"0"		"Bullet-Hell"
+							"1"		"Incomplete"
+						}
+					}
+					"518620"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Dropped"
+						}
+						"Hidden"		"1"
+					}
+					"243160"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"Physics"
+						}
+					}
+					"211820"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Multiplayer"
+							"2"		"Sandbox"
+						}
+					}
+					"348950"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"367540"
+					{
+						"Hidden"		"1"
+					}
+					"377710"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"527190"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"368160"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"269250"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"383460"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"438130"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"426690"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"386970"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"377720"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"451760"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"330820"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"491950"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Sim"
+							"2"		"Story"
+						}
+					}
+					"246680"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Adventure"
+							"2"		"Complete"
+						}
+					}
+					"368230"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Roguelike"
+							"2"		"Strategy"
+						}
+					}
+					"496300"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Roguelike"
+							"2"		"Strategy"
+						}
+						"cloudenabled"		"1"
+					}
+					"262060"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Roguelike"
+							"2"		"RPG"
+							"3"		"Strategy"
+						}
+					}
+					"286000"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Strategy"
+						}
+					}
+					"257170"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Strategy"
+						}
+					}
+					"316610"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+						}
+					}
+					"274980"
+					{
+						"tags"
+						{
+							"0"		"Education"
+							"1"		"Incomplete"
+						}
+						"Hidden"		"1"
+					}
+					"457140"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Sandbox"
+							"2"		"Sim"
+						}
+					}
+					"252410"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+						}
+					}
+					"322500"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+						}
+					}
+					"617830"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Shooter"
+							"3"		"VR"
+						}
+					}
+					"690040"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+						}
+					}
+					"412740"
+					{
+						"tags"
+						{
+							"0"		"Rythm"
+							"1"		"VR"
+						}
+					}
+					"524690"
+					{
+						"tags"
+						{
+							"0"		"Rythm"
+							"1"		"VR"
+						}
+					}
+					"422860"
+					{
+						"tags"
+						{
+							"0"		"Rythm"
+							"1"		"VR"
+						}
+					}
+					"517130"
+					{
+						"tags"
+						{
+							"0"		"Rythm"
+							"1"		"VR"
+						}
+					}
+					"587430"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Physics"
+							"2"		"VR"
+						}
+					}
+					"490490"
+					{
+						"tags"
+						{
+							"0"		"Bullet-Hell"
+							"1"		"Incomplete"
+							"2"		"VR"
+						}
+					}
+					"566530"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Stealth"
+							"2"		"Versus"
+							"3"		"VR"
+						}
+					}
+					"534230"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"521950"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Multiplayer"
+							"2"		"Shooter"
+							"3"		"VR"
+						}
+					}
+					"418650"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"300060"
+					{
+						"tags"
+						{
+							"0"		"Adventure"
+							"1"		"Incomplete"
+							"2"		"VR"
+						}
+					}
+					"327140"
+					{
+						"tags"
+						{
+							"0"		"Tools"
+							"1"		"VR"
+						}
+					}
+					"525680"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Sandbox"
+							"2"		"Sim"
+							"3"		"VR"
+						}
+					}
+					"231160"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"375750"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Multiplayer"
+						}
+					}
+					"282140"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+						}
+					}
+					"603800"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"17470"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+						}
+					}
+					"47780"
+					{
+						"tags"
+						{
+							"0"		"Horror"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+						}
+					}
+					"17410"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Platformer"
+						}
+					}
+					"535460"
+					{
+						"tags"
+						{
+							"0"		"Physics"
+							"1"		"VR"
+						}
+					}
+					"329860"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Physics"
+							"2"		"VR"
+						}
+					}
+					"598690"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"611660"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"RPG"
+							"2"		"VR"
+						}
+					}
+					"436320"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"250820"
+					{
+						"tags"
+						{
+							"0"		"Tools"
+							"1"		"VR"
+						}
+					}
+					"613220"
+					{
+						"tags"
+						{
+							"0"		"Tools"
+							"1"		"VR"
+						}
+					}
+					"377160"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"RPG"
+						}
+					}
+					"278570"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"538100"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+						}
+					}
+					"360740"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Arcade"
+						}
+					}
+					"357670"
+					{
+						"tags"
+						{
+							"0"		"Physics"
+							"1"		"VR"
+						}
+					}
+					"261110"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+						}
+					}
+					"420530"
+					{
+						"tags"
+						{
+							"0"		"Awesome"
+							"1"		"Complete"
+							"2"		"Puzzle"
+							"3"		"Story"
+						}
+					}
+					"475190"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+							"2"		"VR"
+						}
+					}
+					"353640"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Sim"
+						}
+					}
+					"418360"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Multiplayer"
+							"2"		"Versus"
+						}
+					}
+					"326520"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"277700"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Incomplete"
+							"2"		"Platformer"
+						}
+					}
+					"432620"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Multiplayer"
+							"2"		"Versus"
+						}
+					}
+					"420360"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Platformer"
+						}
+					}
+					"269330"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"670080"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Multiplayer"
+							"2"		"Versus"
+						}
+					}
+					"405650"
+					{
+						"tags"
+						{
+							"0"		"Arcade"
+							"1"		"Bullet-Hell"
+							"2"		"Incomplete"
+						}
+					}
+					"281990"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Strategy"
+						}
+					}
+					"379720"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+						}
+					}
+					"208200"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"268130"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Stealth"
+						}
+					}
+					"387290"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Platformer"
+						}
+					}
+					"480490"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Horror"
+							"2"		"Shooter"
+						}
+					}
+					"304430"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Dropped"
+							"2"		"Horror"
+							"3"		"Puzzle"
+							"4"		"Story"
+						}
+						"Hidden"		"1"
+					}
+					"231740"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+						}
+					}
+					"249590"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"439190"
+					{
+						"tags"
+						{
+							"0"		"Brawler"
+							"1"		"Complete"
+						}
+					}
+					"594490"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"452490"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Story"
+							"2"		"VR"
+						}
+					}
+					"528580"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Story"
+							"2"		"VR"
+						}
+					}
+					"561080"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Story"
+							"2"		"VR"
+						}
+					}
+					"625470"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Story"
+							"2"		"VR"
+						}
+					}
+					"436820"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Multiplayer"
+							"2"		"Story"
+							"3"		"VR"
+						}
+					}
+					"673070"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"466900"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Versus"
+							"2"		"VR"
+						}
+					}
+					"689580"
+					{
+						"tags"
+						{
+							"0"		"Tools"
+							"1"		"VR"
+						}
+					}
+					"457550"
+					{
+						"tags"
+						{
+							"0"		"Tools"
+							"1"		"VR"
+						}
+					}
+					"446750"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Puzzle"
+							"2"		"VR"
+						}
+					}
+					"533970"
+					{
+						"tags"
+						{
+							"0"		"Tools"
+							"1"		"VR"
+						}
+					}
+					"579970"
+					{
+						"tags"
+						{
+							"0"		"Multiplayer"
+							"1"		"Versus"
+							"2"		"VR"
+						}
+					}
+					"510950"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Bullet-Hell"
+							"2"		"VR"
+						}
+					}
+					"464540"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"624460"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"584170"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"343740"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"343730"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"712060"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"452710"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"396060"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"477130"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"515020"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"499540"
+					{
+						"tags"
+						{
+							"0"		"Story"
+							"1"		"VR"
+						}
+					}
+					"450390"
+					{
+						"tags"
+						{
+							"0"		"Physics"
+							"1"		"Shooter"
+							"2"		"Story"
+							"3"		"VR"
+						}
+					}
+					"460810"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+						}
+					}
+					"494960"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Shooter"
+							"2"		"VR"
+						}
+					}
+					"698260"
+					{
+						"tags"
+						{
+							"0"		"Complete"
+							"1"		"Sandbox"
+						}
+					}
+					"578620"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Complete"
+							"2"		"VR"
+						}
+					}
+					"427240"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Strategy"
+							"2"		"VR"
+						}
+					}
+					"635200"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Multiplayer"
+							"2"		"Survival"
+						}
+					}
+					"780210"
+					{
+						"tags"
+						{
+							"0"		"Dropped"
+							"1"		"Puzzle"
+						}
+					}
+					"266510"
+					{
+						"tags"
+						{
+							"0"		"Brawler"
+							"1"		"Incomplete"
+						}
+					}
+					"293780"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Multiplayer"
+						}
+					}
+					"337000"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Stealth"
+						}
+					}
+					"446840"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Platformer"
+						}
+					}
+					"384630"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Visual Novel"
+						}
+					}
+					"374320"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"RPG"
+						}
+					}
+					"270150"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"Strategy"
+						}
+					}
+					"320040"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Multiplayer"
+							"2"		"RPG"
+							"3"		"Team-Game"
+						}
+					}
+					"543460"
+					{
+						"Hidden"		"1"
+					}
+					"464060"
+					{
+						"tags"
+						{
+							"0"		"Action"
+							"1"		"Incomplete"
+							"2"		"Shooter"
+						}
+					}
+					"351920"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Puzzle"
+						}
+					}
+					"446020"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Racing"
+							"2"		"Sim"
+						}
+					}
+					"618720"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Story"
+							"2"		"Visual Novel"
+						}
+					}
+					"373770"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Story"
+							"2"		"Visual Novel"
+						}
+					}
+					"634160"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Sandbox"
+							"2"		"Survival"
+						}
+					}
+					"367600"
+					{
+						"tags"
+						{
+							"0"		"Incomplete"
+							"1"		"Strategy"
+						}
+					}
+				}
+				"SurveyDate"		"2018-01-25"
+				"SurveyDateVersion"		"-7103305836590825984"
+			}
+		}
+	}
+	"Web"
+	{
+		"WebFav0_URL"		"https://www.google.com/"
+		"WebFav0_Name"		"Google"
+		"WebFav1_URL"		"http://www.youtube.com/"
+		"WebFav1_Name"		"YouTube"
+		"WebFav2_URL"		"http://www.twitter.com/"
+		"WebFav2_Name"		"Twitter"
+		"WebFav3_URL"		"http://www.facebook.com/"
+		"WebFav3_Name"		"Facebook"
+		"WebFav4_URL"		"http://www.reddit.com/"
+		"WebFav4_Name"		"Reddit"
+		"WebRecent0_URL"		"https://www.google.com/search?q=tilt+brush+layers"
+		"WebRecent0_Name"		"Google"
+		"WebFrequent0_URL"		"http://steamcommunity.com/id/saevon/"
+		"WebFrequent0_Name"		"Steam Community :: Saevon"
+		"WebFrequent0_Access"		"2"
+		"WebRecent1_URL"		"https://www.google.ca/?gfe_rd=cr&ei=sNakWboYyZ9e_ImQwAI"
+		"WebRecent1_Name"		"Google"
+		"WebFrequent1_URL"		"http://steamcommunity.com/profiles/76561198086171665/"
+		"WebFrequent1_Name"		"Steam Community :: Saevon"
+		"WebFrequent1_Access"		"1"
+		"WebRecent2_URL"		"http://steamcommunity.com/profiles/76561198086171665/"
+		"WebRecent2_Name"		"Steam Community :: Saevon"
+		"WebFrequent2_URL"		"https://www.google.ca/?gfe_rd=cr&ei=sNakWboYyZ9e_ImQwAI"
+		"WebFrequent2_Name"		"Google"
+		"WebFrequent2_Access"		"1"
+		"WebRecent3_URL"		"https://www.google.ca/?gfe_rd=cr&dcr=0&ei=E-QZWo2WBZDt8we-rrkY"
+		"WebRecent3_Name"		"Google"
+		"WebFrequent3_URL"		"https://www.google.ca/?gfe_rd=cr&dcr=0&ei=E-QZWo2WBZDt8we-rrkY"
+		"WebFrequent3_Name"		"Google"
+		"WebFrequent3_Access"		"1"
+		"WebRecent4_URL"		"http://steamcommunity.com/id/saevon/"
+		"WebRecent4_Name"		"Steam Community :: Saevon"
+		"WebFrequent4_URL"		"https://www.google.com/search?q=tilt+brush+layers"
+		"WebFrequent4_Name"		"Google"
+		"WebFrequent4_Access"		"1"
+	}
+	"TradeInfoHint"		"1"
+	"controller_config"
+	{
+		"448510"
+		{
+			"usetime"		"3244.96044921875"
+		}
+		"248820"
+		{
+			"usetime"		"0"
+		}
+		"413090"
+		{
+			"usetime"		"0"
+		}
+		"413080"
+		{
+			"usetime"		"0"
+		}
+		"383270"
+		{
+			"usetime"		"0"
+		}
+		"356570"
+		{
+			"usetime"		"0"
+		}
+		"385560"
+		{
+			"usetime"		"0"
+		}
+		"433340"
+		{
+			"usetime"		"151.79833984375"
+		}
+		"246680"
+		{
+			"usetime"		"5299.3994140625"
+		}
+		"443510"
+		{
+			"usetime"		"0"
+		}
+		"367520"
+		{
+			"usetime"		"144.33203125"
+		}
+		"330820"
+		{
+			"usetime"		"0"
+		}
+		"246070"
+		{
+			"usetime"		"0"
+		}
+		"413150"
+		{
+			"usetime"		"6168.896484375"
+		}
+		"250820"
+		{
+			"usetime"		"154.3878173828125"
+		}
+		"341800"
+		{
+			"usetime"		"1229.224609375"
+		}
+		"450390"
+		{
+			"usetime"		"2300.050048828125"
+		}
+		"525320"
+		{
+			"usetime"		"724.486328125"
+		}
+		"594490"
+		{
+			"usetime"		"1118.021484375"
+		}
+		"439190"
+		{
+			"usetime"		"15883.1640625"
+		}
+		"517130"
+		{
+			"usetime"		"2020.693603515625"
+		}
+		"490490"
+		{
+			"usetime"		"3561.48583984375"
+		}
+		"268130"
+		{
+			"usetime"		"501.9375"
+		}
+		"374320"
+		{
+			"usetime"		"26012.111328125"
+		}
+		"587430"
+		{
+			"usetime"		"2257.0625"
+		}
+		"698260"
+		{
+			"usetime"		"415.625"
+		}
+		"221910"
+		{
+			"usetime"		"7096.25"
+		}
+		"387290"
+		{
+			"usetime"		"331.3125"
+		}
+	}
+}
