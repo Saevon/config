@@ -12,7 +12,7 @@ include ../variables.makefile
 
 
 .PHONY: all minimal
-all: environment completion sys_bin usr_bin brew python haskell bashup gcc sqlite
+all: environment pauser mark_jump switch_user completion sys_bin usr_bin brew python haskell bashup gcc sqlite
 minimal: environment completion
 
 
@@ -25,29 +25,53 @@ environment: ${USR_SCRIPT}
 	@${COPY} "${PWD}/screenrc" "${HOME}/.screenrc"
 
 	@${COPY} "${PWD}/profile" "${HOME}/.profile"
-	@${COPY} "${PWD}/paths" "${HOME}/.paths"
 	@${COPY} "${PWD}/bashrc" "${HOME}/.bashrc"
 	@${COPY} "${PWD}/bash_logout" "${HOME}/.bash_logout"
 	@${COPY} "${PWD}/bash_profile" "${HOME}/.bash_profile"
 	@${COPY} "${PWD}/bash_helpers" "${HOME}/.bash_helpers"
 	@${COPY} "${PWD}/bash_aliases" "${HOME}/.bash_aliases"
 
+
 ifeq ($(UNAME),Darwin)
 	@chflags hidden ${USR_SCRIPT}
 endif
 
+	@${COPY} "${PWD}/paths" "${HOME}/.paths"
 	@mkdir -p ${MARKPATH}
 	@mkdir -p ${USR_BIN}
 	@mkdir -p ${USR_LIB}
 	@mkdir -p ${PROJECT_HOME}
 
-	@${COPY} "${PWD}/jump.bash" "${USR_SCRIPT}/jump.bash"
-	@${COPY} "${PWD}/copy.bash" "${USR_SCRIPT}/copy.bash"
-	@${COPY} "${PWD}/pauser.bash" "${USR_SCRIPT}/pauser.bash"
 	@${COPY} "${PWD}/alias_completion.bash" "${USR_SCRIPT}/alias_completion.bash"
-	@${COPY} "${PWD}/mac_switch_user.bash" "${USR_SCRIPT}/mac_switch_user.bash"
-	@CP=cp CPI="${CP} -i" ${COPY} "${PWD}/pauser_template.bash" "${USR_SCRIPT}/pauser.custom.bash"
 
+
+.PHONY: clipboard
+clipboard:
+ifeq ($(UNAME),Darwin)
+	@${COPY} "${PWD}/copy.bash" "${USR_SCRIPT}/copy.bash"
+else
+	@:
+endif
+
+
+.PHONY: switch_user
+switch_user:
+ifeq ($(UNAME),Darwin)
+	@${COPY} "${PWD}/mac_switch_user.bash" "${USR_SCRIPT}/mac_switch_user.bash"
+else
+	@:
+endif
+
+
+.PHONY: mark_jump
+mark_jump:
+	@${COPY} "${PWD}/jump.bash" "${USR_SCRIPT}/jump.bash"
+
+
+.PHONY: pauser
+pauser:
+	@${COPY} "${PWD}/pauser.bash" "${USR_SCRIPT}/pauser.bash"
+	@CP=cp CPI="${CP} -i" ${COPY} "${PWD}/pauser_template.bash" "${USR_SCRIPT}/pauser.custom.bash"
 
 #-------------------------------------
 # User folder structure
@@ -61,13 +85,8 @@ ${USR_SCRIPT}:
 
 
 # Extra work
-# TODO:!!! this doesn't get installed
-PRE_COMP_DEPS=${HOME}/.bash_completion
 
 include ../completion.makefile
-
-# %.complete.bash: FORCE
-# 	@${COPY} "${COMP_ADD_DIR}/$@" "${COMP_DIR}/$@"
 
 ${HOME}/.bash_completion: ${PWD}/bash_completion.bash
 	@${COPY} $? $@ || true
