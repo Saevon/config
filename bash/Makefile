@@ -153,6 +153,8 @@ python-lint:
 	@syspip install pyflakes
 	@syspip install pycodestyle
 
+	@syspip3 install cpplint --install-option="--install-scripts=/usr/local/bin"
+
 .PHONY: python-extra
 python-extra:
 	@syspip install request
@@ -198,8 +200,11 @@ haskell-main:
 	@# brew install ghc cabal-install
 	@brew cask install haskell-platform
 	@cabal install cabal-install
+
+	# For Haskell Linting
 	@cabal install hlint --global
 	@# sublime add-repo https://github.com/SublimeLinter/SublimeLinter-hlint.git
+	@cabal install hsdev --global --constraint 'hsdev== 0.3.3.0'
 
 
 .PHONY: haskell-env
@@ -229,6 +234,8 @@ reset-sqlite:
 ifeq ($(UNAME),Darwin)
 .PHONY: brew
 brew: brew-install brew-helpers brew-cmd brew-coding brew-sys-monit brew-net brew-media brew-fs brew-security
+	# Disable analytics
+	brew analytics off
 
 .PHONY: brew-install
 brew-install:
@@ -246,6 +253,7 @@ brew-cmd:
 	@brew install ack
 	@brew install rename
 	@brew install watch
+	@brew install trash
 
 .PHONY: brew-gnu
 brew-gnu: OPTS?=--with-default-names
@@ -270,6 +278,14 @@ brew-coding:
 	@brew install go
 	@brew install python3
 	@brew install lua
+	@brew install ruby
+
+	# Debuggers
+	@brew install --HEAD valgrind
+
+	# Linters
+	@brew install cppcheck
+
 
 # System Monitoring
 .PHONY: brew-sys-monit
@@ -286,6 +302,8 @@ brew-net:
 	@brew install wget
 	@brew install ssh-copy-id
 	@brew install nmap
+
+	@brew cask install wireshark
 
 
 .PHONY: brew-media
