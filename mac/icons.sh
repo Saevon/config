@@ -18,13 +18,13 @@ function backup {
 	BAK="$LOC/icon.bak"
 	BAK_ICON="$BAK/$ICON_NAME"
 
-	if [[ -d  $REQUIRE ]]; then
-		if [[ -f $BAK_ICON ]]; then
+	if [ -d  "$REQUIRE" ]; then
+		if [ -f "${BAK_ICON}" ]; then
 			# already backed up!
 			return 0;
 		fi
 
-		if [[ -f $ICON ]]; then
+		if [ -f "$ICON" ]; then
 			# Backup the old icon in case we need it
 			sudo mkdir -p "$BAK"
 			sudo mv "$ICON" "$BAK_ICON"
@@ -54,6 +54,7 @@ function rpl_icon {
 }
 
 function rpl_app {
+	echo "Working: " $NAME
 	rpl_icon "$REQ" "$REQ/Contents/Resources/$ICON" "./icons/$NEW" "$NAME"
 }
 function backup_app {
@@ -174,10 +175,39 @@ ICON="gimp.icns"
 NEW="Gimp.icns"
 NAME="Gimp"
 rpl_app
+
+NAME="GIMP ext"
 ICON="xcf.icns"
 NEW="xcf.icns"
 rpl_app
 
+
+# Firefox
+REQ="/Applications/Firefox.app"
+ICON="firefox.icns"
+NEW="Firefox.icns"
+NAME="FireFox"
+rpl_app
+
+# GitX
+# REQ="/Applications/GitX.app"
+# ICON="gitx.icns"
+# NEW="GitX.icns"
+# NAME="GitX"
+# rpl_app
+
+
+# Torrent
+REQ="/Applications/qbittorrent.app"
+ICON="qBitTorrentDocument.icns"
+NEW="Torrent.icns"
+NAME="Torrent-Files"
+rpl_app
+
+
+
+# -----------------------------------------------------------------------
+# Mac Misc Apps
 # Console Logger
 REQ="/Applications/Utilities/Console.app"
 ICON="AppIcon.icns"
@@ -212,24 +242,6 @@ ICON="finder.png"
 rpl_app
 ICON="finder@2x.png"
 rpl_app
-
-# Firefox
-REQ="/Applications/Firefox.app"
-ICON="firefox.icns"
-NEW="Firefox.icns"
-NAME="FireFox"
-rpl_app
-
-# GitX
-# REQ="/Applications/GitX.app"
-# ICON="gitx.icns"
-# NEW="GitX.icns"
-# NAME="GitX"
-# rpl_app
-
-
-
-
 
 # Trash Icons
 REQ="/System/Library/CoreServices/Dock.app"
@@ -277,10 +289,11 @@ for ((index = 0; index < ${#ALL_GAMES[@]}; index++)); do
 	REQ="$HOME/Applications/Steam/$game.app"
 	NEW="Games/$game.icns"
 	ICON="shortcut.icns"
+	NAME="Steam Game: $game"
 	rpl_app
-	echo $game
 done
 
+NAME="Steam Game: Slime"
 REQ="$HOME/Applications/Steam/Slime Rancher.app"
 NEW="Games/Slime Rancher ~ Tabby.icns"
 ICON="shortcut.icns"
