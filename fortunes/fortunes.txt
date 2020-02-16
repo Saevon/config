@@ -140,6 +140,7 @@ First, solve the problem. Then, write the code.
 Programming can be fun, so can cryptography; however they should not be combined.
 Any code of your own that you haven't looked at for six or more months might as well have been written by someone else. -- Eagleson's Law
 If you're removing an 'unused' system, you bbetter know exactly what it was there for. Theres probably a rare edge-case or requirement you don't know about.
+Software Engineers have a complicated relationship with change... Its awesome when we're the one's doing it. -- Benno Rice # Tragedy of systemd
 #
 #
 # Happiness
