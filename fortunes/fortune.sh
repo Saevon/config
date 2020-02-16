@@ -69,7 +69,7 @@ fi
 
 
 # Read the file, ignoring comments
-data=`cat $file | grep -v '^#.*\$'`
+data=`cat $file | grep -v '^#.*\$' | sed 's/#.*//' `
 
 # Find out what our line range is
 # erroring out if there is no quote to show
@@ -91,11 +91,13 @@ has_author=`echo $out | grep "\-\-" | wc -l`
 # which would imply a differing output model
 msg=""
 author=""
+
+
 if [[ `echo $has_author` == "0" ]]; then
     msg=`echo $out | sed 's/.*/"&"/' | sed 's/\"/\\"/'`;
 else
     msg=`echo $out | sed 's/ *--.*$//' | sed 's/.*/"&"/' | sed 's/\"/\\"/'`;
-    author=`echo $out | sed 's/.*--/--/'`;
+    author=`echo $out | sed 's/.*--//'`;
 fi
 
 # Debug messages on error
@@ -114,7 +116,7 @@ if [[ $login_msg == "true" ]]; then
 else
     echo $msg
     if [[ $author != '' ]]; then
-        echo $author
+        echo "--$author"
     fi
     echo ''
 fi
