@@ -2,8 +2,8 @@ from __future__ import print_function
 
 try:
     from folder_list import *
-except ImportError:
-    print("Can't import FolderList")
+except ImportError as error:
+    print("Can't import FolderList: {}".format(error))
 else:
     root = FolderList('.')
 
