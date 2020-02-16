@@ -18,6 +18,33 @@ alias add_cmd='${EDITOR} /Users/Saevon/Projects/Recipe/cmd.bash'
 alias haskell='ghci'
 
 
+alias coreload="dd if=/dev/zero of=/dev/null >/dev/null"
+
+alias no_hist="unset HISTFILE"
+
+# Heats up the computer by burning CPU
+function heat() {
+    local cores=${1:-4}
+    local load=()
+
+    reset() {
+        for pid in "${load[@]}"; do
+            kill -9 $pid;
+        done
+    }
+    abort() {
+        printf '\n== Press Enter! ... '
+    }
+
+    trap abort SIGINT
+
+    for i  in `seq 1 ${cores}`; do
+        coreload & load[${#load[@]}]=$!
+    done
+
+    read -p "Press Enter to exit... " && reset
+}
+
 
 
 
