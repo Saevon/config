@@ -513,5 +513,17 @@ function setting_diff() {
 }
 
 
+function mac_restart_ui () {
+    # Primary 3 services for UI, should all restart
+    killall Dock
+    killall Finder
+    killall SystemUIServer
+    killall NotificationCenter
+
+    # This should force them to start again
+    # open -a Finder
+    # open -a SystemUIServer
+    # open -a Dock
+}
 
 
