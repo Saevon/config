@@ -221,6 +221,15 @@ function update_all() {
         done
     fi
 
+    # Python virtualenv pip
+    if [ $(type -t lsvirtualenv >/dev/null && echo $?) == 0 ]; then
+        lsvirtualenv -b | while read environ; do
+            ${PIP_VIRTUALENV_BASE:?Not Env Path}/$environ/bin/activate
+                pip install --upgrade pip
+            deactivate
+        done;
+    fi
+
     # Haskell
     if [ $(which -s cabal && echo $?) == 0 ]; then
         sudo cabal install cabal-install
