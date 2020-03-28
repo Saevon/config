@@ -141,6 +141,11 @@ Programming can be fun, so can cryptography; however they should not be combined
 Any code of your own that you haven't looked at for six or more months might as well have been written by someone else. -- Eagleson's Law
 If you're removing an 'unused' system, you bbetter know exactly what it was there for. Theres probably a rare edge-case or requirement you don't know about.
 Software Engineers have a complicated relationship with change... Its awesome when we're the one's doing it. -- Benno Rice # Tragedy of systemd
+Developers are drawn to complexity like moths to a flame, often with the same outcome. -- Neal Ford
+Programmer’s motto: We’ll cross that bridge when it’s burning underneath us -- @garybernhardt
+Dynamic typing: The belief that you can’t explain to a computer why your code works, but you can keep track of it all in your head -- @chris__martin
+Spaghetti Coding is like encrypting your work, and since you never write down the decryption key... you may as well start over -- @TheRealOutsideTheBox
+
 #
 #
 # Happiness
