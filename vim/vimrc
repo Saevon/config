@@ -153,6 +153,11 @@ vnoremap "+y :w !pbcopy<CR><CR>
 " noremap "@p :r !pbpaste<CR><CR>
 "noremap "+p :r !pbpaste<CR><CR>
 
+" Prevent x from overriding what's in the clipboard.
+noremap x "_x
+noremap X "_X
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Line
 """""""""""""""""""""""""""""""""""""""""""""""""""
