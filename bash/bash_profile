@@ -1,7 +1,7 @@
 #
 # .bash_profile
 # This file is loaded only when logging into a machine
-# OSX: always re-runs it for each new terminal
+# OSX: always re-runs it for each new Terminal.app Instance
 #
 
 
@@ -11,17 +11,30 @@ if [ -e $HOME/.profile ]; then
 	source $HOME/.profile
 fi
 
-# Load .bashrc, containing non-login related bash initializations.
-# Aliases,
-if [ -e $HOME/.bashrc ]; then
-	source $HOME/.bashrc
-fi
 
-# Used to load massive bashrc (aka when you slit it into seperate files)
-# autocompletes
-# if [[ -d $HOME/.bashrc.d ]] ; then
-#     for bashrc in "$HOME"/.bashrc.d/*.bash ; do
-# 	    source $bashrc
-#     done
-#     unset -v bashrc
-# fi
+
+# -----------------------------------------------------------------------------
+# Interactive mode WALL
+
+# Bash ONLY interactive mode check
+case $- in
+    *i*)
+        # Load .bashrc, containing non-login related bash initializations.
+        # Aliases,
+        if [ -e $HOME/.bashrc ]; then
+        	source $HOME/.bashrc
+        fi
+        ;;
+      # If not running interactively, don't do anything
+      *) return;;
+esac
+
+
+
+
+# -----------------------------------------------------------------------------
+# Login Message
+
+# Show a fortune cookie for the user
+if [ -f "`which fortune`" ]; then fortune; fi
+
