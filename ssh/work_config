@@ -2,14 +2,22 @@ VisualHostKey yes
 
 
 # Personal Repo Key
+Host searea.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-searea
+    IdentitiesOnly yes
+    VisualHostKey no
 Host saevon.github.com
     HostName github.com
     User git
     IdentityFile ~/.ssh/github-saevon
+    IdentitiesOnly yes
     VisualHostKey no
-
 Host saevon.bitbucket.org
+    User git
     IdentityFile ~/.ssh/bitbucket-saevon
+    IdentitiesOnly yes
     VisualHostKey no
 
 

@@ -1,20 +1,38 @@
 VisualHostKey yes
 
 
-Host bitbucket.org
-    IdentityFile ~/.ssh/bitbucket
+# ------------------------------------------------------------------------------
+# Repos
+Host searea.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-searea
+    IdentitiesOnly yes
     VisualHostKey no
-
 Host saevon.github.com
     HostName github.com
     User git
     IdentityFile ~/.ssh/github-saevon
+    IdentitiesOnly yes
+    VisualHostKey no
+Host saevon.bitbucket.org
+    User git
+    IdentityFile ~/.ssh/bitbucket-saevon
+    IdentitiesOnly yes
     VisualHostKey no
 
 Host github.com
     IdentityFile ~/.ssh/github
+    IdentitiesOnly yes
+    VisualHostKey no
+Host bitbucket.org
+    IdentityFile ~/.ssh/bitbucket
+    IdentitiesOnly yes
     VisualHostKey no
 
+
+# ------------------------------------------------------------------------------
+# Misc
 Host dmitryblotsky.com
     User saevon
 
@@ -26,18 +44,21 @@ Host school
     Hostname linux.student.cs.uwaterloo.ca
     User sfilippo
     IdentityFile ~/.ssh/school
+    IdentitiesOnly yes
     ForwardX11 no
 
 Host security
     Hostname ugster19.student.cs.uwaterloo.ca
     User sfilippo
     IdentityFile ~/.ssh/school
+    IdentitiesOnly yes
     ForwardX11 no
 
 Host schoolconst
     Hostname linux024.student.cs.uwaterloo.ca
     User sfilippo
     IdentityFile ~/.ssh/school
+    IdentitiesOnly yes
     ForwardX11 no
 
 
