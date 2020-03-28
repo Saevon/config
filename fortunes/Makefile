@@ -11,33 +11,48 @@ BIN := /usr/local/bin/
 endif
 
 .PHONY: all
-all: setup-login setup-bin docs completion
+all: login setup-bin local-docs completion
 	@echo ""
 	@echo "Fortunes Setup Complete"
 
-.PHONY: minimal
-minimal: local-docs setup-bin
+.PHONY: help
+help:
+	@echo "Saevon's Fortunes:"
+	@echo "  This creates symbolic links to this folder's config files"
+	@echo "  For the current user (using the $$HOME variable, so change that"
+	@echo "  if you wish to install for another user)"
+	@echo ""
+	@echo "Commands"
+	@echo "  binary:  Adds the binary to generate fortunes"
+	@echo "  login:   Adds the daily login-screen message Service"
+
+
+.PHONY: binary
+binary: user-docs binary-setup
+
+
+.PHONY: login
+login: setup-login login-docs
 
 
 .PHONY: setup-login
 setup-login:
 	@sudo bash -c "BIN=${BIN} source ${PWD}/setup.sh"
 
-.PHONY: setup-bin
-setup-bin:
+
+.PHONY: binary-setup
+binary-setup:
 	@${COPY} ${PWD}/fortune.sh ${BIN}/fortune
 
 
-.PHONY: docs
-docs: global-docs local-docs
-
-.PHONY: local-docs
-local-docs:
+.PHONY: user-docs
+user-docs:
 	@${COPY} ${PWD}/fortunes.txt ${HOME}/.fortunes
 
-.PHONY: global-docs
-global-docs:
-	@sudo cp fortunes.txt /Library/Fortunes/
+
+.PHONY: login-docs
+login-docs:
+	@sudo ${COPY} ${PWD}/fortunes.txt /Library/Fortunes/.fortunes
 
 
 include ../completion.makefile
