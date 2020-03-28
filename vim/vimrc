@@ -61,6 +61,9 @@ let mapleader= ","
 nnoremap <Space> :
 vnoremap <Space> :
 
+" Eliminate issues where you accidentally hold shift for too long with :w.
+command! W write
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Status Bar
