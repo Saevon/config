@@ -168,9 +168,16 @@ python-env:
 
 .PHONY: python-lint
 python-lint:
-	@syspip install flake8
-	@syspip install pyflakes
 	@syspip install pycodestyle
+	@syspip install pylint
+	@syspip install flake8
+
+	# Flake8 Extensions
+	@syspip install flake8-bugbear
+	@syspip install pyflakes
+	@syspip install mccabe
+	@syspip install radon
+	@syspip install flake8-comprehensions
 
 	@syspip3 install cpplint --install-option="--install-scripts=/usr/local/bin"
 
