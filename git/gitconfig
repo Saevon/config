@@ -24,8 +24,8 @@
     smudge = git-media-smudge %f
 [alias]
     # Simple aliases
-    amend = commit --amend
-    st = status --short --branch
+    amend = commit --amend --no-edit
+    st = status --short --branch 
 
     # Initializing
     empty-commit = commit --allow-empty
