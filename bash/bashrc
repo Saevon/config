@@ -3,10 +3,15 @@
 # This file is loaded when running an interactive shell (non-login)
 #
 
-# Load the Profile
-if [ -f $HOME/.profile ]; then
-    source $HOME/.profile
-fi
+# TODO: this has partial zsh support, still working on it
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+
+# Load the Profile, only needed if you want to force a reload for subshells
+# Normally opening a new Terminal.app will reload profile
+# if [ -f $HOME/.profile ]; then
+#     source $HOME/.profile
+# fi
 
 
 # Adds Colors and Times for PS1
@@ -14,19 +19,34 @@ if [ -f $HOME/.bash_helpers ]; then
     source $HOME/.bash_helpers
 fi
 
+# Used to load massive bashrc (aka when you slit it into seperate files)
+# autocompletes
+# if [[ -d $HOME/.bashrc.d ]] ; then
+#     for bashrc in "$HOME"/.bashrc.d/*.bash ; do
+#       source $bashrc
+#     done
+#     unset -v bashrc
+# fi
+
+
+# Shell Compatibility
+rc_shell=sh
+if [ ! -z "$ZSH_VERSION" ]; then
+    rc_shell=zsh
+elif [ ! -z "$BASH_VERSION" ]; then
+    rc_shell=bash
+fi
+
 
 
 
 
 #########################################################
-# Interactive Only options
+# Restricted shell WALL
 #--------------------------------------------------------
+# A lot of options afterwards are probably fine in
+#  restricted mode, but why bother?
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 
 # Don't do anything if running a restricted shell
 if shopt -q restricted_shell ; then
@@ -93,6 +113,12 @@ alias workoff="deactivate"
 # Git Completion
 export GIT_PS1_SHOWCOLORHINTS=1
 
+
+# For ZSH enable compatibility with bash_completion
+if [ "$rc_shell" == "zsh" ]; then
+    bashcompinit
+fi
+
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
      source /etc/bash_completion
 fi
@@ -127,11 +153,16 @@ shopt -s no_empty_cmd_completion
 # Use programmable completion, if available
 shopt -s progcomp
 
-# These options only exist since Bash 4.0-alpha
-if ((BASH_VERSINFO[0] == 4)) ; then
 
-    # Autocorrect fudged paths during completion
-    shopt -s dirspell
+if [ "$rc_shell" == "bash" ]; then
+    # Autocorrect fudged paths in cd calls
+    shopt -s cdspell
+
+    # These options only exist since Bash 4.0-alpha
+    if ((BASH_VERSINFO[0] == 4)) ; then
+        # Autocorrect fudged paths during completion
+        shopt -s dirspell
+    fi
 fi
 
 
@@ -312,3 +343,9 @@ fi
 
 
 #--------------------------------------------------------------
+# Cleanup
+unset rc_shell
+
+
+
+
