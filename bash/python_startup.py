@@ -19,8 +19,9 @@ def pbcopy(output):
 
 import math
 def nCr(n,r):
-     f = math.factorial
-     return f(n) / f(r) / f(n-r)
+    f = math.factorial
+    return f(n) / f(r) / f(n-r)
+
 
 def min_one(percent, shots):
     probability = 0
