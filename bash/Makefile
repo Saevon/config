@@ -280,6 +280,7 @@ brew-cmd:
 	@brew install rename
 	@brew install watch
 	@brew install trash
+	@brew install openssh
 
 .PHONY: brew-gnu
 brew-gnu: OPTS?=--with-default-names
