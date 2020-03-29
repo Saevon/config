@@ -358,7 +358,8 @@ brew-image:
 .PHONY: brew-fs
 brew-fs:
 	@brew cask install osxfuse
-	@brew install homebrew/fuse/ext4fuse
+	@brew install ext4fuse
+	@brew install sshfs
 
 # Security
 .PHONY: brew-security
