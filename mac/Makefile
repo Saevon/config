@@ -34,11 +34,15 @@ config:
 
 .PHONY: itunes
 itunes:
-	@if [ -e ${HOME}/Library/iTunes/Scripts ] ; \
+	@if [ ! -e ${HOME}/Library/Music ] ; then \
+		mkdir ${HOME}/Library/Music ; \
+	fi
+
+	@if [ -e ${HOME}/Library/Music/Scripts ] ; \
 	then \
 		echo "iTunes Scripts folder exists, aborting" ; \
 	else \
-		ln -s ${PWD}/iTunes-Scripts ${HOME}/Library/iTunes/Scripts || true ; \
+		ln -s ${PWD}/iTunes-Scripts ${HOME}/Library/Music/Scripts || true ; \
 	fi
 
 .PHONY: server
@@ -62,8 +66,7 @@ todo:
 
 .PHONY: login-screen
 login-screen:
-	@sudo ./login_back.sh Backgrounds/Login-Background.jpg
-	@echo "If using a newer mac: this is overwritten if you change your desktop... so run this again"
+	@sudo mv "Backgrounds/Login-Background.grey.heic" "/System/Library/Desktop Pictures/Catalina.heic"
 
 # apps:
 # 	brew cask install gimp

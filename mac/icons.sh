@@ -8,6 +8,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 source replace_icon.sh
 
+
 function backup {
 	REQUIRE=$1
 	ICON=$2
@@ -18,25 +19,50 @@ function backup {
 	BAK="$LOC/icon.bak"
 	BAK_ICON="$BAK/$ICON_NAME"
 
-	if [ -d  "$REQUIRE" ]; then
-		if [ -f "${BAK_ICON}" ]; then
+	if [ ! -d  "$REQUIRE" ]; then
+		1>&2 echo "WARN: $PROG_NAME App Not Found ($REQUIRE)"
+		return 1;
+	fi
+
+	if [ ! -f "$ICON" ]; then
+		1>&2 echo "ERROR: $PROG_NAME Icon Not Found ($ICON)."
+		return 2;
+	fi
+
+	# Create the backup directory
+	sudo mkdir -p "$BAK"
+	if [ $? != 0 ]; then
+		1>&2 echo "ERROR: Failed to mkdir"
+		return 1;
+	fi
+
+	if [ -f "${BAK_ICON}" ]; then
+		OLDSHA=$(sha256sum "${BAK_ICON}" | awk '{print $1}')
+		NEWSHA=$(sha256sum "${ICON}" | awk '{print $1}')
+
+		if [ "${NEWSHA}" == "${OLDSHA}" ]; then
 			# already backed up!
 			return 0;
 		fi
 
-		if [ -f "$ICON" ]; then
-			# Backup the old icon in case we need it
-			sudo mkdir -p "$BAK"
-			sudo mv "$ICON" "$BAK_ICON"
-		else
-			echo "ERROR: $PROG_NAME Icon Not Found ($ICON)."
-			return 2;
+		EXT=${BAK_ICON##*.}
+
+		# Move the old backup away
+		sudo mv "${BAK_ICON}" "${BAK_ICON%.*}.$(openssl rand -hex 12).${EXT}"
+		if [ $? != 0 ]; then
+			1>&2 echo "ERROR: Failed to backup icon"
+			return 1;
 		fi
-	else
-		echo "WARN: $PROG_NAME App Not Found ($REQUIRE)"
+	fi
+
+	# Backup the old icon in case we need it
+	sudo mv "$ICON" "$BAK_ICON"
+	if [ $? != 0 ]; then
+		1>&2 echo "ERROR: Failed to backup icon"
 		return 1;
 	fi
 }
+
 
 function rpl_icon {
 	REQUIRE=$1
@@ -45,13 +71,13 @@ function rpl_icon {
 	PROG_NAME=$4
 
 	backup "$REQUIRE" "$ORIG_ICON" "$NAME"
-	if [[ $? == 1 ]]; then
+	if [[ $? != 0 ]]; then
 		return 1;
-	else
-		sudo rm -f "$ORIG_ICON"
-		sudo cp "$NEW_ICON" "$ORIG_ICON"
 	fi
+
+	sudo cp "$NEW_ICON" "$ORIG_ICON"
 }
+
 
 function rpl_app {
 	echo "Working: " $NAME
@@ -65,7 +91,16 @@ function backup_app {
 
 ###################################################
 # Documents and Images
-REQ="/Applications/Preview.app"
+
+# ePub
+REQ="/Applications/Readers/Kitabu.app"
+ICON="Kitabu.icns"
+NEW="Documents/ePub.icns"
+NAME="ePub <Kitabu>"
+rpl_app
+
+# Generic MAC
+REQ="/System/Applications/Preview.app"
 NAME="Images"
 
 ICON="bmp.icns"
@@ -97,13 +132,6 @@ NEW="Documents/TIFF.icns"
 rpl_app
 
 
-# ePub
-REQ="/Applications/Readers/Kitabu.app"
-ICON="Kitabu.icns"
-NEW="Documents/ePub.icns"
-NAME="ePub <Kitabu>"
-rpl_app
-
 
 ###################################################
 
@@ -115,37 +143,44 @@ rpl_app
 
 # iTunes
 # REQ="/Applications/iTunes.app"
+# NAME="iTunes"
 # ICON="iTunes.icns"
 # NEW="Music/iTunes.icns"
-# NAME="iTunes"
 # rpl_app
 
 # Misc Files
-REQ="/Applications/iTunes.app"
+REQ="/System/Applications/Music.app"
 NAME="Music"
 
-ICON="iTunes-generic.icns"
+# ICON="Music-generic.icns"
+# NEW="Music/generic.icns"
+# rpl_app
+
+ICON="Music-mp3.icns"
+NEW="Music/generic.icns"
+rpl_app
+ICON="Music-mpeg4.icns"
 NEW="Music/generic.icns"
 rpl_app
 
-ICON="iTunes-mp3.icns"
-NEW="Music/mp3.icns"
+ICON="Music-mpg.icns"
+NEW="Music/generic.icns"
 rpl_app
 
-ICON="iTunes-mpg.icns"
-NEW="Music/mpg.icns"
+ICON="Music-aiff.icns"
+NEW="Music/generic.icns"
 rpl_app
 
-# ICON="iTunes-ogg.icns"
-# NEW="Music/ogg.icns"
+# ICON="Music-ogg.icns"
+# NEW="Music/generic.icns"
 # rpl_app
 
-ICON="iTunes-wav.icns"
-NEW="Music/wav.icns"
+ICON="Music-wav.icns"
+NEW="Music/generic.icns"
 rpl_app
 
-# ICON="iTunes-wma.icns"
-# NEW="Music/wma.icns"
+# ICON="Music-wma.icns"
+# NEW="Music/generic.icns"
 # rpl_app
 ###################################################
 
@@ -181,6 +216,25 @@ ICON="xcf.icns"
 NEW="xcf.icns"
 rpl_app
 
+# Icon Creation
+REQ="/Applications/Tools/Image2Icon.app"
+ICON="AppIcon.icns"
+NEW="img2icns.icns"
+NAME="Image2Icon"
+rpl_app
+
+# Audacity
+REQ="/Applications/Audacity.app"
+NEW="Audacity.icns"
+ICON="Audacity.icns"
+NAME="Audacity"
+rpl_app
+
+NAME="Audacity Project"
+ICON="AudacityProject.icns"
+NEW="Audacity Project.icns"
+rpl_app
+
 
 # Firefox
 REQ="/Applications/Firefox.app"
@@ -209,39 +263,39 @@ rpl_app
 # -----------------------------------------------------------------------
 # Mac Misc Apps
 # Console Logger
-REQ="/Applications/Utilities/Console.app"
-ICON="AppIcon.icns"
-NEW="Console Logs.icns"
-NAME="Console"
-rpl_app
+# REQ="/Applications/Utilities/Console.app"
+# ICON="AppIcon.icns"
+# NEW="Console Logs.icns"
+# NAME="Console"
+# rpl_app
 
 # Terminal
-REQ="/Applications/Utilities/Terminal.app"
+REQ="/System/Applications/Utilities/Terminal.app"
 ICON="Terminal.icns"
-NEW="Shell.icns"
+NEW="shell2.icns"
 NAME="Terminal"
 rpl_app
 
 # Preferences
-REQ="/Applications/System Preferences.app"
-ICON="PrefApp.icns"
-NEW="Settings.icns"
-NAME="System Preferences"
-rpl_app
+# REQ="/Applications/System Preferences.app"
+# ICON="PrefApp.icns"
+# NEW="Settings.icns"
+# NAME="System Preferences"
+# rpl_app
 
 # Finder
-REQ="/System/Library/CoreServices/Finder.app"
-ICON="Finder.icns"
-NEW="Finder.icns"
-NAME="Finder"
-rpl_app
+# REQ="/System/Library/CoreServices/Finder.app"
+# ICON="Finder.icns"
+# NEW="Finder.icns"
+# NAME="Finder"
+# rpl_app
 
-REQ="/System/Library/CoreServices/Dock.app"
-NEW="Finder.png"
-ICON="finder.png"
-rpl_app
-ICON="finder@2x.png"
-rpl_app
+# REQ="/System/Library/CoreServices/Dock.app"
+# NEW="Finder.png"
+# ICON="finder.png"
+# rpl_app
+# ICON="finder@2x.png"
+# rpl_app
 
 # Trash Icons
 REQ="/System/Library/CoreServices/Dock.app"
@@ -259,6 +313,99 @@ ICON="trashempty.png"
 rpl_app
 ICON="trashempty@2x.png"
 rpl_app
+
+
+
+##################
+# Finder Icons
+REQ="/System/Library/CoreServices/CoreTypes.bundle"
+NAME="Finder"
+
+
+# Misc
+NEW="./Help.icns"
+ICON="HelpIcon.icns"
+rpl_app
+
+NEW="./Apple.icns"
+ICON="HomeFolderIcon.icns"
+rpl_app
+# NEW="./System/AirDrop.icns"
+# ICON="AirDrop.icns"
+# rpl_app
+NEW="./System/Burning Disk.icns"
+ICON="BurningIcon.icns"
+rpl_app
+NEW="./User/Downloads.icns"
+ICON="DownloadsFolder.icns"
+rpl_app
+# ICON="SidebarDownloadsFolder.icns"
+# rpl_app
+NEW="./Documents/PDF.icns"
+ICON="DocumentsFolderIcon.icns"
+rpl_app
+# ICON="SidebarDocumentsFolder.icns"
+# rpl_app
+# NEW="./User/Movies.icns"
+# ICON="SidebarMoviesFolder.icns"
+# rpl_app
+# NEW="./User/Pictures.icns"
+# ICON="SidebarPicturesFolder.icns"
+# rpl_app
+# NEW="./System/Applications.icns"
+# ICON="SidebarApplicationsFolder.icns"
+# rpl_app
+# NEW="./User/Music.icns"
+# ICON="SidebarMusicFolder.icns"
+# rpl_app
+# NEW="./User/Desktop.icns"
+# ICON="SidebarDesktopFolder.icns"
+# rpl_app
+# NEW="./User/Projects.icns"
+# ICON="SidebarGenericFolder.icns"  # Technically this relies on me only adding ONE folder to the sidebar
+# rpl_app
+
+
+# Trash folder icons (When Open)
+NEW="./Trash Set/Trash ~ Full.icns"
+ICON="FullTrashIcon.icns"
+rpl_app
+NEW="./Trash Set/Trash ~ Empty.icns"
+ICON="TrashIcon.icns"
+
+# Drives (Sidebar)
+# NEW="./HardDrives/airport.icns"
+# ICON="SidebarAirportDisk.icns"
+# rpl_app
+# NEW="./HardDrives/usb.icns"
+# ICON="SidebarExternalDisk.icns"
+# rpl_app
+
+# Drive Icons
+NEW="./HardDrives/airport.icns"
+ICON="GenericAirDiskIcon.icns"
+rpl_app
+NEW="./HardDrives/time-machine.icns"
+ICON="GenericTimeMachineDiskIcon.icns"
+rpl_app
+NEW="./HardDrives/mobileme.icns"
+ICON="iDiskGenericIcon.icns"
+rpl_app
+NEW="./HardDrives/mobileme.icns"
+ICON="iDiskUserIcon.icns" # Perhaps this should be unique?
+rpl_app
+
+
+
+# Replace Volume Icons
+#replace_icon /Volumes/Aeria ./icons/HardDrives/apple.icns
+#if [ -d "/Volumes/Chronos/" ]; then
+#    replace_icon /Volumes/Chronos ./icons/HardDrives/time-machine.icns
+#fi
+#if [ -d "/Volumes/Solarius/" ]; then
+#    replace_icon /Volumes/Solarius ./icons/HardDrives/usb.icns
+#fi
+
 
 
 #######################
@@ -303,93 +450,15 @@ rpl_app
 #######################
 # User Folders
 ####################
-replace_icon ~/Desktop ./icons/User/Desktop.icns
-replace_icon ~/Downloads ./icons/User/Downloads.icns
-replace_icon ~/Movies ./icons/User/Movies.icns
-replace_icon ~/Music ./icons/User/Music.icns
-replace_icon ~/Pictures ./icons/User/Pictures.icns
-replace_icon ~/Projects ./icons/User/Projects.icns
-replace_icon ~/Applications ./icons/System/Applications.icns
-replace_icon ~/Documents ./icons/Documents/PDF.icns
-
-##################
-# Xtra Finder icons
-REQ="/System/Library/CoreServices/CoreTypes.bundle"
-NAME="Finder"
-
-# Misc
-NEW="./Help.icns"
-ICON="HelpIcon.icns"
-rpl_app
-
-NEW="./Apple.icns"
-ICON="HomeFolderIcon.icns"
-rpl_app
-#NEW="./System/AirDrop.icns"
-#ICON="AirDrop.icns"
-#rpl_app
-NEW="./System/Burning Disk.icns"
-ICON="BurningIcon.icns"
-rpl_app
-NEW="./User/Downloads.icns"
-ICON="DownloadsFolder.icns"
-rpl_app
-ICON="ToolbarDownloadsFolderIcon.icns"
-rpl_app
-NEW="./Documents/PDF.icns"
-ICON="DocumentsFolderIcon.icns"
-rpl_app
-ICON="ToolbarDocumentsFolderIcon.icns"
-rpl_app
-NEW="./User/Movies.icns"
-ICON="ToolbarMovieFolderIcon.icns"
-rpl_app
-NEW="./User/Pictures.icns"
-ICON="PicturesFolderIcon.icns"
-rpl_app
-ICON="ToolbarPicturesFolderIcon.icns"
-rpl_app
-NEW="./System/Applications.icns"
-ICON="ToolbarAppsFolderIcon.icns"
-rpl_app
-NEW="./User/Music.icns"
-ICON="ToolbarMusicFolderIcon.icns"
-rpl_app
-NEW="./User/Desktop.icns"
-ICON="ToolbarDesktopFolderIcon.icns"
-rpl_app
-
-# Trash folder icons (When Open)
-NEW="./Trash Set/Trash ~ Full.icns"
-ICON="FullTrashIcon.icns"
-rpl_app
-NEW="./Trash Set/Trash ~ Empty.icns"
-ICON="TrashIcon.icns"
-
-# Drive Icons
-NEW="./HardDrives/airport.icns"
-ICON="GenericAirDiskIcon.icns"
-rpl_app
-NEW="./HardDrives/time-machine.icns"
-ICON="GenericTimeMachineDiskIcon.icns"
-rpl_app
-NEW="./HardDrives/mobileme.icns"
-ICON="iDiskGenericIcon.icns"
-rpl_app
-NEW="./HardDrives/mobileme.icns"
-ICON="iDiskUserIcon.icns" # Perhaps this should be unique?
-rpl_app
-
-
-
-# Replace Volume Icons
-#replace_icon /Volumes/Aeria ./icons/HardDrives/apple.icns
-#if [ -d "/Volumes/Chronos/" ]; then
-#    replace_icon /Volumes/Chronos ./icons/HardDrives/time-machine.icns
-#fi
-#if [ -d "/Volumes/Solarius/" ]; then
-#    replace_icon /Volumes/Solarius ./icons/HardDrives/usb.icns
-#fi
+# NOT WORKING python lib is deprectated
+# replace_icon ~/Desktop ./icons/User/Desktop.icns
+# replace_icon ~/Downloads ./icons/User/Downloads.icns
+# replace_icon ~/Movies ./icons/User/Movies.icns
+# replace_icon ~/Music ./icons/User/Music.icns
+# replace_icon ~/Pictures ./icons/User/Pictures.icns
+# replace_icon ~/Projects ./icons/User/Projects.icns
+# replace_icon ~/Applications ./icons/System/Applications.icns
+# replace_icon ~/Documents ./icons/Documents/PDF.icns
 
 
 
@@ -405,13 +474,14 @@ if [[ "$reset" == "y" ]]; then
     # Mavericks
 	sudo find /private/var/folders/ -name com.apple.dock.iconcache -exec rm {} \;
 	sudo find /private/var/folders/ -name com.apple.iconservices -exec rm -rf {} \;
-    sudo rm -rf /Library/Caches/com.apple.iconservices.store
+    sudo rm -rf /Library/Caches/com.apple.iconservices.store;
 
 	# Now restart the Dock and Finder after these changes
 	sudo killall Dock;
 	sudo killall Finder;
 
     # Restart XtraFinder if you have it
-    open /Applications/XtraFinder.app
+    # open /Applications/XtraFinder.app
+    true;
 fi
 
