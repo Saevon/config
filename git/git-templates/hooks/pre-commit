@@ -1,0 +1,10 @@
+if ( git diff --cached | grep -E 'TODO|FIXME' > /dev/null ); then
+    >&2 printf "\033[31;1m"
+    >&2 echo "# TODO/FIXME found, are you sure you wish to commit?"
+    >&2 echo "# Fix it, or use the following to bypass this check."
+    >&2 printf "\033[36;1m"
+    >&2 echo "    git commit --no-verify"
+    >&2 printf "\033[0m"
+    exit 1
+fi
+exit 0

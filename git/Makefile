@@ -5,10 +5,12 @@ include ../variables.makefile
 
 .PHONY: all
 all: ${USR_SCRIPT} completion
-	@# TODO: add git prompt
-	@#${COPY} "${PWD}/git-prompt.sh" "${USR_SCRIPT}/git-prompt.sh"
 	@${COPY} "${PWD}/gitconfig" "${HOME}/.gitconfig"
 	@${COPY} "${PWD}/gitignore" "${HOME}/.gitignore"
+	@ln -s "${PWD}/git-templates" "${HOME}/.git-templates"
+
+	@# TODO: add git prompt
+	@#${COPY} "${PWD}/git-prompt.sh" "${USR_SCRIPT}/git-prompt.sh"
 
 	@echo ""
 	@echo "Git Config Setup complete, If you didn't run the bash setup"
