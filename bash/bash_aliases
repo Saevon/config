@@ -135,6 +135,13 @@ function disksize() {
     fi;
 }
 
+# Find all folders taking up disk space at root
+function space() {
+    path=${1:-/}
+    sudo find $path -print0 -mindepth 1 -maxdepth 1  -not -name Network -not -name SWE   | xargs -0 -n 1 sudo du -h -d 0
+}
+
+
 function extfs() {
     extfsPath=$(brew --prefix e2fsprogs)/sbin/
 
@@ -264,6 +271,9 @@ function update_py() {
             syspip3 install -U echo "$pkg"
         done
     fi
+
+    # Get all the pips updated
+    find /usr/local/bin/ -regex ".*/pip.*" -exec "sudo" "{}" "install" "--upgrade" "pip" \;
 }
 
 function update_py_venv() {

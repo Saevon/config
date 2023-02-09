@@ -182,6 +182,7 @@ defaults write com.apple.universalaccess closeViewZoomMode -bool true
 
 
 # Disable press-and-hold for keys in favor of key repeat
+#    Disabled Accents
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
@@ -562,3 +563,19 @@ echo "  Terminal: Visual Bel off"
 echo "  Terminal: Option as Meta"
 echo "  Terminal: Default window: Pro"
 echo "  Terminal: ANSI Colours (Blue)"
+echo "  Photos: 'leave photos in location'"
+echo "  Photos: Set Library Location"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

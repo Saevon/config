@@ -1,4 +1,5 @@
 # Don't use CTRL-A as the trigger, as thats used for "beginning of line"
+#  Use Ctrl-K
 escape ^Kk
 
 

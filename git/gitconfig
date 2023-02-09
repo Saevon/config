@@ -26,6 +26,7 @@
     # Simple aliases
     amend = commit --amend --no-edit
     st = status --short --branch 
+    pick = cherry-pick
 
     # Initializing
     empty-commit = commit --allow-empty
@@ -44,8 +45,8 @@
     # Tags & Branches
     del-tag = !git push ${1} :${2} ${@:3} && :
 
-
     # History
+    cdiff = !git diff ${1}~1..${1} ${@:2}
     list = ls-tree --name-only -r HEAD
     tree = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[35m%x20%an%x1b[0m%x20%s"
     finddeleted = !git log --all --diff-filter=D --full-history --summary -- ${1} ${@:2}
@@ -53,7 +54,10 @@
 
     # Working with branches
     upstream = rev-parse --abbrev-ref @{upstream}
+    curbranch = rev-parse --abbrev-ref HEAD
+
     # pushes up to a branch
+    backup = ! git branch "backup/$(git curbranch)"
     push-up = !branch=`git rev-parse --abbrev-ref HEAD` && git push --set-upstream ${1:-origin} ${branch} ${@:2} && :
     push-to = !branch=`git rev-parse --abbrev-ref HEAD` && git push ${1} ${branch}:${2} ${@:3} && :
     del-branch = !git push ${1} :${2} ${@:3} && :
@@ -67,7 +71,7 @@
 [help]
     # If you make a mistake and there is only 1 valid autocorrected command
     # Wait (N/10) seconds before running it
-    autocorrect = 20
+    autocorrect = 15
 
 [color]
     ui = true
@@ -96,3 +100,7 @@
     oldHighlight = "red bold ul"
     newNormal = "green"
     newHighlight = "green bold ul"
+[init]
+	templatedir = /Users/saevon/.git-templates
+[pull]
+	ff = only
